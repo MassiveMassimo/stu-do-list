@@ -97,7 +97,4 @@ Stu-Do-List kami ciptakan dengan harapan dapat membantu teman-teman yang mungkin
 
 <h3>User yang sudah login - Role Mentor</h3>
 <p>Mentor merupakan mahasiswa yang memiliki pengalaman atau pengetahuan yang cukup tinggi pada mata kuliah tertentu. Seorang mentor dapat mengakses seluruh fitur pada Stu-Do-List layaknya student. Stu-Do-List menyediakan fitur ask a mentor berupa forum diskusi yang dapat dijawab oleh mentor untuk membantu permasalahan student dalam melakukan pembelajaran. Mentor juga dapat memberikan catatan yang validitasnya lebih terverifikasi pada fitur notes.
-</p>
-
-
-![Persona1](https://media4.giphy.com/media/Ju7l5y9osyymQ/200.gif)
+</p>)
