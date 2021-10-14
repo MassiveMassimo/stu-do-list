@@ -1,353 +1,64 @@
-# stu_do_list
+# Proyek Tengah Semester PBP
 
-[![Test and Deploy][actions-badge]][commits-gh]
-[![pipeline status][pipeline-badge]][commits-gl]
-[![coverage report][coverage-badge]][commits-gl]
 
-Repositori ini berisi sebuah templat untuk membuat proyek Django yang siap
-di-*deploy* ke Heroku melalui GitHub Actions atau GitLab CI.
+![Wow a website](https://cdn.dribbble.com/users/427857/screenshots/16635202/media/dc8b4257a33d28820a4dfd1cc8ae6680.png)
+<p>&nbsp;</p>
 
-*To view this file in English, [click here][readme-en].*
+## Nama-nama anggota kelompok B05:
 
-## Daftar isi
+1. Chalika Vanya Resya (2006596711)
+2. Dimas Ilham Danesamarruf (2006596011)
+3. Fikriaffan Fadlil (2006535426)
+4. Jenny (2006596516)
+5. Muhammad Hannan Massimo Madjid (2006597102)
+6. Rafa Aurielle Adinda Diorra (2006596945)
+7. Zachra Shafira Ramadhanty (2006597033)
 
-- [Daftar isi](#daftar-isi)
-- [Instruksi penggunaan](#instruksi-penggunaan)
-- [Lanjutan](#lanjutan)
-- [Tips pengembangan](#tips-pengembangan)
-- [Sihir macam apa ini?](#sihir-macam-apa-ini)
-- [Berkontribusi](#berkontribusi)
-- [Lisensi](#lisensi)
+<p>&nbsp;</p>
 
-## Instruksi penggunaan
+## Link Heroku
+[Belajar Bareng](https://belajar-bareng.herokuapp.com/)
 
-1. Buat direktori untuk proyek yang akan kamu buat (contoh: `project_name`), lalu
-   buka Command Prompt (cmd) atau Terminal di dalam direktori tersebut.
+<p>&nbsp;</p>
 
-2. Buat Python *virtual environment* di dalamnya.
+## Cerita aplikasi
 
-   ```shell
-   python -m venv venv
-   ```
+<p>&nbsp;</p>
 
-   > Catatan: sesuaikan dengan *executable* `python` yang ada di komputer kamu,
-   > karena terkadang (misal: di Ubuntu atau macOS) Python 3 hanya bisa
-   > dipanggil dengan `python3`, bukan `python`.
+## Daftar modul
+<h4>Landing Page</h4>
 
-3. Aktifkan *virtual environment* yang telah dibuat.\
-   Di Windows:
+<p> Pada halaman landing page, Stu-Do-List akan menampilkan form authentication log in yang dapat diisi oleh user. Setelah user berhasil log in, ia dapat memasukkan data pada profile Stu-Do-List berupa nama mahasiswa, NPM, role (student / mentor), serta kelas-kelas yang ia ikuti pada semester ini. Pengguna juga dapat melihat deskripsi serta kegunaan dari website Stu-Do-List yang ditujukan untuk membantu para mahasiswa yang sedang melaksanakan perkuliahan secara daring. </p>
 
-   ```shell
-   venv\Scripts\activate
-   ```
+<h4>Agenda</h4>
+<p>Stu-Do-List menyediakan fitur agenda untuk mempermudah pengguna dalam mengingat tugas-tugas yang harus dikerjakan. Pada fitur ini, pengguna dapat mengakses to-do-list serta memasukkan input berupa hal-hal yang ingin dikerjakan pada hari tersebut. Selain itu, informasi-informasi mengenai jadwal kelas pengguna, link pertemuan kelas, dan deadline tugas juga tersedia pada halaman agenda. Hal ini tentunya memudahkan pengguna dalam menyusun rencana dan prioritasnya sebagai seorang mahasiswa serta menghindarkan pengguna dari kelupaan akan tugas atau kelas yang harus diikuti.
+</p>
 
-   Di Linux/macOS:
+<h4>Jadwal Belajar Bareng</h4>
+<p>Fitur pada Stu-Do-List ini dapat digunakan untuk membuat jadwal belajar bersama yang dapat dilihat dan diikuti para pengguna. Dengan fitur ini, pengguna dapat memasukkan informasi pertemuan, seperti tanggal dan waktu pertemuan, tema pembicaraan, informasi tambahan, serta tempat pertemuan diadakan, misalnya link Zoom atau Google Meet. Pengguna dapat melihat jadwal-jadwal yang telah dimasukkan dan juga dapat mengubah jadwal yang salah serta menghapus jadwal yang sudah berlalu.</p>
 
-   ```shell
-   source venv/bin/activate
-   ```
+<h4>Ask a Mentor</h4>
+<p>Halaman ask a mentor menyediakan sebuah forum diskusi. Apabila pengguna memiliki pertanyaan seputar akademis, pengguna dapat memposting sebuah pertanyaan yang nantinya dapat di-reply oleh "mentor". Walaupun tidak secara eksplisit diberikan role mentor, setiap pengguna dapat membalas pertanyaan yang telah diajukan oleh pengguna lain guna membantu kesulitan atau sekadar berbagi pengetahuan.</p>
 
-   Jika berhasil, akan muncul `(venv)` pada *prompt* cmd/terminal kamu.
+<h4>Notes</h4>
+<p>Stu-Do-List menghadirkan fitur ini agar para pengguna dapat menambahkan catatan tentang perkuliahan. Pengguna dapat memasukkan detail dari catatan tersebut, seperti nama matkul, judul materi, serta sumber materi. Setelah pengguna menambahkan catatan, profil pengguna akan tampil di halaman fitur ini sehingga pengguna lain dapat mengetahui siapa yang menambahkan catatan tersebut.</p>
 
-4. Instal Django pada *virtual environment* tersebut.
+<h4>Saran</h4>
 
-   ```shell
-   python -m pip install Django
-   ```
+<p>Stu-Do-List menghadirkan fitur ini agar para pengguna bisa menyampaikan kritik atau saran terhadap tampilan maupun fitur-fitur yang tersedia pada Stu-Do-List guna meningkatkan user experience.</p>
 
-5. Buat proyek Django baru dengan templat ini.
+<h4>Study Communities</h4>
+<p>Pada halaman Study Communities, pengguna dapat membagikan link komunitas/grup belajar (misal: link grup line atau discord kelas). Pengguna dapat memasukkan detail dari grup tersebut, seperti nama matkul terkait, kelas, dan lain sebagainya. Selain itu, pada halaman ini juga akan dicantumkan link menuju discord official Stu-Do-List agar para pengguna dapat bertukar pesan dan melakukan berbagai aktivitas lainnya. </p>
 
-   ```shell
-   django-admin startproject --template="https://codeload.github.com/laymonage/django-template-heroku/zip/template" --extension="py,yml,md" --name="Procfile" project_name .
-   ```
+<h4>About Us</h4>
+<p>Halaman ini berisikan biodata anggota kelompok B06. Biodata yang dicantumkan berupa nama, foto, pengenalan singkat, serta role anggota dalam pembuatan website ini.</p>
 
-   > Catatan: ubah `project_name` dengan nama proyek yang kamu inginkan.
-   > Perhatikan bahwa terdapat tanda titik (`.`) di akhir perintah.
-   > Apabila muncul *error* terkait pengunduhan templat dari GitHub, silakan
-   > kunjungi pranala tersebut secara manual dan arahkan argumen `--template`
-   > ke lokasi berkas `.zip` yang sudah kamu unduh ke komputer kamu.
+<h4>Video playlist</h4>
+<p>Pada halaman ini, pengguna dapat memasukkan kumpulan video yang ia miliki agar dapat dilihat oleh pengguna lainnya. Stu-Do-List menghadirkan fitur ini yang berguna untuk pengguna yang ingin membagikan video yang dapat dijadikan sumber belajar atau sekadar membagikan lagu yang direkomendasikan untuk menemani pengguna lainnya saat belajar. </p>
 
-6. Masuk ke [Heroku Dashboard][heroku-dashboard] dan buat aplikasi Heroku baru.
-   Nama aplikasi ini **tidak harus sama** dengan nama proyek Django kamu. Lalu,
-   buka bagian **Settings** dari aplikasi tersebut. Pada bagian **Config
-   Vars**, klik tombol **Reveal Config Vars**. Tambahkan variabel bernama
-   `HEROKU_APP_NAME` yang bernilai nama aplikasi Heroku kamu **tanpa
-   `.herokuapp.com`**. Lalu, tambahkan juga variabel bernama `SECRET_KEY`
-   dengan nilai berupa sebuah kunci yang dihasilkan oleh situs
-   [Djecrety][djecrety].
+<h4>Schedule kuliah</h4>
+<p>Pada halaman ini, pengguna dapat mendaftarkan jadwal kuliah pada profil Stu-Do-List mereka sesuai dengan mata kuliah yang diambil. Pengguna juga dapat melihat informasi-informasi umum mengenai mata kuliah yang diambil berupa nama dosen, kontak dosen, dan jumlah SKS.</p>
 
-7. Buat *project*/repositori baru di GitLab/GitHub (pilih salah satu).
-   **Jangan** pilih opsi untuk menginisialisasi repositori dengan `README.md`,
-   `LICENSE`, ataupun `.gitignore`. Biarkan kosong saja.
+## User persona
 
-8. Jika menggunakan GitLab, buka menu **Settings > CI/CD** di *sidebar*
-   sebelah kiri. Pada bagian **Variables**, tambahkan variabel bernama
-   `HEROKU_API_KEY` yang bernilai API *key* akun Heroku kamu. Lalu, tambahkan
-   juga variabel bernama `HEROKU_APP_NAME` yang bernilai nama aplikasi Heroku
-   kamu **tanpa `.herokuapp.com`**.
-
-   Jika menggunakan GitHub, lakukan hal yang sama melalui menu **Settings >
-   Secrets**.
-
-   > Catatan: API *key* akun Heroku kamu dapat dilihat melalui
-   > [**Account settings**][account-settings].
-
-9. **Jika menggunakan GitHub**, pindahkan berkas `tnd.yml` ke direktori
-   `.github/workflows` dengan cara berikut.
-
-   Di Windows:
-
-   ```shell
-   mkdir ".github\workflows"
-   move tnd.yml ".github\workflows\"
-   ```
-
-   Di Linux/macOS:
-
-   ```shell
-   mkdir -p .github/workflows
-   mv tnd.yml .github/workflows/
-   ```
-
-   Jika hanya menggunakan GitLab, kamu dapat menghapus berkas `tnd.yml`.
-   Jika hanya menggunakan GitHub, kamu dapat menghapus berkas `.gitlab-ci.yml`.
-
-10. Buat direktori proyek kamu menjadi sebuah repositori Git dan buatlah
-    *commit* pertama.
-
-    ```shell
-    git init
-    git add .
-    git commit -m "Initial commit"
-    ```
-
-11. Tambahkan *remote* baru bernama `origin` yang mengarah ke repositori yang
-    kamu buat di GitLab/GitHub, lalu push ke repositori tersebut.
-
-    ```shell
-    git remote add origin https://gitlab.com/usernamekamu/project-name.git
-    git push -u origin master
-    ```
-
-12. Silakan cek **Pipelines** di GitLab atau Actions di GitHub. Jika
-    langkah-langkah diikuti dengan benar, maka proyek Django kamu akan berhasil
-    di-*deploy* ke Heroku.
-
-    > Contoh: https://django-template-heroku.herokuapp.com
-
-13. Selamat! Sekarang, kamu hanya perlu fokus mengembangkan proyek web kamu
-    tanpa perlu pusing dengan masalah *deployment*. Untuk mengembangkan
-    proyek web kamu, silakan instal terlebih dahulu *package-package* yang
-    diperlukan dengan perintah berikut.
-
-    ```shell
-    python -m pip install -r requirements.txt
-    ```
-
-14. Lanjutkan dengan membuat basis data lokal dan mengumpulkan
-    berkas *static* menjadi satu direktori dengan perintah-perintah berikut.
-
-    ```shell
-    python manage.py migrate
-    python manage.py collectstatic
-    ```
-15. Jika sudah, kamu bisa menjalankan *web server* kamu secara lokal dengan
-    perintah berikut.
-
-    ```shell
-    python manage.py runserver
-    ```
-
-16. Mulai dari sini, kamu cukup edit berkas-berkas proyek Django kamu
-    sesuai kebutuhan. Lalu, jangan lupa gunakan perintah `git add`,
-    `git commit`, dan `git push` untuk mengunggah perubahanmu ke GitLab/GitHub
-    (yang kemudian akan di-*deploy* ke Heroku). Jangan lupa untuk membuat
-    berkas-berkas *migrations* jika kamu mengubah berkas `models.py`.
-
-    ```shell
-    python manage.py makemigrations
-    ```
-
-    Berkas-berkas *migrations* yang dihasilkan **harus** dimasukkan ke dalam
-    repositori <sup><sub>(kecuali kamu mengubah konfigurasi templat sehingga
-    hal tersebut tidak diperlukan... tetapi mengapa?)</sub></sup>.
-
-17. Untuk menjalankan *unit test*, kamu bisa gunakan perintah berikut.
-
-    ```shell
-    python manage.py test --exclude-tag=functional
-    ```
-
-## Lanjutan
-
-Setelah berhasil membuat proyek Django baru dengan templat ini, ada
-langkah-langkah lanjutan yang sangat direkomendasikan untuk dikerjakan demi
-kemudahan pengembangan web kamu ke depannya.
-
-1. Tambahkan Django *super user* baru ke aplikasi kamu yang ada di Heroku.
-
-   Basis data yang digunakan di komputer lokal kamu **berbeda** dengan yang
-   digunakan di Heroku. Secara *default*, kamu menggunakan basis data SQLite
-   yang disimpan dalam berkas `db.sqlite3`, sedangkan Heroku menggunakan basis
-   data PostgreSQL yang di-*host* di *cloud*.
-
-   Untuk dapat mengakses situs administrasi Django milik proyek kalian yang ada
-   di Heroku, buka Heroku Dashboard. Lalu, klik aplikasi kalian dan klik tombol
-   **More > Run console** di pojok kanan atas. Ketik `bash` pada dialog
-   *pop-up* yang muncul. Jika sudah, masukkan perintah
-   `python manage.py createsuperuser` dan ikuti instruksinya.
-
-   > Psst, di dalam `bash`, kamu bisa lihat-lihat proyek Django kamu seperti
-   > dari cmd/terminal, lho! Artinya, kamu juga bisa memanggil perintah lain
-   > seperti `python manage.py migrate` atau bahkan perintah-perintah Linux
-   > *shell*.
-
-2. Unduh `chromedriver` (atau *webdriver* lain yang kamu inginkan) untuk
-   komputer kamu agar bisa menjalankan *functional test* secara lokal.
-   **Ini akan sangat bermanfaat untuk salah satu *story*.**
-
-   Di Windows:\
-   Unduh [ChromeDriver][chromedriver] (`chromedriver_win32.zip`) untuk versi
-   Chrome yang kamu gunakan. Lalu, ekstrak berkas `.zip` tersebut dan letakkan
-   `chromedriver.exe` di direktori ini (setara dengan `manage.py`).
-
-   Di Linux:\
-   Beberapa distribusi Linux memiliki *package* khusus untuk ChromeDriver, atau
-   sebagian juga sudah menyertakannya di dalam *package* `chromium` (misal:
-   Arch Linux). Jika tidak ada *package* yang sesuai, kamu bisa unduh
-   `chromedriver_linux64.zip` melalui pranala di atas, lalu `unzip` dan
-   letakkan `chromedriver` ke salah satu direktori yang ada di `$PATH`.
-
-   Di macOS:\
-   Instal `chromedriver` dengan [Homebrew][homebrew]
-   (`brew cask install chromedriver` di Terminal). Silakan instal Homebrew
-   terlebih dahulu jika belum. Saya tidak punya perangkat dengan macOS, jadi
-   silakan cari solusinya apabila ada kendala yang muncul ;)
-
-   Untuk menjalankan *functional test* saja, gunakan perintah berikut:
-
-   ```shell
-   python manage.py test --tag=functional
-   ```
-
-   > Catatan: jika ingin menggunakan *webdriver* lain, silakan sesuaikan berkas
-   > `tests.py` kamu serta lakukan instalasi untuk *webdriver* tersebut.
-   > Jika ingin melihat proses *functional test* di komputer kamu, nonaktifkan
-   > opsi `headless` pada `tests.py`. Namun, jangan lupa untuk mengaktifkannya
-   > kembali karena opsi tersebut dibutuhkan oleh GitLab CI/GitHub Actions.
-   > Pastikan kamu sudah menjalankan perintah `collectstatic` sebelum
-   > menjalankan *functional test*.
-
-   > Catatan khusus pengguna Windows: ketika kamu menjalankan
-   > *functional test*, mungkin akan muncul *error* seperti
-   > `ConnectionResetError: [WinError 10054] An existing connection was forcibly
-   > closed by the remote host`. Selama tes tetap berjalan sampai selesai,
-   > abaikan saja masalah tersebut. Ini memang [*bug*][ticket-21227] yang belum
-   > diperbaiki untuk Django di Windows.
-
-3. Atur konfigurasi *code coverage* di GitLab.
-
-   *Code coverage* merupakan salah satu metrik yang berguna untuk mengukur
-   sudah seberapa banyak kode kamu yang teruji. GitLab punya fitur untuk
-   menangkap *code coverage* dari *output* sebuah *job* di **Pipelines**. Untuk
-   mengaturnya, silakan buka **Settings > CI/CD > General pipelines**. Pada
-   bagian **Test coverage parsing**, isikan ekspresi reguler berikut:
-   `^TOTAL.*\s+(\d+\%)$` (kira-kira ini untuk apa ya?), lalu simpan.
-
-   Nantinya, pada bagian **Coverage report** akan muncul *badge* yang
-   menunjukkan *coverage* proyek kamu. *Badge* ini bisa kamu masukkan ke dalam
-   `README.md` seperti yang ada pada berkas ini.
-
-   Untuk menjalankan tes dengan pengukuran *coverage* pada komputer lokal kamu,
-   gunakan perintah berikut.
-
-   ```shell
-   coverage run --include="./*" --omit="venv/*,manage.py,project_name/*" manage.py test
-   ```
-
-   > Catatan: Perintah ini akan menjalan *unit test* dan *functional test*
-   > sekaligus, jadi pastikan kamu sudah menjalankan perintah `collectstatic`
-   > sebelum menjalankan tes.
-
-## Tips pengembangan
-
-1. Mulai sekarang, **biasakan** untuk me-*reload* *browser* kamu dengan
-   <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd> (beberapa *browser* juga bisa
-   dengan <kbd>Shift</kbd>+<kbd>F5</kbd>), bukan hanya
-   <kbd>Ctrl</kbd>+<kbd>R</kbd> atau <kbd>F5</kbd>. Jika tidak, ketika kamu
-   mengembangkan web secara lokal, kamu mungkin akan sering menemukan kasus di
-   mana berkas *static* yang muncul di *browser* tidak berubah setelah kamu
-   memodifikasinya. Ini terjadi karena *browser* membuat *cache* dari berkas
-   *static* kamu supaya dapat diakses lebih cepat. Dengan menekan tombol
-   <kbd>Shift</kbd>, *browser* akan [mem-*bypass* berkas *static* yang sudah
-   di-*cache*][bypass-cache].
-2. Biasakan untuk menulis tes yang berkualitas untuk proyek web kamu, terutama
-   untuk logika-logika seperti yang ada pada bagian *views*. Membuat tes akan
-   memudahkan kamu untuk menemukan *bug* pada program kamu lebih awal. Selain
-   itu, tes juga dapat mencegah kamu menciptakan *bug* baru ketika
-   mengembangkan proyek web kamu.
-3. *Code coverage* 100% tidak menjamin proyek kamu bebas *bug*. Namun, memiliki
-   tes yang menguji proyek kamu secara keseluruhan tentu akan sangat
-   bermanfaat. Mulailah menulis tes setiap kali kamu membuat fungsionalitas
-   baru agar *code coverage* tetap terjaga.
-4. Templat ini sengaja tidak menyertakan konfigurasi untuk *linting* seperti
-   menggunakan [`flake8`][flake8] atau [`pylint`][pylint]. Hal ini untuk
-   mencegah munculnya *warning* pada GitHub Actions atau GitLab CI jika kode
-   kamu tidak sesuai aturan-aturan yang diterapkan *linter* tersebut. Jika kamu
-   tidak ingin repot mengatur kode kamu supaya rapi, silakan coba
-   [`black`][black] dan [`isort`][isort]. Akan sangat baik apabila kamu juga
-   membuat konfigurasi untuk menjalankan *linter* tersebut di GitHub Actions
-   atau GitLab CI untuk proyek yang kamu buat.
-
-## Sihir macam apa ini?
-
-Alat `django-admin` menyediakan opsi [`--template`][template] untuk perintah
-`startproject` yang menerima alamat menuju berkas templat sebuah proyek Django.
-Alamat tersebut dapat berupa lokasi berkas di komputer lokal atau URL untuk
-mengunduh sebuah berkas arsip. GitLab/GitHub menyediakan opsi untuk mengunduh
-repositori sebagai arsip `.zip`... sisanya silakan dipahami sendiri :)
-
-Templat ini akan di-*render* dengan variabel-variabel yang bisa dikirimkan saat
-menjalankan `startproject`. Cara kerjanya mirip dengan Django *templates* dan
-*context variables* yang bisa dimasukkan ke dalamnya.
-
-Mohon jadikan templat ini sebagai **sumber belajar sebanyak-banyaknya**.
-Templat ini memang dapat memudahkan kamu untuk membuat proyek Django yang siap
-di-*deploy* tanpa perlu melakukan banyak konfigurasi. Namun, akan sangat
-bermanfaat bagi kamu apabila kamu memahami cara kerja konfigurasi yang ada di
-templat ini.
-
-## Berkontribusi
-
-Apabila ingin berkontribusi ke templat ini, silakan buat *issue* atau kirim
-*pull request* ke repositori untuk templat ini di [**GitHub**][repo-gh].
-Repositori ini juga dicerminkan ke [GitLab][repo-gl] untuk keperluan
-demonstrasi.
-
-## Lisensi
-
-Templat ini didistribusikan dengan lisensi [The Unlicense][license]. Proyek
-yang dibuat dengan templat ini dipersilakan untuk didistribusikan dengan
-ketentuan yang berbeda.
-
-[actions-badge]: https://github.com/laymonage/django-template-heroku/workflows/Test%20and%20Deploy/badge.svg
-[commits-gh]: https://github.com/laymonage/django-template-heroku/commits/master
-[pipeline-badge]: https://gitlab.com/laymonage/django-template-heroku/badges/master/pipeline.svg
-[coverage-badge]: https://gitlab.com/laymonage/django-template-heroku/badges/master/coverage.svg
-[commits-gl]: https://gitlab.com/laymonage/django-template-heroku/-/commits/master
-[readme-en]: README.en.md
-[heroku-dashboard]: https://dashboard.heroku.com
-[djecrety]: https://djecrety.ir
-[account-settings]: https://dashboard.heroku.com/account
-[chromedriver]: https://chromedriver.chromium.org/downloads
-[homebrew]: https://brew.sh
-[ticket-21227]: https://code.djangoproject.com/ticket/21227
-[bypass-cache]: https://en.wikipedia.org/wiki/Wikipedia:Bypass_your_cache
-[flake8]: https://pypi.org/project/flake8
-[pylint]: https://pypi.org/project/pylint
-[black]: https://pypi.org/project/black
-[isort]: https://pypi.org/project/isort
-[template]: https://docs.djangoproject.com/en/3.2/ref/django-admin/#cmdoption-startproject-template
-[repo-gh]: https://github.com/laymonage/django-template-heroku
-[repo-gl]: https://gitlab.com/laymonage/django-template-heroku
-[license]: LICENSE
+![Persona1](https://media4.giphy.com/media/Ju7l5y9osyymQ/200.gif)
