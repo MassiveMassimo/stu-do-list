@@ -1,7 +1,14 @@
 /* Project-wide style */
 
-@import url('https://media4.giphy.com/media/Ju7l5y9osyymQ/200.gif');
 
-body {
-  font-family: 'Rubik', sans-serif;
+#h1Header {
+  margin-bottom: 2rem;
+}
+
+#pHeader {
+  margin-bottom: 4rem;
+}
+
+#imgHeader {
+  border-top-left-radius: 1rem;
 }
