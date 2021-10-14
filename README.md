@@ -5,7 +5,7 @@
 
 <p>&nbsp;</p>
 
-## 👨🏼‍💻👩🏼‍💻 Nama-nama anggota kelompok B06:
+## 👨🏼‍💻👩🏼‍💻 Nama-nama Anggota Celompok B06:
 
 1. Chalika Vanya Resya (2006596711)
 2. Dimas Ilham Danesamarruf (2006596011)
@@ -22,44 +22,82 @@
 
 <p>&nbsp;</p>
 
-## 📜 Cerita aplikasi
+## 📜 Cerita Aplikasi
 
-<p>&nbsp;</p>
+Alkisah, pada suatu hari hiduplah seorang mahasiswa bernama Django. Ia baru saja diterima di universitas impiannya satu tahun yang lalu dan saat ini sedang berkuliah secara online dikarenakan pandemi COVID yang sedang melanda dunia. Django yang belum pernah berkuliah secara offline tersebut mengalami kesulitan untuk mengikuti alur pembelajaran di kelas. Ia sudah mencoba untuk membaca buku dan mendengarkan penjelasan dosen dengan sungguh-sungguh. Akan tetapi, Django masih belum mampu untuk memahami materi pembelajaran seutuhnya. Django yang pendiam dan pemalu tidak memiliki banyak teman di universitasnya itu. Ia selalu mengerjakan tugasnya sendiri dan sesekali tertinggal informasi-informasi penting terkait perkuliahan. Django ingin berubah, ia ingin mengejar ketertinggalan akademisnya.Sayangnya, ia tidak tahu ingin memulai dari mana.
 
-## 📃 Daftar modul
-<h4>Landing Page</h4>
+Suatu hari, saat sedang berseluncur di search engine kesayangannya, Django menemukan suatu aplikasi Stu-Do-List. Stu-Do-List adalah sebuah website yang menyediakan sarana dan wadah bagi pelajar untuk belajar bersama di kala school from home (SFH). Di Stu-Do-List, Django menemukan sebuah komunitas dan teman-teman untuk diajak belajar bersama. Tidak hanya itu, Stu-Do-List juga mengenalkannya kepada tutor sebaya yang bersedia untuk mengadakan open-class dan mengajarkan kembali pembelajaran yang dibahas di kelas. Django juga dapat menanyakan hal-hal terkait tugas kuliah yang belum dimengerti ke tutor sebayanya. Fitur-fitur pada Stu-Do-List, seperti notes, schedule, dll membantu Django untuk tetap keep up dengan kehidupan akademisnya. Alhasil, nilai Django pun semakin memuaskan dan Django tidak lagi kesepian. Berkat Stu-Do-List, Ia menemukan sebuah komunitas yang tidak hanya membantu akademisnya, tetapi sekumpulan teman untuk mewarnai dunia perkuliahannya.
 
+
+---- 
+
+Stu-Do-List kami ciptakan dengan harapan dapat membantu teman-teman yang mungkin mengalami permasalahan seperti Django. With Stu-Do-List, we hope you will find not only a study buddy but a life long friend.
+
+❤ Developer Team
+
+---- 
+
+## 📃 Daftar Modul
+<h3>Landing Page</h3>
 <p> Pada halaman landing page, Stu-Do-List akan menampilkan form authentication log in yang dapat diisi oleh user. Setelah user berhasil log in, ia dapat memasukkan data pada profile Stu-Do-List berupa nama mahasiswa, NPM, role (student / mentor), serta kelas-kelas yang ia ikuti pada semester ini. Pengguna juga dapat melihat deskripsi serta kegunaan dari website Stu-Do-List yang ditujukan untuk membantu para mahasiswa yang sedang melaksanakan perkuliahan secara daring. </p>
 
-<h4>Agenda</h4>
+<h3>Agenda</h3>
 <p>Stu-Do-List menyediakan fitur agenda untuk mempermudah pengguna dalam mengingat tugas-tugas yang harus dikerjakan. Pada fitur ini, pengguna dapat mengakses to-do-list serta memasukkan input berupa hal-hal yang ingin dikerjakan pada hari tersebut. Selain itu, informasi-informasi mengenai jadwal kelas pengguna, link pertemuan kelas, dan deadline tugas juga tersedia pada halaman agenda. Hal ini tentunya memudahkan pengguna dalam menyusun rencana dan prioritasnya sebagai seorang mahasiswa serta menghindarkan pengguna dari kelupaan akan tugas atau kelas yang harus diikuti.
 </p>
 
-<h4>Jadwal Belajar Bareng</h4>
+<h3>Jadwal Belajar Bareng</h3>
 <p>Fitur pada Stu-Do-List ini dapat digunakan untuk membuat jadwal belajar bersama yang dapat dilihat dan diikuti para pengguna. Dengan fitur ini, pengguna dapat memasukkan informasi pertemuan, seperti tanggal dan waktu pertemuan, tema pembicaraan, informasi tambahan, serta tempat pertemuan diadakan, misalnya link Zoom atau Google Meet. Pengguna dapat melihat jadwal-jadwal yang telah dimasukkan dan juga dapat mengubah jadwal yang salah serta menghapus jadwal yang sudah berlalu.</p>
 
-<h4>Ask a Mentor</h4>
+<h3>Ask a Mentor</h3>
 <p>Halaman ask a mentor menyediakan sebuah forum diskusi. Apabila pengguna memiliki pertanyaan seputar akademis, pengguna dapat memposting sebuah pertanyaan yang nantinya dapat di-reply oleh "mentor". Walaupun tidak secara eksplisit diberikan role mentor, setiap pengguna dapat membalas pertanyaan yang telah diajukan oleh pengguna lain guna membantu kesulitan atau sekadar berbagi pengetahuan.</p>
 
-<h4>Notes</h4>
+<h3>Notes</h3>
 <p>Stu-Do-List menghadirkan fitur ini agar para pengguna dapat menambahkan catatan tentang perkuliahan. Pengguna dapat memasukkan detail dari catatan tersebut, seperti nama matkul, judul materi, serta sumber materi. Setelah pengguna menambahkan catatan, profil pengguna akan tampil di halaman fitur ini sehingga pengguna lain dapat mengetahui siapa yang menambahkan catatan tersebut.</p>
 
-<h4>Saran</h4>
+<h3>Saran</h3>
 
 <p>Stu-Do-List menghadirkan fitur ini agar para pengguna bisa menyampaikan kritik atau saran terhadap tampilan maupun fitur-fitur yang tersedia pada Stu-Do-List guna meningkatkan user experience.</p>
 
-<h4>Study Communities</h4>
+<h3>Study Communities</h3>
 <p>Pada halaman Study Communities, pengguna dapat membagikan link komunitas/grup belajar (misal: link grup line atau discord kelas). Pengguna dapat memasukkan detail dari grup tersebut, seperti nama matkul terkait, kelas, dan lain sebagainya. Selain itu, pada halaman ini juga akan dicantumkan link menuju discord official Stu-Do-List agar para pengguna dapat bertukar pesan dan melakukan berbagai aktivitas lainnya. </p>
 
-<h4>About Us</h4>
+<h3>About Us</h3>
 <p>Halaman ini berisikan biodata anggota kelompok B06. Biodata yang dicantumkan berupa nama, foto, pengenalan singkat, serta role anggota dalam pembuatan website ini.</p>
 
-<h4>Video playlist</h4>
+<h3>Video playlist</h3>
 <p>Pada halaman ini, pengguna dapat memasukkan kumpulan video yang ia miliki agar dapat dilihat oleh pengguna lainnya. Stu-Do-List menghadirkan fitur ini yang berguna untuk pengguna yang ingin membagikan video yang dapat dijadikan sumber belajar atau sekadar membagikan lagu yang direkomendasikan untuk menemani pengguna lainnya saat belajar. </p>
 
-<h4>Schedule kuliah</h4>
+<h3>Schedule kuliah</h3>
 <p>Pada halaman ini, pengguna dapat mendaftarkan jadwal kuliah pada profil Stu-Do-List mereka sesuai dengan mata kuliah yang diambil. Pengguna juga dapat melihat informasi-informasi umum mengenai mata kuliah yang diambil berupa nama dosen, kontak dosen, dan jumlah SKS.</p>
 
-## 👥 User persona
+## 👥 User Personas
+
+<h3>User yang belum log in</h3>
+<p>Berikut ini merupakan hal-hal yang dapat dilakukan oleh pengguna yang belum melakukan log in:
+<br> - Melihat jadwal belajar yang sudah ada.
+<br> - Melihat notes yang sudah ditambahkan.
+<br> - Melihat card pada study communities.
+<br> - Melihat playlist, berupa video pembelajaran maupun lagu-lagu, yang sudah dibagikan.
+<br> - Membuka laman about us.
+<br> - Memberikan kritik dan saran.
+</p>
+
+<h3>User yang sudah login - Role Student</h3>
+<p>Student merupakan mahasiswa yang sedang melakukan pembelajaran secara daring dan membutuhkan akses terhadap sumber-sumber pembelajaran mata kuliah di luar perkuliahan dan juga membutuhkan bimbingan mentor. Berikut ini merupakan hal-hal yang dapat dilakukan oleh seorang student:
+<br> - Mengakses seluruh fitur yang dapat diakses oleh user yang belum login
+<br> - Melihat agenda terkini pada hari tersebut.
+<br> - Melihat daftar kelas beserta jadwalnya.
+<br> - Membuat jadwal belajar bersama serta mengedit isi dan keterangannya.
+<br> - Melihat jadwal kelas user yang sudah login lainnya.
+<br> - Membagikan catatan-catatan materi perkuliahan pada notes.
+<br> - Membuat card pada study communities.
+<br> - Membagikan playlist berupa video pembelajaran, maupun lagu yang dapat menemani saat belajar.
+<br> - Bertanya ataupun menjawab pada ask a mentor. 
+</p>
+
+<h3>User yang sudah login - Role Mentor</h3>
+<p>Mentor merupakan mahasiswa yang memiliki pengalaman atau pengetahuan yang cukup tinggi pada mata kuliah tertentu. Seorang mentor dapat mengakses seluruh fitur pada Stu-Do-List layaknya student. Stu-Do-List menyediakan fitur ask a mentor berupa forum diskusi yang dapat dijawab oleh mentor untuk membantu permasalahan student dalam melakukan pembelajaran. Mentor juga dapat memberikan catatan yang validitasnya lebih terverifikasi pada fitur notes.
+</p>
+
 
 ![Persona1](https://media4.giphy.com/media/Ju7l5y9osyymQ/200.gif)
