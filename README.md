@@ -2,9 +2,10 @@
 
 
 ![Wow a website](https://cdn.dribbble.com/users/427857/screenshots/16635202/media/dc8b4257a33d28820a4dfd1cc8ae6680.png)
+
 <p>&nbsp;</p>
 
-## Nama-nama anggota kelompok B05:
+## 👨🏼‍💻👩🏼‍💻 Nama-nama anggota kelompok B06:
 
 1. Chalika Vanya Resya (2006596711)
 2. Dimas Ilham Danesamarruf (2006596011)
@@ -16,16 +17,16 @@
 
 <p>&nbsp;</p>
 
-## Link Heroku
+## 🔗 Link Heroku
 [stu-do-list](https://stu-do-list.herokuapp.com/)
 
 <p>&nbsp;</p>
 
-## Cerita aplikasi
+## 📜 Cerita aplikasi
 
 <p>&nbsp;</p>
 
-## Daftar modul
+## 📃 Daftar modul
 <h4>Landing Page</h4>
 
 <p> Pada halaman landing page, Stu-Do-List akan menampilkan form authentication log in yang dapat diisi oleh user. Setelah user berhasil log in, ia dapat memasukkan data pada profile Stu-Do-List berupa nama mahasiswa, NPM, role (student / mentor), serta kelas-kelas yang ia ikuti pada semester ini. Pengguna juga dapat melihat deskripsi serta kegunaan dari website Stu-Do-List yang ditujukan untuk membantu para mahasiswa yang sedang melaksanakan perkuliahan secara daring. </p>
@@ -59,6 +60,6 @@
 <h4>Schedule kuliah</h4>
 <p>Pada halaman ini, pengguna dapat mendaftarkan jadwal kuliah pada profil Stu-Do-List mereka sesuai dengan mata kuliah yang diambil. Pengguna juga dapat melihat informasi-informasi umum mengenai mata kuliah yang diambil berupa nama dosen, kontak dosen, dan jumlah SKS.</p>
 
-## User persona
+## 👥 User persona
 
 ![Persona1](https://media4.giphy.com/media/Ju7l5y9osyymQ/200.gif)
