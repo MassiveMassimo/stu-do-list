@@ -17,7 +17,7 @@
 <p>&nbsp;</p>
 
 ## Link Heroku
-[Belajar Bareng](https://belajar-bareng.herokuapp.com/)
+[stu-do-list](https://stu-do-list.herokuapp.com/)
 
 <p>&nbsp;</p>
 
