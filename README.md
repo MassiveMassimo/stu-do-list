@@ -3,9 +3,9 @@
 
 ![Wow a website](https://cdn.dribbble.com/users/427857/screenshots/16635202/media/dc8b4257a33d28820a4dfd1cc8ae6680.png)
 
-<p>&nbsp;</p>
+&nbsp;
 
-## 👨🏼‍💻👩🏼‍💻 Nama-nama Anggota Celompok B06:
+## 👨🏼‍💻👩🏼‍💻 Nama-nama Anggota Kelompok B06:
 
 1. Chalika Vanya Resya (2006596711)
 2. Dimas Ilham Danesamarruf (2006596011)
@@ -15,12 +15,12 @@
 6. Rafa Aurielle Adinda Diorra (2006596945)
 7. Zachra Shafira Ramadhanty (2006597033)
 
-<p>&nbsp;</p>
+&nbsp;
 
 ## 🔗 Link Heroku
 [stu-do-list](https://stu-do-list.herokuapp.com/)
 
-<p>&nbsp;</p>
+&nbsp;
 
 ## 📜 Cerita Aplikasi
 
@@ -70,6 +70,9 @@ Stu-Do-List kami ciptakan dengan harapan dapat membantu teman-teman yang mungkin
 <h3>Schedule kuliah</h3>
 <p>Pada halaman ini, pengguna dapat mendaftarkan jadwal kuliah pada profil Stu-Do-List mereka sesuai dengan mata kuliah yang diambil. Pengguna juga dapat melihat informasi-informasi umum mengenai mata kuliah yang diambil berupa nama dosen, kontak dosen, dan jumlah SKS.</p>
 
+&nbsp;
+
+
 ## 👥 User Personas
 
 <h3>User yang belum log in</h3>
@@ -97,4 +100,13 @@ Stu-Do-List kami ciptakan dengan harapan dapat membantu teman-teman yang mungkin
 
 <h3>User yang sudah login - Role Mentor</h3>
 <p>Mentor merupakan mahasiswa yang memiliki pengalaman atau pengetahuan yang cukup tinggi pada mata kuliah tertentu. Seorang mentor dapat mengakses seluruh fitur pada Stu-Do-List layaknya student. Stu-Do-List menyediakan fitur ask a mentor berupa forum diskusi yang dapat dijawab oleh mentor untuk membantu permasalahan student dalam melakukan pembelajaran. Mentor juga dapat memberikan catatan yang validitasnya lebih terverifikasi pada fitur notes.
-</p>)
+</p>
+
+<p>Untuk memvisualisasikan user persona lebih baik, kami menyediakan infografis dari kedua role di atas. Berikut adalah user persona untuk student mentor/aide:</p>
+
+![Persona1](/static/img/Student-Mentor.png)
+
+Berikut adalah user persona untuk student mentee:
+
+![Persona2](/static/img/Student-Normal.png
+)
