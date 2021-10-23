@@ -56,6 +56,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main',
+    'agenda',
+    'ask_a_mentor',
+    'jadwal_belajar',
+    'notes',
+    'schedule_kuliah',
+    'study_communities',
+    'video_playlist'
 ]
 
 MIDDLEWARE = [
