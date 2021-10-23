@@ -58,7 +58,7 @@ INSTALLED_APPS = [
     'main',
     'agenda',
     'ask_a_mentor',
-    'jadwal_belajar',
+    'jadwal_belajar_bareng',
     'notes',
     'schedule_kuliah',
     'study_communities',

@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import include, path
 import agenda.urls as agenda
 import ask_a_mentor.urls as ask_a_mentor
-import jadwal_belajar.urls as jadwal_belajar
+import jadwal_belajar_bareng.urls as jadwal_belajar_bareng
 import notes.urls as notes
 import schedule_kuliah.urls as schedule_kuliah
 import study_communities.urls as study_communities
@@ -28,7 +28,7 @@ urlpatterns = [
     path('', include('main.urls')),
     path('agenda/', include(agenda)),
     path('ask-a-mentor/', include(ask_a_mentor)),
-    path('jadwal-belajar/', include(jadwal_belajar)),
+    path('jadwal-belajar-bareng/', include(jadwal_belajar_bareng)),
     path('notes/', include(notes)),
     path('schedule-kuliah/', include(schedule_kuliah)),
     path('study-communities/', include(study_communities)),
