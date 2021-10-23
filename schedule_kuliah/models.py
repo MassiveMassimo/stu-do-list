@@ -18,7 +18,7 @@ HARI = (
 
 #Buat ngetest doang pake charfield dulu semua deh <3
 
-class Matakuliah (models.Model):
+class Matakuliah(models.Model):
   nama = models.CharField(max_length=200,choices=KODEMATKUL)
   kelas = models.CharField(max_length=1)
   SKS = models.CharField(max_length=1)
@@ -26,7 +26,7 @@ class Matakuliah (models.Model):
   def _str_ (self):
     return self.nama
 
-class Dosen (models.Model):
+class Dosen(models.Model):
   matkul = models.ForeignKey(Matakuliah, null=True) # One to Many
   nama = models.CharField(max_length=100)
   nomor_telepon = models.CharField(max_length=13)
@@ -35,7 +35,7 @@ class Dosen (models.Model):
   def _str_ (self):
     return self.nama
 
-class Jadwal (models.Model):
+class Jadwal(models.Model):
   matkul = models.ForeignKey(Matakuliah, null=True) # One to Many
   hari = models.CharField(max_length=10, choices=HARI)
   start = models.CharField(max_length=10)
