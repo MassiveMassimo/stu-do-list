@@ -8,18 +8,15 @@
       rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
     />
     <link rel="stylesheet" href="/static/css/style.css">
-    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/jquery.min.js"></script>
   </head>
 
   <body>
-    <div class="navbar">
-      
-    </div>
-
+    <div id="navbar"></div>
     <script>
-      $(function(){
-        $("#navbar").load("/static/navbar.html");
-      });
+    $.get("/static/navbar.html", function(data){
+      $("#navbar").replaceWith(data);
+    });
     </script>
     
     <main>
