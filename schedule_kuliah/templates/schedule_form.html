@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Matkul</title>
+</head>
+
+<body>
+    <header>
+        <h1>Tambahkan matkul</h1>
+    </header>
+    <section>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div>
+                <label for="nama">Nama</label>
+                {{ form.name }}
+            </div>
+            <div>
+                <label for="kelas">Kelas</label>
+                {{ form.npm }}
+            </div>
+            <button>Add Friend</button>
+        </form>
+    </section>
+</body>
+
+</html>
