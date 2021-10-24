@@ -39,4 +39,4 @@ class Jadwal(models.Model):
   matkul = models.ForeignKey(Matakuliah, on_delete=models.CASCADE) # One to Many
   hari = models.CharField(max_length=10, choices=HARI)
   start = models.CharField(max_length=10)
-  end = models.charfield(max_length=10)
+  end = models.CharField(max_length=10)

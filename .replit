@@ -1,1 +1,2 @@
 run = "xdg-open https://stu-do-list.herokuapp.com/"
+language = "python"
