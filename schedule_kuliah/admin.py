@@ -1,5 +1,5 @@
 from django.contrib import admin
-form .models import Matakuliah, Dosen, Jadwal
+from .models import Matakuliah, Dosen, Jadwal
 
 # Register your models here.
 
