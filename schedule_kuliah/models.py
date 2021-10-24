@@ -27,7 +27,7 @@ class Matakuliah(models.Model):
     return self.nama
 
 class Dosen(models.Model):
-  matkul = models.ForeignKey(Matakuliah, null=True) # One to Many
+  matkul = models.ForeignKey(Matakuliah, on_delete=models.CASCADE) # One to Many
   nama = models.CharField(max_length=100)
   nomor_telepon = models.CharField(max_length=13)
   email = models.CharField(max_length=100)
@@ -36,7 +36,7 @@ class Dosen(models.Model):
     return self.nama
 
 class Jadwal(models.Model):
-  matkul = models.ForeignKey(Matakuliah, null=True) # One to Many
+  matkul = models.ForeignKey(Matakuliah, on_delete=models.CASCADE) # One to Many
   hari = models.CharField(max_length=10, choices=HARI)
   start = models.CharField(max_length=10)
   end = models.charfield(max_length=10)
