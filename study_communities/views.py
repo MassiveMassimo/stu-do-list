@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 def index(request):
   community = Community.objects.all()
   response = {'community': community}
-  return render(request, 'student_community_index.html', response)
+  return render(request, 'study_community_index.html', response)
 
 @login_required(login_url="/admin/login/")
 def add_community(request):

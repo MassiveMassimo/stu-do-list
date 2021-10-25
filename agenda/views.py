@@ -16,7 +16,7 @@ def add_agenda(request):
         form = AgendaForm(request.POST)
         if form.is_valid():
             form.save()  # Save data to DB
-            return HttpResponseRedirect('/agenda_main')  # Redirect on finish
+            return HttpResponseRedirect('/agenda')  # Redirect on finish
         
     else: # if a GET (or any other method) we'll create a blank form
         form = AgendaForm()
