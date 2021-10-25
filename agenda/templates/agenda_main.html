@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Agenda - Stu-Do-List</title>
+  </head>
+
+  <body>
+    <div class="container">
+      {% for agenda in agendas %}
+      <div class="card">
+        <h3>{{agenda.nama}}<h3>
+        <h5>{{agenda.due_date}}</h5>
+        <p>{{agenda.keterangan}}</p>
+      </div>
+    {% endfor %}
+    </div>
+  </body>
+
