@@ -7,5 +7,12 @@
 
   <body>
     <h1>Agenda</h1>
-    <p>Insert Agenda Here</p>
+    <div class="form">
+      <form action="" method="POST">
+        {% csrf_token %}
+        {{ form }}
+        <br>
+        <input type="submit" value="Submit">
+      </form>
+    </div>
   </body>

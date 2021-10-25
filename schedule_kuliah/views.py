@@ -14,10 +14,13 @@ def add_matkul(request):
     form = MatkulForm(request.POST)
     if form.is_valid():
       form.save()
-      return redirect("schedule:index")
+      return redirect ("schedule:schedule_form_jadwal")
     print("Data yang disubmit tidak valid")
   form = MatkulForm()
   context = {"form" : form}
   return render(request, "schedule_form.html",context)
 
-
+@login_required(login_url="/admin/login/")
+def add_schedule(request):
+  if request.method == "POST"
+    form = 
