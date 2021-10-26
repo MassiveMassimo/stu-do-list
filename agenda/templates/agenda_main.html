@@ -6,14 +6,28 @@
   </head>
 
   <body>
+    <!-- To-Do Lists -->
     <div class="container">
       {% for agenda in agendas %}
       <div class="card">
-        <h3>{{agenda.nama}}<h3>
-        <h5>{{agenda.due_date}}</h5>
+        <h3>{{agenda.matkul}}<h3>
+        <h5>{{agenda.judul}}</h5>
+        <h6 style="color:red;">{{agenda.tanggal}} {{agenda.waktu}}</h6>
         <p>{{agenda.keterangan}}</p>
       </div>
-    {% endfor %}
+      {% endfor %}
     </div>
+    <!-- Schedules -->
+    <div class="container">
+      {% for schedule in schedules %}
+      <div class="card">
+        <h3>{{schedule.matkul}}<h3>
+        <p>{{schedule.hari}} <br>
+          {{schedule.start}} - {{schedule.end}}
+        </p>
+      </div>
+      {% endfor %}
+    </div>
+
   </body>
 

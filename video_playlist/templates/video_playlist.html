@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Video Playlist</title>
+    <link
+      rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet" 
+      href="asset/mediaelementplayer.min.css"
+    />
+
+    <link rel="stylesheet" href="plugin/quality/quality.min.css"/>
+    <link rel="stylesheet" href="plugin/speed/speed.min.css"/>
+    <link rel="stylesheet" href="plugin/loop/loop.min.css"/>
+    <link rel="stylesheet" href="plugin/playlist/playlist.min.css"/>
+    <link rel="stylesheet" href="plugin/skip-forward/skip-forward.min.css"/>
+    <link rel="stylesheet" href="plugin/skip-back/skip-back.min.css"/>
+</head>
+<body>
+
+  
+  
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+  <script src="asset/mediaelement-and-player.min.js"></script>
+  <script src="plugin/quality/quality.min.js"/></script>
+  <script src="plugin/speed/speed.min.js"/></script>
+  <script src="plugin/loop/loop.min.js"/></script>
+  <script src="plugin/playlist/playlist.min.js"/></script>
+  <script src="plugin/skip-forward/skip-forward.min.js"/></script>
+  <script src="plugin/skip-back/skip-back.min.js"/></script>
+
+  <script>
+    $('video').mediaelementplayer({
+      features: ['prevtrack', 'playpause', 'nexttrack' 'current', 'progress', 'duration', 'volume', 'tracks','speed', 'quality', 'loop', 'playlist', 'shuffle', 'fullscreen', 'skipforward', 'skipback']
+      speeds:[
+        {name: '0.25', value: '0.25'}
+        {name: '0.5', value: '0.5'}
+        {name: '0.75', value: '0.75'}
+        {name: 'Normal', value: '1'}
+        {name: '1.25', value: '1.25'}
+        {name: '1.5', value: '1.5'}
+        {name: '1.75', value: '1.75'}
+        {name: '2', value: '2'}
+      ],
+      autoRewind: false;
+    });
+</body>
+</html>

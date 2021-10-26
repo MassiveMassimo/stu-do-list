@@ -1,12 +1,14 @@
 from django.shortcuts import render
 from schedule_kuliah.models import Matakuliah, Jadwal
 from .models import Agenda
+from .forms import AgendaForm
 
 # Create your views here.
 
 def index(request):
     agendas = Agenda.objects.all().values()
-    response = {'agendas': agendas}
+    schedules = Jadwal.objects.all().values()
+    response = {'agendas' : agendas, 'schedules' : schedules}
     return render(request, 'agenda_main.html', response)
 
 # kalo ada yg gabener bentar ya ini copas lab kemaren mmmmfffff

@@ -13,6 +13,6 @@ def add_community(request):
   form = CommunityForm(request.POST or None)
   if (form.is_valid() and request.method == 'POST'):
     form.save()
-    return HttpResponseRedirect('/study_communities/')
+    return HttpResponseRedirect('/study-communities/')
   context ={'form':form}
   return render(request, "community_form.html", context)
