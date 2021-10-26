@@ -1,7 +1,7 @@
 # Proyek Tengah Semester PBP
 
 
-![Wow a website](https://cdn.dribbble.com/users/427857/screenshots/16635202/media/dc8b4257a33d28820a4dfd1cc8ae6680.png)
+![Wow a website](/static/favicon-wordmark.svg)
 
 &nbsp;
 

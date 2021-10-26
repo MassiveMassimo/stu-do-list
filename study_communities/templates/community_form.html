@@ -9,35 +9,47 @@
 </head>
 
 <body>
-  <header>
-    <h1>Add Study Community</h1>
-  </header>
-  <section>
-    <form action="" method="POST">
-      {% csrf_token %}
-      <div>
-        <label for="nama">Nama:</label>
-        {{ form.nama }}
-      </div>
-      <div>
-        <label for="kelas">Kelas:</label>
-        {{ form.kelas }}
-      </div>
-      <div>
-        <label for="prodi">Program Studi:</label>
-        {{ form.prodi }}
-      </div>
-      <div>
-        <label for="info">Info Tambahan:</label>
-        {{ form.info }}
-      </div>
-      <div>
-        <label for="link">Link:</label>
-        {{ form.link }}
-      </div>
-      <button>Add</button>
-    </form>
-  </section>
+    <header>
+        <h1>Add Study Community</h1>
+    </header>
+    <div class="form-container">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="form-group row">
+                <label for="nama" class="col-sm-2 col-form-label">Nama Mata Kuliah:</label>
+                <div class="col-sm-10">
+                    {{ form.nama }}
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="kelas" class="col-sm-2 col-form-label">Kelas:</label>
+                <div class="col-sm-10">
+                    {{ form.kelas }}
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="prodi" class="col-sm-2 col-form-label">Program Studi:</label>
+                <div class="col-sm-10">
+                    {{ form.prodi }}
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="info" class="col-sm-2 col-form-label">Info Tambahan:</label>
+                <div class="col-sm-10">
+                    {{ form.info }}
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="link" class="col-sm-2 col-form-label">Link:</label>
+                <div class="col-sm-10">
+                    {{ form.link }}
+                </div>
+            </div>
+            <div class="addbtn">
+                <button type="button" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
 </body>
 
 </html>

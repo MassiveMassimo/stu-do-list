@@ -20,7 +20,7 @@ import ask_a_mentor.urls as ask_a_mentor
 #import jadwal_belajar_bareng.urls as jadwal_belajar_bareng
 #import notes.urls as notes
 #import schedule_kuliah.urls as schedule_kuliah
-#import study_communities.urls as study_communities
+# import study_communities.urls as study_communities
 #import video_playlist.urls as video_playlist
 
 urlpatterns = [
@@ -30,7 +30,7 @@ urlpatterns = [
     path('ask-a-mentor/', include(ask_a_mentor)),
     #path('jadwal-belajar-bareng/', include(jadwal_belajar_bareng)),
     #path('notes/', include(notes)),
-    #path('schedule-kuliah/', include(schedule_kuliah)),
-    #path('study-communities/', include(study_communities)),
+    # path('schedule-kuliah/', include(schedule_kuliah)),
+    # path('study-communities/', include(study_communities)),
     #path('video-playlist/', include(video_playlist))
 ]
