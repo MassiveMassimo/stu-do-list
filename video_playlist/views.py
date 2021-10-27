@@ -13,11 +13,11 @@ def index(request):
 @login_required(login_url="/admin/login/")
 def add_video(request):
   response = {}
-    form = VideoForm(request.POST or None)
-    if (form.is_valid() and request.method == 'POST'):
-        form.save()
-        return HttpResponseRedirect('/video-playlist/')
+  form = VideoForm(request.POST or None)
+  if (form.is_valid() and request.method == 'POST'):
+      form.save()
+      return HttpResponseRedirect('/video-playlist/')
 
-    response['form']= form
-    return render(request, "video_playlist_form.html", response)
+  response['form']= form
+  return render(request, "video_playlist_form.html", response)
 

@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.http.response import HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
 from schedule_kuliah.models import Matakuliah, Jadwal
 from .models import Agenda
 from .forms import AgendaForm

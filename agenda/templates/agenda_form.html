@@ -6,11 +6,27 @@
   </head>
 
   <body>
-    <h1>Agenda</h1>
+    <h1>Tambah Sebuah Agenda</h1>
     <div class="form">
       <form action="" method="POST">
         {% csrf_token %}
-        {{ form }}
+        <label for='matkul'>Nama Mata Kuliah</label> <br>
+        {{ form.matkul }} <br>
+        <label for='judul'>Nama Keperluan</label> <br>
+        {{ form.judul }} <br>
+        <p>Tenggat Waktu</p>
+        <div class="tenggat waktu">
+          <div>
+            <label for='tanggal'>Tanggal</label> <br>
+            {{ form.tanggal }} <br>
+          </div>
+          <div>
+            <label for='waktu'>Pukul</label> <br>
+            {{ form.waktu }} <br>
+          </div>
+        </div>
+        <label for='keterangan'>Keterangan tambahan</label> <br>
+        {{ form.keterangan }} <br>
         <br>
         <input type="submit" value="Tambahkan ke Agenda">
       </form>
