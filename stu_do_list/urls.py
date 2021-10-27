@@ -22,9 +22,9 @@ urlpatterns = [
     path('sign-in/', include('authentication.urls')),
     path('agenda/', include('agenda.urls')),
     path('ask-a-mentor/', include('ask_a_mentor.urls')),
-    path('jadwal-belajar-bareng/', include('jadwal_belajar_bareng.urls')),
-    path('notes/', include('notes.urls')),
-    path('schedule-kuliah/', include('schedule_kuliah.urls')),
+    # path('jadwal-belajar-bareng/', include('jadwal_belajar_bareng.urls')),
+    # path('notes/', include('notes.urls')),
+    # path('schedule-kuliah/', include('schedule_kuliah.urls')),
     path('study-communities/', include('study_communities.urls')),
-    path('video-playlist/', include('video_playlist.urls'))
+    #path('video-playlist/', include('video_playlist.urls'))
 ]

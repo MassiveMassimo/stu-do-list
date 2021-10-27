@@ -10,7 +10,7 @@ def index(request):
 
 @login_required(login_url="/admin/login/")
 def add_matkul(request):
-  if request.method == "POST"
+  if request.method == "POST":
     form = MatkulForm(request.POST)
     if form.is_valid():
       form.save()
@@ -22,5 +22,5 @@ def add_matkul(request):
 
 @login_required(login_url="/admin/login/")
 def add_schedule(request):
-  if request.method == "POST"
+  if request.method == "POST":
     form = 
