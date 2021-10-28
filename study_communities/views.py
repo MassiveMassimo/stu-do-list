@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Community
+from .forms import CommunityForm
 from django.http.response import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 

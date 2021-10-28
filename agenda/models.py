@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import date
 
 KODEMATKUL = (
   ("Alin","Aljabar Linear"),
@@ -10,8 +11,13 @@ KODEMATKUL = (
 
 # Create your models here.
 class Agenda(models.Model) :
-  matkul = models.CharField(max_length=200,choices=KODEMATKUL)
-  judul = models.CharField(max_length=80)
-  tanggal = models.DateField()
-  waktu = models.TimeField()
-  keterangan = models.TextField()
+    # Kalo ada user yg jadi object => yg udah pada login
+    # user = models.ForeignKey(User, on_delete=models.CASCADE)
+    matkul = models.CharField(max_length=200,choices=KODEMATKUL)
+    judul = models.CharField(max_length=80)
+    tanggal = models.DateField(default=date.today)
+    waktu = models.TimeField(default='23:55')
+    keterangan = models.TextField()
+
+    # def __str__(self):
+    #     return f"{self.user.username} | {self.judul}"

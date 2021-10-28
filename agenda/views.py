@@ -13,8 +13,8 @@ def index(request):
     response = {'agendas' : agendas, 'schedules' : schedules}
     return render(request, 'agenda_main.html', response)
 
-# kalo ada yg gabener bentar ya ini copas lab kemaren mmmmfffff
-@login_required(login_url="/admin/login/")
+# @login_required(login_url="/admin/login/") # Kalo yg bisa edit cm admin
+# @login_required(login_url="authentication") # Kalo ntar ada object user
 def add_agenda(request):
     if request.method == 'POST':
         form = AgendaForm(request.POST)
@@ -26,3 +26,13 @@ def add_agenda(request):
         form = AgendaForm()
 
     return render(request, 'agenda_form.html', {'form': form})
+
+# @login_required(login_url="authentication") # Kalo ntar ada object user
+def remove_agenda(request, pk):
+    agenda = Agenda.objects.get(id = pk)
+    if request.method == "POST":
+        agenda.delete()
+        return redirect('/jadwal-belajar-bareng')
+    
+    context = { 'sched' : jdwl }
+    return render(request, 'remove_jadwal.html', {'agendas'})
