@@ -1,7 +1,8 @@
 from django.urls import path
-from .views import index, add_community 
+from . import  views
 
 urlpatterns = [
-  path('', index, name='index'),
-  path('add-study-community', add_community, name='add-community')
+  path('', views.index, name='communities'),
+  path('add-study-community', views.add_community, name='add-community'),
+  path('delete-study-community', views.delete_community, name='delete-community')
 ]

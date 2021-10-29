@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -5,7 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <title>Stu-do-list - Study Communities</title>
+    
     <style>
+      body {
+        margin:0;
+        padding: 0;
+        width:100%;
+      }
       .content{
         margin: 20px;
       }
@@ -34,20 +41,9 @@
         padding:20px;
         padding-top: 0;
         border-radius: 4px;
-        /* display:flex;
-        align-items: center;
-        justify-content: space-between; */
       }
 
-      /* #detele_btn {
-        width: 45%;
-      }
-
-      #edit_btn {
-        width: 45%;
-      } */
-
-      #card {
+      .crd {
         box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
         padding: 10px;
       }
@@ -63,139 +59,106 @@
         border-radius: 18px;
       }
     </style>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </head>
-
   <body>
     <div id="navbar"></div>
 
-    <script>
-      $(function() {
-        $('#navbar').load('/static/navbar.html');
-      });
-    </script>
-    <div class="content">
-      <header>
-        <h1>Study Communities</h1>
-        <a id="btn" class="btn btn-dark" href="add-study-community" role="button">Add</a>
-      </header>
-      <div id='container' class="row row-cols-1 row-cols-md-3">
-        {% for item in community %}
-        <div class="col mb-4">
-          <div id="card" class="card border-0 card h-100">
-            <div id="cardheader" class="card border-0 card-header">
-              <h3 id="matkul" name="matkul">{{ item.nama }}</h3>
-            </div>
-            <div class="card-body">
-              <p>
-                <label for="kelas">Kelas:</label> 
-                {{ item.kelas }}
-              </p>
-              <p>
-                <label for="prodi">Program Studi:</label> 
-                {{ item.prodi }}
-              </p>
-              <p>
-                <label for="info">Keterangan:</label>
-                {{ item.info }}
-              </p>
-              <p>
-                <a href="{{ item.link }}"> {{ item.link }}</a>
-              </p>
-            </div>
-            <div id="buttons" class="text-right">
-              <!-- <button id="edit_btn" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#edit-modal" data-matkul='{{ item.nama }}'
-              data-kelas='{{ item.kelas }}' data-prodi='{{ item.prodi }}' data-info='{{ item.info }}' data-link='{{ item.link }}'>Edit</button> -->
-              <button id="detele_btn" type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete-modal">Delete</button>
-            </div>
+    <main>
+      <div class="content">
+        <header>
+          <h1>Study Communities</h1>
+          <a id="btn" class="btn btn-dark" href="add-study-community" role="button">Add</a>
+        </header>
+        <div id='container' class="row row-cols-1 row-cols-md-3">
+          {% for item in community %}
+          <div id="item-{{item.id}}" class="col mb-4">
+              <div id="card" class="crd card border-0 card h-100">
+                <div id="cardheader" class="card border-0 card-header">
+                  <h3 id="nama" name="nama">{{ item.nama }}</h3>
+                </div>
+                <div class="card-body">
+                  <p>
+                    <label for="kelas">Kelas:</label> 
+                    {{ item.kelas }}
+                  </p>
+                  <p>
+                    <label for="prodi">Program Studi:</label> 
+                    {{ item.prodi }}
+                  </p>
+                  <p>
+                    <label for="info">Keterangan:</label>
+                    {{ item.info }}
+                  </p>
+                  <p>
+                    <a href="{{ item.link }}"> {{ item.link }}</a>
+                  </p>
+                </div>
+                <div id="buttons" class="text-right">
+                  <button id="delete_btn" type="button" data-id="{{item.id}}" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete-modal">Delete</button>
+                </div>
+              </div>
           </div>
+          {% endfor %}
         </div>
-        {% endfor %}
       </div>
-    </div>
 
-    <!-- <div class="modal fade" id="edit-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-      <div class="modal-dialog">
-        <form>
-          <div class="modal-content">
+      <div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <form method="post" class="js-community-delete-form">
             <div class="modal-header">
-              <h5 class="modal-title">Edit</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <h5 class="modal-title">Delete</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
-              </button>
+            </button>
             </div>
             <div class="modal-body">
-                <div class="form-group">
-                  <label>Nama Mata Kuliah</label>
-                  <input type="text" class="form-control" id="edit-nama">
-                </div>
-                <div class="form-group">
-                  <label>Kelas</label>
-                  <input type="text" class="form-control" id="edit-kelas">
-                </div>
-                <div class="form-group">
-                  <label>Program Studi</label>
-                  <input type="email" class="form-control" id="edit-prodi">
-                </div>
-                <div class="form-group">
-                  <label>Informasi Tambahan</label>
-                  <input type="email" class="form-control" id="edit-info">
-                </div>
-                <div class="form-group">
-                  <label>Link</label>
-                  <input type="url" class="form-control" id="edit-link">
-                </div>
+            Are you sure you want to delete this information?
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button id="edit-update" type="button" class="btn btn-primary">Save changes</button>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div> -->
-
-    <div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalCenterTitle">Delete</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            Are you sure you want to delete this information?
-          </div>
-          <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
             <button id="deletebtn" type="button" class="btn btn-primary">Yes</button>
-          </div>
+            </div>
         </div>
-      </div>
+        </div>
     </div>
 
-    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script> -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 
-    <!-- <script>
-      $(document).ready(function() {
-        $('#edit-modal').on('show.bs.modal', function (event) {
+      <script>
+        $(document).ready(function(){
+          var itemid = null;
+          $("#delete-modal").on('show.bs.modal', function(event){
             var btn = $(event.relatedTarget),
-                matkul = btn.data('matkul'),
-                kelas = btn.data('kelas'),
-                prodi = btn.data('prodi'),
-                info = btn.data('info'),
-                link = btn.data('link');
+                tmp = btn.data('id');
+            itemid = tmp;
+          });
 
-          $('#edit-modal').find('#edit-nama').val(matkul);
-          $('#edit-modal').find('#edit-kelas').val(kelas);
-          $('#edit-modal').find('#edit-prodi').val(prodi);
-          $('#edit-modal').find('#edit-info').val(info);
-          $('#edit-modal').find('#edit-link').val(link);
+          $("#delete-modal").on('click', function(event){
+            event.stopPropagation();
+            $.ajax({
+              url:'delete-study-community',
+              type: 'POST',
+              data: {
+                  id:itemid,
+                  csrfmiddlewaretoken: '{{ csrf_token }}'
+              },
+              dataType: 'json',
+              success: function(response) {
+                if(response.status) {
+                  $('#delete-modal').modal('hide');
+                  $('#item-'+itemid).remove();
+                }
+              }
+            });
+          });
         });
-      });
-    </script> -->
-
+      </script>
+      <script>
+        $(function() {
+          $('#navbar').load('/static/navbar.html');
+        });
+      </script>
   </body>
 </html>

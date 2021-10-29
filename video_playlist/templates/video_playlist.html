@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <title>Video Playlist</title>
 </head>
 <style>
@@ -12,7 +13,6 @@
     margin: 0; padding: 0;
     box-sizing: border-box;
     text-transform: capitalize;
-    /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
     font-weight: normal;
 }
 
@@ -38,25 +38,12 @@ body{
 .container .main-video{
     background: #fff;
     border-radius: 5px;
-    /* padding: 10px; */
-
     position: relative;
-    padding-bottom: 56.25%; /* 16:9 */
+    padding-bottom: 56.25%;
     height: 0;
 }
 
-/* .container .main-video video{
-    width: 100%;
-    border-radius: 5px;
-} */
-
 .container .main-video iframe{
-    /* width: 100%;
-    margin-bottom: 15%;
-    border-radius: 5px; */
-
-    /* padding-bottom: 20%; */
-
     position: absolute;
     top: 0;
     left: 0;
@@ -64,17 +51,11 @@ body{
     height: 100%;
 }
 
-/* .container .main-video .title{
-    color: #333;
-    font-size: 23px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-} */
-
 .container .video-list{
     background: #fff;
     border-radius: 5px;
-    height: 520px;
+    height: 430px;
+    width: 300px;
     overflow-y: scroll;
 }
 
@@ -92,13 +73,9 @@ body{
     border-radius: 50px;
 }
 
-/* .container .video-list .vid video{
-    width: 100px;
-    border-radius: 5px;
-} */
-
 .container .video-list .vid iframe{
     width: 100px;
+    height: 100px;
     border-radius: 5px;
 }
 
@@ -152,25 +129,27 @@ body{
       $("#navbar").load("/static/navbar.html");
     });
     </script>
+
+    <br>
     
     <h3 class="heading">Video Playlist</h3>
+    <br>
     <div class="container">
         <div class="main-video">
-          {% for video in video_playlist %}
             <div class="video">
-              <iframe src="{{video.Link}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              <iframe src="{% for video in video_playlist %} {{video.Link}} {% endfor %}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
-            {% endfor %}
         </div>
 
         <div class="video-list">
           {% for video in video_playlist %}
-            <div class="vid active">
+            <div class="vid">
               <iframe src="{{video.Link}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <h3 class="title">{{video.Title}}</h3>
             </div>
             {% endfor %}
         </div>
+        <a class="btn btn-primary" href="http://localhost:8000/video-playlist/add-video" role="button">Add Video</a>
     </div>
 
     <script>

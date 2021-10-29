@@ -128,7 +128,7 @@ html, body {
                     <div class="form-items">
                         <h3>Add Video</h3>
                         <p>Fill in the form below.</p>
-                        <form class="form-horizontal" action="" method="POST">
+                        <form class="form-horizontal" method="POST">
                             {% csrf_token %}
                             <div class="form-group">
                                 <label class="control-label col-sm-2">Title:</label>
@@ -145,6 +145,7 @@ html, body {
                            <div class="form-group">        
                             <div class="col-sm-offset-2 col-sm-10">
                               <button type="submit" class="btn btn-default">Submit</button>
+                              <a class="btn btn-primary" href="http://localhost:8000/video-playlist/" role="button">Video Playlist</a>
                             </div>
                         </form>
                     </div>
@@ -154,5 +155,22 @@ html, body {
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(document).on('submit', '.form-horizontal', function(e){
+            e.preventDefault();
+            $.ajax({
+                type:'POST',
+                url:'add-video',
+                data:{
+                    title:$('#title').val(),
+                    link:$('#link').val(),
+                    csrfmiddlewaretoken:'{{ csrf_token }}'
+                },
+                success: function(response) {
+                    alert("Video added!");
+                },
+            });
+        });
+    </script>
 </body>
 </html>

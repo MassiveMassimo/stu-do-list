@@ -19,12 +19,15 @@ from django.urls import include, path
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('main.urls')),
-    path('sign-in/', include('authentication.urls')),
+    path('authentication/', include('authentication.urls')),
     path('agenda/', include('agenda.urls')),
     path('ask-a-mentor/', include('ask_a_mentor.urls')),
-    # path('jadwal-belajar-bareng/', include('jadwal_belajar_bareng.urls')),
+    path('jadwal-belajar-bareng/', include('jadwal_belajar_bareng.urls')),
     # path('notes/', include('notes.urls')),
     # path('schedule-kuliah/', include('schedule_kuliah.urls')),
     path('study-communities/', include('study_communities.urls')),
     #path('video-playlist/', include('video_playlist.urls'))
+    #path('saran/', include('saran.urls'))
+
+
 ]

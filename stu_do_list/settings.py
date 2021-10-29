@@ -62,7 +62,8 @@ INSTALLED_APPS = [
     'notes',
     'schedule_kuliah',
     'study_communities',
-    'video_playlist'
+    'video_playlist',
+    'saran'
 ]
 
 MIDDLEWARE = [

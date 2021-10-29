@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from django.http.response import HttpResponseRedirect
 from .models import JadwalBelajarBareng
 from .forms import JadwalForm
+from django.core import serializers
+from django.http.response import HttpResponse 
 # from django.contrib.auth.decorators import login_required
 
 # Create your views here.
@@ -48,3 +50,11 @@ def remove_jadwal(request, pk):
     
   context = { 'sched' : jdwl }
   return render(request, 'remove_jadwal.html', context)
+
+def xml(request):
+    data = serializers.serialize('xml', JadwalBelajarBareng.objects.all())
+    return HttpResponse(data, content_type="application/xml")
+
+def json(request):
+    data = serializers.serialize('json', JadwalBelajarBareng.objects.all())
+    return HttpResponse(data, content_type="application/json")

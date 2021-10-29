@@ -1,8 +1,11 @@
 from django.urls import path
-from .views import index, add_agenda, remove_agenda
+from .views import *
+
+app_name = "agenda"
 
 urlpatterns = [
     path('', index, name='index'),
-    path('add', add_agenda, name='addagenda'),
-    path('remove/<str:pk>/', remove_agenda, name = 'removeagenda'),
+    path('add', add_agenda, name='add'),
+    path('get', get_agenda, name='get'),
+    path('delete/<str:agenda_id>', delete_agenda, name='delete'),
 ]

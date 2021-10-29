@@ -12,6 +12,7 @@
     <link rel = "stylesheet" type="text/css" href = "{% static 'jadwal_belajar_bareng.css' %}" /> 
     <link rel="stylesheet" href="/static/css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> -->
   </head>
 
   <body>
@@ -22,6 +23,7 @@
       $("#navbar").load("/static/navbar.html");
     });
     </script>
+  <div id="all">
     <div class="container my-5">
     <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
     <blockquote class="blockquote text-center">
@@ -30,11 +32,10 @@
           <h1 id="h1Header" class="display-4 fw-bold lh-1">Jadwal Belajar Bareng</h1>
           <p class="lead"><em>Kamu dapat memasukkan informasi pertemuan jadwal belajar bersama, seperti tanggal dan waktu pertemuan, mata kuliah, topik pembicaraan, informasi tambahan, serta link tempat pertemuan diadakan. Yuk, dicoba!</em></p>
           <div class="tombolatas">
-            <a class="btn btn-outline-secondary" href="{% url 'jadwal:addjadwal'%}">Add Jadwal</a>
+            <a class="btn btn-outline-secondary" href = "{% url 'jadwal:addjadwal' %}">Add Jadwal</a>
           </div>
       </div>
    </blockquote>
-
     <div class="container">
         <div class="container">
             <div class="page">
@@ -57,22 +58,22 @@
                     <div class="tulisantabel">
                       <h1 class="display-6">Tabel Jadwal Belajar</h1>
                     </div>
+                    
                     <table class="table table-striped">
                         <thead class="thead-dark">
                             <tr>
-                                <th scope="col">#</th>
                                 <th scope="col">Mata Kuliah</th>
                                 <th scope="col">Waktu</th>
                                 <th scope="col">Topik</th>
                                 <th scope="col">Informasi</th>
                                 <th scope="col">Link</th>
+                                <th th scope="col"></th>
                             </tr>
                         </thead>
                         <tbody>
 
                           {% for i in jadwalb %}
                               <tr>
-                                <th scope="row"></th>
                                 <td>{{ i.Matkul }}</td>
                                 <!-- <td>{{ i.Tanggal }}</td> -->
                                 <td>{{ i.Waktu }}</td>
@@ -87,6 +88,16 @@
                           {% endfor %}   
                         </tbody>
                     </table>
+                  <div id="bawah" class="text-center">
+                    <div id="hey">
+                      <p>Click to see your Jadwal Belajar Bareng data in JSON/XML</p>
+                    </div>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                      <button type="button" class="btn btn-secondary" onclick="jsonFunc()">See JSON</button>
+                      <button type="button" class="btn btn-secondary" onclick="xmlFunc()">See XML Fields</button>
+                      <button type="button" class="btn btn-secondary" onclick="myFunc()">Go Back</button>
+                    </div>
+                  </div>
                 </div>
                 </div>
             </div>
@@ -94,6 +105,37 @@
     </div>
   </div>
   </div>
+</div>
+  <script>
+        function jsonFunc(){
+          const xhttp = new XMLHttpRequest();
+            xhttp.onload = function() {
+              document.getElementById("hey").innerHTML =
+              this.responseText;
+            }
+            xhttp.open("GET", "/jadwal-belajar-bareng/json");
+            xhttp.send();
+        }
+        function xmlFunc(){
+          const xhttp = new XMLHttpRequest();
+            xhttp.onload = function() {
+              document.getElementById("hey").innerHTML =
+              this.responseText;
+            }
+            xhttp.open("GET", "/jadwal-belajar-bareng/xml");
+            xhttp.send();
+        }
+        function myFunc(){
+          const xhttp = new XMLHttpRequest();
+            xhttp.onload = function() {
+              document.getElementById("all").innerHTML =
+              this.responseText;
+            }
+            xhttp.open("GET", "/jadwal-belajar-bareng");
+            xhttp.send();
+        }
+  </script>
+
   </body>
 
 </html>
