@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main',
+    'authentication',
     'agenda',
     'ask_a_mentor',
     'jadwal_belajar_bareng',
@@ -64,7 +65,10 @@ INSTALLED_APPS = [
     'schedule_kuliah',
     'study_communities',
     'video_playlist',
+    'crispy_forms',
 ]
+
+CRISPY_TEMPLATE_PACK = 'uni_form'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
