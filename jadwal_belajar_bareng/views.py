@@ -4,19 +4,15 @@ from .models import JadwalBelajarBareng
 from .forms import JadwalForm
 from django.core import serializers
 from django.http.response import HttpResponse 
-# from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required
 
-# Create your views here.
-
-# @login_required
 def jadwal(request):
   jadwalb = JadwalBelajarBareng.objects.all()
   context = { 'jadwalb' : jadwalb }
   return render(request, 'jadwal_belajar_bareng.html', context)
 
-# @login_required
+@login_required(login_url = '/login')
 def add_jadwal(request):
-  # name = "nama"
   form = JadwalForm()
   if request.method == "POST":
     form = JadwalForm(request.POST)
@@ -27,11 +23,7 @@ def add_jadwal(request):
   context = {'form' : form }
   return render(request, 'add_jadwal.html', context)
 
-# @login_required
-def simpan_jadwal(request):
-  return HttpResponseRedirect('/jadwal-belajar-bareng')
-
-# @login_required  
+@login_required(login_url = '/login')
 def remove_jadwal(request, id):
   jdwl = JadwalBelajarBareng.objects.get(id = id)
   if request.method == "POST":
@@ -41,7 +33,7 @@ def remove_jadwal(request, id):
   context = { 'sched' : jdwl }
   return render(request, 'remove_jadwal.html', context)
 
-# @login_required  
+@login_required(login_url = '/login')
 def edit_jadwal(request, id):
   jdwl = JadwalBelajarBareng.objects.get(id = id)
   if request.method == "POST":
@@ -65,3 +57,23 @@ def xml(request):
 def json(request):
     data = serializers.serialize('json', JadwalBelajarBareng.objects.all())
     return HttpResponse(data, content_type="application/json")
+
+def prioritas_tinggi(request):
+  jadwalb = JadwalBelajarBareng.objects.all()
+  context = { 'jadwalb' : jadwalb }
+  return render(request, 'prioritas_tinggi.html', context)
+
+def prioritas_sedang(request):
+  jadwalb = JadwalBelajarBareng.objects.all()
+  context = { 'jadwalb' : jadwalb }
+  return render(request, 'prioritas_sedang.html', context)
+
+def prioritas_rendah(request):
+  jadwalb = JadwalBelajarBareng.objects.all()
+  context = { 'jadwalb' : jadwalb }
+  return render(request, 'prioritas_rendah.html', context)
+
+def prioritas_all(request):
+  jadwalb = JadwalBelajarBareng.objects.all()
+  context = { 'jadwalb' : jadwalb }
+  return render(request, 'prioritas_all.html', context)

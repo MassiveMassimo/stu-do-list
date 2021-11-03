@@ -1,0 +1,63 @@
+{% load static %}
+
+<!DOCTYPE html>
+  <div id="jadwal-card-container">
+    <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <button class="nav-link" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Semua</button>
+          <button class="nav-link active" id="nav-tinggi-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Tinggi</button>
+          <button class="nav-link" id="nav-sedang-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Sedang</button>
+          <button class="nav-link" id="nav-rendah-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Rendah</button>
+        </div>
+      </nav><br><br>
+      <div id="card-container">
+        <div class="grid grid-cols-3 gap-4">
+        {% for i in jadwalb %}
+            {% if i.Prioritas == "Tinggi" %}
+                <div class="card-thumbnail">
+                <div class="card" id="card-id">
+                    <div class="card-header">
+                    {{ i.Matkul }} 
+                    </div>
+                    <div class="card-body">
+                    <h5 class="card-title">{{ i.Topik }}
+                        {% if i.Prioritas == "Rendah" %}  
+                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                        {{ i.Prioritas }}
+                        </span>
+                        {% elif i.Prioritas == "Sedang" %}
+                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
+                            {{ i.Prioritas }}
+                        </span>
+                        {% else %}
+                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                            {{ i.Prioritas }}
+                        </span>
+                        {% endif %}
+                    </h5>
+                    <p class="card-text"><em>{{ i.Informasi }}</em></p>
+                    <p class="card-text">Dilaksanakan pada {{ i.Waktu }}</p>
+                    <a id="meeting-btn" href={{ i.Link }} class="btn btn-primary">Join Meeting</a>
+                    </div>
+                </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+            </div>
+      </div>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $("#nav-home-tab").click(function(){
+                $("#jadwal-card-container").load("{% url 'jadwal:prioritas_all' %}");
+            });
+            $("#nav-sedang-tab").click(function(){
+                $("#jadwal-card-container").load("{% url 'jadwal:prioritas_sedang' %}");
+            });
+            $("#nav-rendah-tab").click(function(){
+                $("#jadwal-card-container").load("{% url 'jadwal:prioritas_rendah' %}");
+            });
+        });
+    </script>
+</html>

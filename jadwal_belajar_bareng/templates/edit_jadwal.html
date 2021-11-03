@@ -27,15 +27,13 @@
       <div class="container-fluid">
         <div class="page">
           <div class="judul">
-            <h1 id="h1Header" class="display-4 fw-bold lh-1">Add Jadwal</h1>
+            <h1 id="h1Header" class="display-4 fw-bold lh-1">Edit Jadwal</h1>
           </div>
                 <form action="" method="POST">
                     <input type="hidden" name="id" id="id" required maxlength="20" value="{{ sched.id }}"
                     {% csrf_token %}
-                        <div class="form-group col-md-4">
+                        <div class="form-group">
                           <label for="inputPrioritas" id="inputPrioritas">Prioritas:</label>
-                          <!-- <br> -->
-                           <!-- {{ form.Matkul }} -->
                           <select id="inputPrioritas" class="form-control" name="Prioritas" required>
                             <option selected>{{ sched.Prioritas }}</option>
                             <option value="Tinggi">Tinggi</option>
@@ -45,10 +43,8 @@
                           <small id="prioritasHelp" class="form-text text-muted">Tentukan tingkat prioritas dari Jadwal Belajar Bareng.</small>
                         </div>
 
-                        <div class="form-group col-md-4">
+                        <div class="form-group">
                           <label for="inputMatkul" id="inputMatkul">Mata Kuliah:</label>
-                          <!-- <br> -->
-                           <!-- {{ form.Matkul }} -->
                           <select id="inputMatkul" class="form-control" name="Matkul" required>
                             <option selected>{{ sched.Matkul }}</option>
                             <option value="Alin">Aljabar Linear</option>
@@ -61,35 +57,28 @@
 
                         <div class="form-group">
                           <label for="inputDate" id="inputDate">Waktu:</label>
-                          <!-- <br> 
-                          {{ form.Waktu }} -->
                           <input type="datetime-local" class="form-control" id="inputDate" name="Waktu" required>
                           <small id="dateHelp" class="form-text text-muted">Waktu Jadwal Belajar Bareng sebelumnya adalah {{ sched.Waktu }}</small>
                         </div>
 
                         <div class="form-group">
                           <label for="inputTopik" id="inputTopik">Topik:</label>
-                          <!-- <br> {{ form.Topik }} -->
                           <input type="text" class="form-control" id="inputTopik" name="Topik" placeholder="Topik" value="{{ sched.Topik }}" required>
                         </div>
 
                         <div class="form-group">
                           <label for="exampleFormControlTextarea1" id="exampleFormControlTextarea1">Informasi:</label>
-                          <!-- <br> {{ form.Informasi }} -->
                           <textarea class="form-control" name="Informasi" id="exampleFormControlTextarea1" placeholder="Informasi tambahan mengenai Jadwal Belajar Bareng" rows="3" required>{{ sched.Informasi }}</textarea>
                         </div>
 
                         <div class="form-group">
                           <label for="inputLink" id="inputLink">Link:</label>
-                          <!-- <br> {{ form.Link }} <br> -->
                           <input type="url" class="form-control" id="inputLink" name="Link" placeholder="Link Meeting" value="{{ sched.Link }}" required>
                         </div>
 
-                    <!-- <button type="submit" class="btn btn-outline-danger">Add</button> -->
                       <div class="tombol">
                         <form class="" action="" method="POST"> 
                           {% csrf_token %}
-                          <!-- <a class="btn btn-outline-secondary" onclick="resetForm()">Clear</a> -->
                           <div class="text-center">
                             <a class = "btn btn-outline-danger" href="{% url 'jadwal:jadwal' %}">Cancel</a>
                             <input class = "btn btn-outline-primary" type = "submit" value = "Save">

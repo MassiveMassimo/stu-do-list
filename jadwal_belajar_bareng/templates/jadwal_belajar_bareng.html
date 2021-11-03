@@ -21,7 +21,6 @@
 
     <link rel="icon" type="image/png" href="assets/img/favicon.png"/>
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="assets/css/styles.css">
 
   </head>
 
@@ -37,53 +36,45 @@
   <div id="all">
     <div class="container my-5">
 
-    <div class="row p-0 s-0 e-0 pb-0 pe-lg-0 pt-lg-0 align-items-center rounded-3 border shadow-lg">
+    <div class="row align-items-center rounded-3 border shadow-lg">
 
-      <!-- <div class="flex w-full bg-blue-600">
-
-        <div class="w-full h-full relative flex items-center justify-center py-24 rounded-3">
-  
-          <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1200" class="absolute top-0 left-0 w-full h-full object-cover opacity-50" />
-  
-          <div class="px-6 max-w-4xl relative z-10 text-center">
-            <h1 class="display-4 fw-bold lh-1 text-white leading-tight mb-2">Jadwal Belajar Bareng</h1>
-            <p class="lead font-condensed text-white leading-tight mb-8"><em>Kamu dapat memasukkan informasi pertemuan jadwal belajar bersama, seperti tanggal dan waktu pertemuan, mata kuliah, topik pembicaraan, informasi tambahan, serta link tempat pertemuan diadakan. Yuk, dicoba!</em></p>
-            <a href = "{% url 'jadwal:addjadwal' %}" class="inline-block bg-white font-condensed text-primary py-2 px-5 text-base rounded-full hover:shadow-lg hover:bg-blue-600 hover:text-white">Add Jadwal</a>
-          </div>
-  
-        </div>
-  
-      </div> -->
-
-      <div id="judul-atas" class="bg-cover bg-no-repeat bg-right-top xl:bg-bottom" style="background-image: url('https://fv2-3.failiem.lv/thumb_show.php?i=5f54h55wb&view')"><!-- Start Hero Block -->
-        <div class="container mx-auto px-5 pb-16 sm:pb-16 lg:pb-24 xl:pb-32">
-            <header class="flex justify-between items-center pt-5">
-                <div class="block lg:hidden">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 " fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.3" d="M4 6h16M4 12h16M4 18h16"/></svg>
-                </div>
-            </header>
+      <div id="judul-atas" class="bg-cover bg-no-repeat bg-right-top xl:bg-bottom rounded-3" style="background-image: url('https://s10.gifyu.com/images/ezgif-3-84adeae88da4.gif')"><!-- Start Hero Block -->
+        <div class="container mx-auto sm:pb-16 lg:pb-24 xl:pb-32">
             <div class="mt-16 space-y-8 lg:mt-24 xl:mt-28">
                 <div class="space-y-4">
-                    <h1 class="display-3 fw-bold lh-1 md:max-w-xl md:text-5xl">Jadwal Belajar Bareng</h1>
-                    <p class="max-w-sm text-lg text-gray-700 md:max-w-md md:text-xl"><em>Di sini kamu dapat menambahkan dan mengedit jadwal. Yuk, dicoba!</em></p>
+                    <h1 class="display-3 fw-bold text-white lh-1 md:max-w-xl md:text-5xl">Jadwal Belajar Bareng</h1>
+                    <p class="max-w-sm text-lg text-white md:max-w-md md:text-xl semi-bold" id="tulisan-kecil"><em>Di sini kamu dapat menambahkan dan mengedit jadwal. Yuk, dicoba!</em></p>
                 </div>
-                <a type="button" href = "{% url 'jadwal:addjadwal' %}" class="w-full px-8 py-3.5 transition duration-300 bg-blue-500 hover:bg-blue-600 shadow text-white font-semibold rounded-lg sm:w-auto">Add Jadwal</a>
+                <a type="button" href = "{% url 'jadwal:addjadwal' %}" class="transform motion-safe:hover:scale-110 w-full px-8 py-3.5 transition duration-300 bg-blue-500 hover:bg-blue-600 shadow text-white font-semibold rounded-lg sm:w-auto">Add Jadwal</a>
             </div>
         </div>
-    </div><!-- End Hero Block -->
+    </div>
 
    
     <div class="container">
         <div class="container">
             <div class="page">
               <div class="tulisan-card">
-                <h1 class="display-6">Jadwal Belajar Cards</h1>
+                <h1 class="display-6 fw-bold">Jadwal Belajar Cards</h1><br>
+                <p class="text-lg text-black"><em>Lihat seluruh jadwal atau berdasarkan prioritas.</em></p>
               </div>
+            <div id="jadwal-card-container">
+              <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                  <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Semua</button>
+                  <button class="nav-link" id="nav-tinggi-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Tinggi</button>
+                  <button class="nav-link" id="nav-sedang-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Sedang</button>
+                  <button class="nav-link" id="nav-rendah-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Rendah</button>
+                </div>
+              </nav><br><br>
+
+              <div id="card-container">
                 <div class="grid grid-cols-3 gap-4">
                 {% for i in jadwalb %}
+                <div class="card-thumbnail">
                   <div class="card" id="card-id">
                     <div class="card-header">
-                      {{ i.Matkul }}
+                       {{ i.Matkul }} 
                     </div>
                     <div class="card-body">
                       <h5 class="card-title">{{ i.Topik }}
@@ -106,18 +97,21 @@
                       <a id="meeting-btn" href={{ i.Link }} class="btn btn-primary">Join Meeting</a>
                     </div>
                   </div>
+                  </div>
                   {% endfor %}
                 </div>
-                <div>
+              </div>
+            </div>
                     <div class="tulisantabel">
-                      <h1 class="display-6">Jadwal Belajar Table</h1>
+                      <h1 class="display-6 fw-bold">Jadwal Belajar Table</h1><br>
+                      <p class="text-lg text-black"><em>Lihat tabel jadwal belajar bersama.</em></p>
                     </div>
                     <div class="flex bg-gray-100 p-2 w-60 space-x-4 rounded-lg">
                       <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 opacity-30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                       </svg>
                       <input class="bg-gray-100 outline-none" type="search" id="myInput" onkeyup="myFunction()" placeholder="Cari topik..." />
-                    </div>
+                    </div><br><br>
                     <table id="myTable" class="table table-striped">
                         <thead class="thead-dark">
                             <tr>
@@ -127,14 +121,15 @@
                                 <th scope="col">Topik</th>
                                 <th scope="col">Informasi</th>
                                 <th scope="col">Link</th>
-                                <th th scope="col"></th>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
                             </tr>
                         </thead>
                         <tbody>
 
                           {% for i in jadwalb %}
-                              <tr>
-                                <td>
+                              <tr id="tr-inside">
+                                <td scope="col">
                                   {% if i.Prioritas == "Rendah" %}  
                                     <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
                                       {{ i.Prioritas }}
@@ -150,13 +145,12 @@
                                   {% endif %}
                                 </td>
                                 <td>{{ i.Matkul }}</td>
-                                <!-- <td>{{ i.Tanggal }}</td> -->
                                 <td>{{ i.Waktu }}</td>
                                 <td>{{ i.Topik }}</td>
                                 <td>{{ i.Informasi }}</td>
                                 <td>
                                   <a class="e-0 s-0 y-0 text-blue-600 hover:text-blue-900" href = {{ i.Link }}>Join Meeting</a>
-                                  <td>
+                                  <td style="width:1%">
                                   <a class=text-sm text-gray-500 whitespace-no-wrap border-b border-gray-200" href = "{% url 'jadwal:editjadwal' i.id %}">
                                   <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-blue-400" fill="none"
                                       viewBox="0 0 24 24" stroke="currentColor">
@@ -165,7 +159,7 @@
                                   </svg>
                                 </a>
                               </td>
-                              <td>
+                              <td style="width:1%">
                                   <a class="y-0 e-0 s-0 text-sm text-gray-500 whitespace-no-wrap border-b border-gray-200" href = "{% url 'jadwal:removejadwal' i.id %}">
                                   <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-red-400" fill="none"
                                       viewBox="0 0 24 24" stroke="currentColor">
@@ -182,11 +176,7 @@
                     <div id="hey">
                       <p>Click to see your Jadwal Belajar Bareng data from a JSON/XML file</p>
                     </div>
-                    <!-- <div class="btn-group" role="group" aria-label="Basic example">
-                      <button type="button" class="btn btn-secondary" onclick="jsonFunc()">See JSON</button>
-                      <button type="button" class="btn btn-secondary" onclick="xmlFunc()">See XML Fields</button>
-                      <button type="button" class="btn btn-secondary" onclick="myFunc()">Go Back</button>
-                    </div> -->
+
                     <div class="inline-flex mt-2 xs:mt-0">
                       <button
                           class="text-sm bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded-l" onclick="jsonFunc()">
@@ -211,13 +201,25 @@
   </div>
 </div>
   <script>
+
+        $(document).ready(function(){
+            $("#nav-tinggi-tab").click(function(){
+                $("#jadwal-card-container").load("{% url 'jadwal:prioritas_tinggi' %}");
+            });
+            $("#nav-sedang-tab").click(function(){
+                $("#jadwal-card-container").load("{% url 'jadwal:prioritas_sedang' %}");
+            });
+            $("#nav-rendah-tab").click(function(){
+                $("#jadwal-card-container").load("{% url 'jadwal:prioritas_rendah' %}");
+            });
+        });
         function jsonFunc(){
           const xhttp = new XMLHttpRequest();
             xhttp.onload = function() {
               document.getElementById("hey").innerHTML =
               this.responseText;
             }
-            xhttp.open("GET", "/jadwal-belajar-bareng/json");
+            xhttp.open("GET", "/jadwal-belajar-bareng/json", true);
             xhttp.send();
         }
         function xmlFunc(){
@@ -226,7 +228,7 @@
               document.getElementById("hey").innerHTML =
               this.responseText;
             }
-            xhttp.open("GET", "/jadwal-belajar-bareng/xml");
+            xhttp.open("GET", "/jadwal-belajar-bareng/xml", true);
             xhttp.send();
         }
         function myFunc(){
@@ -235,7 +237,7 @@
               document.getElementById("all").innerHTML =
               this.responseText;
             }
-            xhttp.open("GET", "/jadwal-belajar-bareng");
+            xhttp.open("GET", "/jadwal-belajar-bareng", true);
             xhttp.send();
         }
 
@@ -257,6 +259,7 @@
             }       
           }
         }
+
   </script>
 
   </body>

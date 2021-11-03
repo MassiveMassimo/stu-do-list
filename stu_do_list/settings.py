@@ -64,7 +64,10 @@ INSTALLED_APPS = [
     'schedule_kuliah',
     'study_communities',
     'video_playlist',
+    'crispy_forms',
 ]
+
+CRISPY_TEMPLATE_PACK = 'uni_form'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
