@@ -1,5 +1,6 @@
+import datetime
 from django.db import models
-from datetime import date
+
 # from django.contrib.auth.models import User
 
 KODEMATKUL = (
@@ -16,7 +17,7 @@ class Agenda(models.Model) :
     # user = models.ForeignKey(User, on_delete=models.CASCADE)
     matkul = models.CharField(max_length=200,choices=KODEMATKUL)
     judul = models.CharField(max_length=80)
-    tanggal = models.DateField(default=date.today)
+    tanggal = models.DateField(blank=True, null=True, default=datetime.date.today)
     waktu = models.TimeField(default='23:55')
     keterangan = models.TextField()
 

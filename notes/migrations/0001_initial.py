@@ -12,12 +12,11 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Community',
+            name='Notes',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('nama', models.CharField(max_length=50)),
-                ('kelas', models.CharField(max_length=20)),
-                ('prodi', models.CharField(max_length=50)),
+                ('kelas', models.CharField(max_length=15)),
                 ('info', models.CharField(max_length=100)),
                 ('link', models.URLField()),
             ],

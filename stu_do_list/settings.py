@@ -60,10 +60,10 @@ INSTALLED_APPS = [
     'ask_a_mentor',
     'jadwal_belajar_bareng',
     'notes',
+    #'saran,'
     'schedule_kuliah',
     'study_communities',
     'video_playlist',
-    'saran'
 ]
 
 MIDDLEWARE = [
