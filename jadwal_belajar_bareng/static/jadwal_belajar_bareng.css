@@ -17,7 +17,26 @@
     text-align: center;
 }
 
+.tulisan-card{
+    margin-bottom: 4%;
+    text-align: center;
+}
+
+#meeting-btn {
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
 #bawah {
     margin-top: 4%;
+    margin-bottom: 4%;
+}
+
+#myTable {
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+#judul-atas {
     margin-bottom: 4%;
 }

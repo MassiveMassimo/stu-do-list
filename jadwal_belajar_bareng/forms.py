@@ -10,7 +10,7 @@ class JadwalForm(forms.ModelForm):
         model = JadwalBelajarBareng
         fields = "__all__"
         widgets = {
-            # 'Waktu': DateTimeInput()
+            'Prioritas': forms.Select(attrs={'type':'text', 'id': 'inputPrioritas', 'class':'form-control'}),
             'Matkul': forms.Select(attrs={'type':'text', 'id': 'inputMatkul', 'class':'form-control'}),
             'Waktu': forms.DateTimeInput(attrs={'type':'datetime-local', 'class':'form-control'}),
             'Topik': forms.TextInput(attrs={'type':'text', 'class':'form-control', 'placeholder':'Topik pembelajaran'}),

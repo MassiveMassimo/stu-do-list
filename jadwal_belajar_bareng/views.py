@@ -19,16 +19,6 @@ def add_jadwal(request):
   # name = "nama"
   form = JadwalForm()
   if request.method == "POST":
-    # course = request.POST.get("name")
-    # # tanggal = request.POST.get("tanggal")
-    # waktu = request.POST.get("waktu")
-    # topik = request.POST.get("topik")
-    # info = request.POST.get("info")
-    # link = request.POST.get("link")
-    
-    # simpan = JadwalBelajarBareng.objects.create(Matkul = course, Waktu = waktu, Topik = topik, Informasi = info, Link = link)
-    # simpan.save()
-    # name = course
     form = JadwalForm(request.POST)
     if form.is_valid():
       form.save()
@@ -42,14 +32,31 @@ def simpan_jadwal(request):
   return HttpResponseRedirect('/jadwal-belajar-bareng')
 
 # @login_required  
-def remove_jadwal(request, pk):
-  jdwl = JadwalBelajarBareng.objects.get(id = pk)
+def remove_jadwal(request, id):
+  jdwl = JadwalBelajarBareng.objects.get(id = id)
   if request.method == "POST":
     jdwl.delete()
     return redirect('/jadwal-belajar-bareng')
     
   context = { 'sched' : jdwl }
   return render(request, 'remove_jadwal.html', context)
+
+# @login_required  
+def edit_jadwal(request, id):
+  jdwl = JadwalBelajarBareng.objects.get(id = id)
+  if request.method == "POST":
+    Prioritas = request.POST.get("Prioritas")
+    Matkul = request.POST.get("Matkul")
+    Waktu = request.POST.get("Waktu")
+    Topik = request.POST.get("Topik")
+    Informasi = request.POST.get("Informasi")
+    Link = request.POST.get("Link")
+    
+    simpan = JadwalBelajarBareng.objects.filter(id = id).update(Prioritas = Prioritas, Matkul = Matkul, Waktu = Waktu, Topik = Topik, Informasi = Informasi, Link = Link)
+    return redirect('/jadwal-belajar-bareng')
+  
+  context = { 'sched' : jdwl }
+  return render(request, 'edit_jadwal.html', context)
 
 def xml(request):
     data = serializers.serialize('xml', JadwalBelajarBareng.objects.all())

@@ -11,8 +11,18 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel = "stylesheet" type="text/css" href = "{% static 'jadwal_belajar_bareng.css' %}" /> 
     <link rel="stylesheet" href="/static/css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.2.0/tailwind.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/tailwindcss@2.2.4/dist/tailwind.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet"> -->
+
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+
+    <link rel="icon" type="image/png" href="assets/img/favicon.png"/>
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="assets/css/styles.css">
+
   </head>
 
   <body>
@@ -23,45 +33,95 @@
       $("#navbar").load("/static/navbar.html");
     });
     </script>
+
   <div id="all">
     <div class="container my-5">
-    <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
-    <blockquote class="blockquote text-center">
-      <div class="container-fluid">
-          <!-- <h1 class="display-5">Jadwal Belajar Bareng</h1> -->
-          <h1 id="h1Header" class="display-4 fw-bold lh-1">Jadwal Belajar Bareng</h1>
-          <p class="lead"><em>Kamu dapat memasukkan informasi pertemuan jadwal belajar bersama, seperti tanggal dan waktu pertemuan, mata kuliah, topik pembicaraan, informasi tambahan, serta link tempat pertemuan diadakan. Yuk, dicoba!</em></p>
-          <div class="tombolatas">
-            <a class="btn btn-outline-secondary" href = "{% url 'jadwal:addjadwal' %}">Add Jadwal</a>
+
+    <div class="row p-0 s-0 e-0 pb-0 pe-lg-0 pt-lg-0 align-items-center rounded-3 border shadow-lg">
+
+      <!-- <div class="flex w-full bg-blue-600">
+
+        <div class="w-full h-full relative flex items-center justify-center py-24 rounded-3">
+  
+          <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1200" class="absolute top-0 left-0 w-full h-full object-cover opacity-50" />
+  
+          <div class="px-6 max-w-4xl relative z-10 text-center">
+            <h1 class="display-4 fw-bold lh-1 text-white leading-tight mb-2">Jadwal Belajar Bareng</h1>
+            <p class="lead font-condensed text-white leading-tight mb-8"><em>Kamu dapat memasukkan informasi pertemuan jadwal belajar bersama, seperti tanggal dan waktu pertemuan, mata kuliah, topik pembicaraan, informasi tambahan, serta link tempat pertemuan diadakan. Yuk, dicoba!</em></p>
+            <a href = "{% url 'jadwal:addjadwal' %}" class="inline-block bg-white font-condensed text-primary py-2 px-5 text-base rounded-full hover:shadow-lg hover:bg-blue-600 hover:text-white">Add Jadwal</a>
           </div>
-      </div>
-   </blockquote>
+  
+        </div>
+  
+      </div> -->
+
+      <div id="judul-atas" class="bg-cover bg-no-repeat bg-right-top xl:bg-bottom" style="background-image: url('https://fv2-3.failiem.lv/thumb_show.php?i=5f54h55wb&view')"><!-- Start Hero Block -->
+        <div class="container mx-auto px-5 pb-16 sm:pb-16 lg:pb-24 xl:pb-32">
+            <header class="flex justify-between items-center pt-5">
+                <div class="block lg:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 " fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.3" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </div>
+            </header>
+            <div class="mt-16 space-y-8 lg:mt-24 xl:mt-28">
+                <div class="space-y-4">
+                    <h1 class="display-3 fw-bold lh-1 md:max-w-xl md:text-5xl">Jadwal Belajar Bareng</h1>
+                    <p class="max-w-sm text-lg text-gray-700 md:max-w-md md:text-xl"><em>Di sini kamu dapat menambahkan dan mengedit jadwal. Yuk, dicoba!</em></p>
+                </div>
+                <a type="button" href = "{% url 'jadwal:addjadwal' %}" class="w-full px-8 py-3.5 transition duration-300 bg-blue-500 hover:bg-blue-600 shadow text-white font-semibold rounded-lg sm:w-auto">Add Jadwal</a>
+            </div>
+        </div>
+    </div><!-- End Hero Block -->
+
+   
     <div class="container">
         <div class="container">
             <div class="page">
-              <div>
+              <div class="tulisan-card">
+                <h1 class="display-6">Jadwal Belajar Cards</h1>
+              </div>
+                <div class="grid grid-cols-3 gap-4">
                 {% for i in jadwalb %}
-                  <div class="card">
+                  <div class="card" id="card-id">
                     <div class="card-header">
                       {{ i.Matkul }}
                     </div>
                     <div class="card-body">
-                      <h5 class="card-title">{{ i.Topik }}</h5>
+                      <h5 class="card-title">{{ i.Topik }}
+                        {% if i.Prioritas == "Rendah" %}  
+                          <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                          {{ i.Prioritas }}
+                          </span>
+                        {% elif i.Prioritas == "Sedang" %}
+                          <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
+                            {{ i.Prioritas }}
+                          </span>
+                        {% else %}
+                          <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                            {{ i.Prioritas }}
+                          </span>
+                        {% endif %}
+                      </h5>
                       <p class="card-text"><em>{{ i.Informasi }}</em></p>
                       <p class="card-text">Dilaksanakan pada {{ i.Waktu }}</p>
-                      <a href={{ i.Link }} class="btn btn-primary">Join Meeting</a>
+                      <a id="meeting-btn" href={{ i.Link }} class="btn btn-primary">Join Meeting</a>
                     </div>
                   </div>
-                {% endfor %}
-              </div>
+                  {% endfor %}
+                </div>
                 <div>
                     <div class="tulisantabel">
-                      <h1 class="display-6">Tabel Jadwal Belajar</h1>
+                      <h1 class="display-6">Jadwal Belajar Table</h1>
                     </div>
-                    
-                    <table class="table table-striped">
+                    <div class="flex bg-gray-100 p-2 w-60 space-x-4 rounded-lg">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 opacity-30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                      </svg>
+                      <input class="bg-gray-100 outline-none" type="search" id="myInput" onkeyup="myFunction()" placeholder="Cari topik..." />
+                    </div>
+                    <table id="myTable" class="table table-striped">
                         <thead class="thead-dark">
                             <tr>
+                                <th scope="col">Prioritas</th>
                                 <th scope="col">Mata Kuliah</th>
                                 <th scope="col">Waktu</th>
                                 <th scope="col">Topik</th>
@@ -74,29 +134,73 @@
 
                           {% for i in jadwalb %}
                               <tr>
+                                <td>
+                                  {% if i.Prioritas == "Rendah" %}  
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                      {{ i.Prioritas }}
+                                    </span>
+                                  {% elif i.Prioritas == "Sedang" %}
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
+                                      {{ i.Prioritas }}
+                                    </span>
+                                  {% else %}
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                                      {{ i.Prioritas }}
+                                    </span>
+                                  {% endif %}
+                                </td>
                                 <td>{{ i.Matkul }}</td>
                                 <!-- <td>{{ i.Tanggal }}</td> -->
                                 <td>{{ i.Waktu }}</td>
                                 <td>{{ i.Topik }}</td>
                                 <td>{{ i.Informasi }}</td>
                                 <td>
-                                  <a class = "btn btn-link" href = {{ i.Link }}>Join Meeting</a>
-                                <td>
-                                    <a class = "btn btn-outline-danger" href = "{% url 'jadwal:removejadwal' i.id %}">Remove</a>
-                                </td>
+                                  <a class="e-0 s-0 y-0 text-blue-600 hover:text-blue-900" href = {{ i.Link }}>Join Meeting</a>
+                                  <td>
+                                  <a class=text-sm text-gray-500 whitespace-no-wrap border-b border-gray-200" href = "{% url 'jadwal:editjadwal' i.id %}">
+                                  <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-blue-400" fill="none"
+                                      viewBox="0 0 24 24" stroke="currentColor">
+                                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                          d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                                  </svg>
+                                </a>
+                              </td>
+                              <td>
+                                  <a class="y-0 e-0 s-0 text-sm text-gray-500 whitespace-no-wrap border-b border-gray-200" href = "{% url 'jadwal:removejadwal' i.id %}">
+                                  <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-red-400" fill="none"
+                                      viewBox="0 0 24 24" stroke="currentColor">
+                                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                          d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                  </svg>
+                                  </a>
+                              </td>
                               </tr>
                           {% endfor %}   
                         </tbody>
                     </table>
                   <div id="bawah" class="text-center">
                     <div id="hey">
-                      <p>Click to see your Jadwal Belajar Bareng data in JSON/XML</p>
+                      <p>Click to see your Jadwal Belajar Bareng data from a JSON/XML file</p>
                     </div>
-                    <div class="btn-group" role="group" aria-label="Basic example">
+                    <!-- <div class="btn-group" role="group" aria-label="Basic example">
                       <button type="button" class="btn btn-secondary" onclick="jsonFunc()">See JSON</button>
                       <button type="button" class="btn btn-secondary" onclick="xmlFunc()">See XML Fields</button>
                       <button type="button" class="btn btn-secondary" onclick="myFunc()">Go Back</button>
-                    </div>
+                    </div> -->
+                    <div class="inline-flex mt-2 xs:mt-0">
+                      <button
+                          class="text-sm bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded-l" onclick="jsonFunc()">
+                          See JSON
+                      </button>
+                      <button
+                          class="text-sm bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded-m" onclick="xmlFunc()">
+                          See XML
+                      </button>
+                      <button
+                          class="text-sm bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded-r" onclick="myFunc()">
+                          Go Back
+                      </button>
+                  </div>
                   </div>
                 </div>
                 </div>
@@ -133,6 +237,25 @@
             }
             xhttp.open("GET", "/jadwal-belajar-bareng");
             xhttp.send();
+        }
+
+        function myFunction() {
+          var input, filter, table, tr, td, i, txtValue;
+          input = document.getElementById("myInput");
+          filter = input.value.toUpperCase();
+          table = document.getElementById("myTable");
+          tr = table.getElementsByTagName("tr");
+          for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[3];
+            if (td) {
+              txtValue = td.textContent || td.innerText;
+              if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+              } else {
+                tr[i].style.display = "none";
+              }
+            }       
+          }
         }
   </script>
 

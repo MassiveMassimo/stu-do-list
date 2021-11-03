@@ -11,10 +11,18 @@ CHOICES = (
   ("SOSI","Sistem Operasi untuk Sistem Informasi"),
   ("SDA","Struktur Data & Algoritma"),
 )
+
+PRIORITY = (
+  ("Tinggi","Tinggi"),
+  ("Sedang","Sedang"),
+  ("Rendah","Rendah"),
+)
+
 class JadwalBelajarBareng(models.Model):
   def __str__(self): 
     return self.Topik
   # user = models.ForeignKey(User, on_delete=models.CASCADE)
+  Prioritas = models.TextField(max_length = 15, choices=PRIORITY)
   Matkul = models.TextField(max_length = 150, choices=CHOICES)
   # Tanggal = models.DateField(default = datetime.date.today)
   Waktu = models.DateTimeField()
