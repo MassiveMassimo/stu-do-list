@@ -1,0 +1,28 @@
+{% extends 'schedule_base.html' %}
+{% load static %}
+{% block meta %}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="user_id" content="{{ user_id }}">
+<title>List Jadwal</title>
+{% endblock meta %}
+
+{% block content %}
+<div class="container my-5">
+    <div style="max-width: 800px; margin: auto;" class="d-flex flex-column align-items-center rounded-3 border shadow-lg p-5">
+        <h1 style="font-size: xx-large" class="text-center mb-4">Weekly Schedule</h1>
+        <div class="table table-striped" id="table-jadwal">
+        </div>
+        <div>
+            <a class="btn btn-primary" href="{% url 'schedule:add_matkul' %}">
+                    Tambahkan matkul baru
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block script %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="{% static 'js/schedule.js' %}"></script>
+{% endblock script %}

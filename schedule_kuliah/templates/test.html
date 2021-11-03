@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>List Jadwal</title>
+</head>
+
+<body bgcolor="ffeee8">
+    <h1 style="font-size: xx-large;" align="center">Friend List ヾ(•ω•`)o</h1>
+    <table align="center" style="width: 50%;" border="1 px">
+        {% for pelajaran in matkul %}
+        <tr>
+            <th colspan="3">{{pelajaran}}</td>
+        </tr>
+        <tr style="background-color: #C08F73;">
+            <th style="width: 25%;">Hari</th>
+            <th style="width: 25%;">Waktu dimulai</th>
+            <th style="width: 25%;">Waktu berakhir</th>
+            <th style="width: 25%;">Action</th>
+        </tr>
+        
+        <tr style="background-color: #E8CAB3;">
+            <td>{{j.hari}}</td>
+            <td>{{j.start}}</td>
+            <td>{{j.end}}</td>
+            <td>
+                <a href="{% url 'schedule:delete_jadwal' j.id %}">
+                    <button>delete</button> </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <div align="center">
+        <a href="{% url 'schedule:add_matkul' %}">
+            <button>
+                Tambahkan matkul baru
+            </button>
+        </a>
+
+    </div>
+</body>
+
+</html>
