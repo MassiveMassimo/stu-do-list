@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 KODEMATKUL = (
   ("Alin","Aljabar Linear"),
@@ -19,24 +20,19 @@ HARI = (
 #Buat ngetest doang pake charfield dulu semua deh <3
 
 class Matakuliah(models.Model):
+  user = models.ForeignKey(User, on_delete=models.CASCADE)
   nama = models.CharField(max_length=200,choices=KODEMATKUL)
   kelas = models.CharField(max_length=1)
-  SKS = models.CharField(max_length=1)
+  SKS = models.IntegerField(max_length=1)
 
-  def _str_ (self):
-    return self.nama
-
-class Dosen(models.Model):
-  matkul = models.ForeignKey(Matakuliah, on_delete=models.CASCADE) # One to Many
-  nama = models.CharField(max_length=100)
-  nomor_telepon = models.CharField(max_length=13)
-  email = models.CharField(max_length=100)
-
-  def _str_ (self):
+  def __str__ (self):
     return self.nama
 
 class Jadwal(models.Model):
   matkul = models.ForeignKey(Matakuliah, on_delete=models.CASCADE) # One to Many
   hari = models.CharField(max_length=10, choices=HARI)
-  start = models.CharField(max_length=10)
-  end = models.CharField(max_length=10)
+  start = models.TimeField()
+  end = models.TimeField()
+
+  def __str__ (self):
+    return f"{self.matkul} | {self.hari}"

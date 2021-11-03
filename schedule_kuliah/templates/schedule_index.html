@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="user_id" content="{{ user_id }}">
+    <style>
+        body {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        td {
+            text-align: center;
+        }
+        .table-header h1 {
+            font-size: 20px;
+            margin: 4px 0;
+        }
+        .table-header a {
+            color: brown;
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+        th, td {
+            padding: 8px;
+        }
+        @media screen and (max-width: 768px) {
+            tr {
+                font-size: 13px;
+            }
+        }
+    </style>
+    <title>List Jadwal</title>
+</head>
+
+<body bgcolor="ffeee8">
+    <h1 style="font-size: xx-large;" align="center">Weekly Schedule</h1>
+    <table align="center" style="width: 50%;" border="1px" id="table-jadwal">
+    </table>
+    <br>
+    <div align="center">
+        <a href="{% url 'schedule:add_matkul' %}">
+            <button>
+                Tambahkan matkul baru
+            </button>
+        </a>
+
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="{% static 'js/schedule.js' %}"></script>
+</html>
