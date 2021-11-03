@@ -7,7 +7,7 @@ from django.core import serializers
 import json
 # Create your views here.
 
- 
+@login_required(login_url="main:login")
 def index(request):
     context = {"user_id": request.user.id}
     return render(request, "schedule_index.html", context)
@@ -26,7 +26,7 @@ def get_jadwal(request, user_id):
     return HttpResponse(data, content_type="application/json")
 
 
-@login_required(login_url="/admin/login")
+@login_required(login_url="main:login")
 def add_matkul(request):
     if request.method == "POST":
         data_matkul = request.POST.dict()
@@ -42,7 +42,7 @@ def add_matkul(request):
     context = {"form": form}
     return render(request, "schedule_form_matkul.html", context)
 
-
+@login_required(login_url="main:login")
 def add_jadwal(request, matkul_id):
     print('masuk add jadwal')
     context = {}
@@ -63,7 +63,7 @@ def add_jadwal(request, matkul_id):
     context.update({"form": form, "matkul": f"{matkul.nama} - {matkul.kelas}"})
     return render(request, "schedule_form_jadwal.html", context)
 
-
+@login_required(login_url="main:login")
 def delete_jadwal(request, jadwal_id):
     try:
         jadwal = Jadwal.objects.get(pk=jadwal_id)
