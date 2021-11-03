@@ -23,6 +23,7 @@ import jadwal_belajar_bareng.urls as jadwal_belajar_bareng
 #import schedule_kuliah.urls as schedule_kuliah
 import study_communities.urls as study_communities
 import video_playlist.urls as video_playlist
+import authentication.views as login_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -34,5 +35,6 @@ urlpatterns = [
     #path('notes/', include(notes)),
     #path('schedule-kuliah/', include(schedule_kuliah)),
     path('study-communities/', include(study_communities)),
-    path('video-playlist/', include(video_playlist))
+    path('video-playlist/', include(video_playlist)),
+    path("register", login_views.register_request, name="register")
 ]

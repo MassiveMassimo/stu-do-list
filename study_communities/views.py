@@ -9,7 +9,7 @@ def index(request):
   response = {'community': community}
   return render(request, 'study_community_index.html', response)
 
-# @login_required(login_url="/authentication/")
+@login_required(login_url = '/login')
 def add_community(request):
   form = CommunityForm(request.POST or None)
   if (form.is_valid() and request.method == 'POST'):
@@ -18,6 +18,7 @@ def add_community(request):
   context ={'form':form}
   return render(request, "community_form.html", context)
 
+@login_required(login_url = '/login')
 def delete_community(request):
   if request.method == "POST":
     community_id = request.POST.get('id')

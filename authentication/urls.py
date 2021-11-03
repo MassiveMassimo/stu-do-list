@@ -13,8 +13,7 @@ from main.views import home
 app_name = "main"   
 
 urlpatterns = [
-  path("", home, name="homepage"), ## hrsnya ini ke homepage studolist
   path("register", views.register_request, name="register"),
-  path("login", views.login_request, name="login"),
+  path("", views.login_request, name="login"),
   path("logout", views.logout_request, name= "logout"),  
 ]

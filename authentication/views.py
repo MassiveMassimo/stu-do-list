@@ -1,17 +1,3 @@
-# from django.http.response import HttpResponse
-# from django.shortcuts import render
-
-# # Create your views here.
-
-# def sign_in(request):
-#     return HttpResponse("Sign in page")
-
-#### guys ini baru gue copy blm gue ganti2 samsek ntar hrsnya disamain sm url landing page nya ################
-
-## btw ini kita hrs kayak pip install django-crispy-forms dulu tp itu gimana ya 
-
-## ini kalo di run di localhost gasih? apa engga
-
 from django.shortcuts import  render, redirect
 from .forms import NewUserForm
 from django.contrib.auth import login, authenticate, logout
@@ -50,5 +36,4 @@ def login_request(request):
 
 def logout_request(request):
   logout(request)
-  messages.info(request, "You have successfully logged out.") 
-  # return redirect("main:homepage")
+  messages.info(request, "You have successfully logged out.")return redirect("main:homepage")
