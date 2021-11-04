@@ -4,7 +4,7 @@
   <div id="jadwal-card-container">
     <nav>
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
-          <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Semua</button>
+          <button class="text-primary font-semibold nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Semua</button>
           <button class="nav-link" id="nav-tinggi-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Tinggi</button>
           <button class="nav-link" id="nav-sedang-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Sedang</button>
           <button class="nav-link" id="nav-rendah-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Rendah</button>
@@ -19,7 +19,7 @@
                     {{ i.Matkul }} 
                     </div>
                     <div class="card-body">
-                    <h5 class="card-title">{{ i.Topik }}
+                    <h5 class="card-title font-semibold">{{ i.Topik }}
                         {% if i.Prioritas == "Rendah" %}  
                         <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
                         {{ i.Prioritas }}
