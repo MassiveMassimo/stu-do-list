@@ -15,6 +15,16 @@
   </head>
 
   <body>
+    {% if user.is_authenticated %}
+    <div id="navbar"></div>
+    
+    <script>
+    $(function() {
+      $("#navbar").load("/static/navbar_auth.html");
+    });
+    </script>
+
+    {% else %}
     <div id="navbar"></div>
     
     <script>
@@ -22,6 +32,8 @@
       $("#navbar").load("/static/navbar.html");
     });
     </script>
+
+    {% endif %}
     <div class="container my-5">
     <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
 
