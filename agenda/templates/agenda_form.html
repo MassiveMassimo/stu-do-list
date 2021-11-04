@@ -8,6 +8,9 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
 rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
+<!-- CSS Handmade -->
+<link href="{% static 'css/agenda_style.css' %}" rel="stylesheet"></link>
+
 <!-- Buat Navbar -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
 integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -28,7 +31,9 @@ integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="ano
   });
 </script>
 
-<h1>Tambah Sebuah Agenda</h1>
+<div class="container">
+  <h1>Tambah Agenda</h1>
+</div>
 
 <div id="popup-form" class="d-flex flex-column container" style="width:600px; padding: 4px;">
   
@@ -68,5 +73,5 @@ integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="ano
   </form>
 </div>
 
-<script src="{% static 'agenda_script.js' %}"></script>
+<script src="{% static 'js/agenda_script.js' %}"></script>
 {% endblock content %}

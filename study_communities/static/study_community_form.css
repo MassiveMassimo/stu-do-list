@@ -1,0 +1,32 @@
+header {
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+label {
+  font-size: 15px;
+  white-space:nowrap;
+}
+
+.form-items {
+  max-width: 100%;
+  padding: 28px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  margin-top: 90px;
+}
+
+input[type=text] {
+  font-size: 14px;
+}
+
+.form-container {
+  width:650px;
+  margin: auto;
+}
+
+.btn {
+  padding: 0 10px;
+  width: 120px;
+  height: 36px;
+  border-radius: 18px;
+}

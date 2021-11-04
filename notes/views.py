@@ -1,7 +1,7 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from .models import Notes
-from django.http.response import HttpResponseRedirect
-from django.contrib.auth.decorators import 
+from django.http.response import HttpResponseRedirect 
 
 def index(request):
   notes = Notes.objects.all()

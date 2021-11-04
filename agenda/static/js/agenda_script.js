@@ -1,6 +1,18 @@
 $.ajax({
-    url: "/agenda/get",
-    type: "GET",
+  url: "/agenda/get",
+  type: "GET",
+  beforeSend: () => { 
+    let html = "";
+    html += `
+    <div class="card">
+      <div class="card-body">
+        <h2>Loading...</h2>
+      </div>
+    </div>
+    `;
+
+    $("#agenda").html(html);
+  },
 }).done((data) => {
     let html = "";
     // data = list of todo
