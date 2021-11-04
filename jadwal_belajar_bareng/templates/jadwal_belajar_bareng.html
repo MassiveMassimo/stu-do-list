@@ -20,9 +20,7 @@
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 
   </head>
-
-  <body>
-    {% if user.is_authenticated %}
+  {% if user.is_authenticated %}
     <div id="navbar"></div>
     
     <script>
@@ -41,6 +39,9 @@
     </script>
 
     {% endif %}
+
+  <body>
+    
 
   <div id="all">
     <div class="container my-5">
