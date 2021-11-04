@@ -1,7 +1,7 @@
 import datetime
 from django.db import models
 
-# from django.contrib.auth.models import User
+from django.contrib.auth.models import User
 
 KODEMATKUL = (
   ("Alin","Aljabar Linear"),
@@ -14,7 +14,7 @@ KODEMATKUL = (
 # Create your models here.
 class Agenda(models.Model) :
     # Kalo ada user yg jadi object => yg udah pada login
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
     matkul = models.CharField(max_length=200,choices=KODEMATKUL)
     judul = models.CharField(max_length=80)
     tanggal = models.DateField(blank=True, null=True, default=datetime.date.today)
