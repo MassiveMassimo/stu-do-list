@@ -28,13 +28,13 @@
         <div class="text-center">
             <div id="page">
                 <p><br></p>
-                <h1 class="display-6">Are you sure you want to remove {{ sched.Topik }} - {{ sched.Matkul }} from Jadwal Belajar Bareng?</h1>
-                <p class="lead">Warning: This action can't be undone.</p>
+                <h1 class="display-6">Apakah kamu yakin ingin menghapus {{ sched.Topik }} - {{ sched.Matkul }} dari Jadwal Belajar Bareng?</h1>
+                <p class="lead">Peringatan: Tindakan ini tidak dapat diurungkan.</p>
                 <div class="tombol">
                   <form class="align-self-center" action="" method="POST"> 
                     {% csrf_token %}
-                    <a class = "btn btn-outline-primary" href="{% url 'jadwal:jadwal' %}">No</a>
-                    <button class = "btn btn-outline-danger" onclick="myFunction()">Yes</button>
+                    <a class = "btn btn-outline-primary" href="{% url 'jadwal:jadwal' %}">Tidak</a>
+                    <button class = "btn btn-outline-danger" onclick="myFunction()">Ya</button>
                   </form>
                 </div>
             </div>
