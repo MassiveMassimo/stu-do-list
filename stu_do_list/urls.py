@@ -36,5 +36,5 @@ urlpatterns = [
     path('schedule-kuliah/', include(schedule_kuliah)),
     path('study-communities/', include(study_communities)),
     path('video-playlist/', include(video_playlist)),
-    path("register", login_views.register_request, name="register")
+    # path("register", login_views.register_request, name="register")
 ]
