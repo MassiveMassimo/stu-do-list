@@ -50,7 +50,7 @@ $.get(`/schedule-kuliah/get-jadwal/${userId}`, function (data) {
         }
         html += "</tbody>"
         html += `</table>`
-        html += `<div>`
+        html += `</div>`
     }
 
     $("#table-jadwal").html(html)
