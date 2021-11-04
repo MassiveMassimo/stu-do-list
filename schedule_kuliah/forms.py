@@ -9,8 +9,8 @@ class MatkulForm(ModelForm):
     widgets = {
             "user": Input(attrs={"class": "form-control"}),
             "nama": Select(attrs={"class": "form-select"}),
-            "kelas": Input(attrs={"class": "form-control"}),
-            "SKS": Input(attrs={"class": "form-control"})
+            "kelas": Input(attrs={"class": "form-control", "placeholder":"Masukkan kelas dari mata kuliah tersebut"}),
+            "SKS": Input(attrs={"class": "form-control", "placeholder":"Masukkan jumlah SKS dari mata kuliah tersebut"})
         }
 
 class JadwalForm(ModelForm):
@@ -20,6 +20,6 @@ class JadwalForm(ModelForm):
     widgets = {
             "matkul": Input(attrs={"class": "form-control"}),
             "hari": Select(attrs={"class": "form-select"}),
-            "start": Input(attrs={"class": "form-control"}),
-            "end": Input(attrs={"class": "form-control"})
+            "start": Input(attrs={"class": "form-control", "placeholder":"Harap masukkan input dalam format jj:mm:dd"}),
+            "end": Input(attrs={"class": "form-control", "placeholder":"Harap masukkan input dalam format jj:mm:dd"})
         }

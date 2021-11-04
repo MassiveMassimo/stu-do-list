@@ -10,9 +10,15 @@ $.get(`/schedule-kuliah/get-jadwal/${userId}`, function (data) {
     for (const matkul in data) {
 
         html += `
-        <div class="d-flex justify-content-between align-items-center mb-3">
-                <h1>${matkul}</h1>
-                <a class="btn btn-primary" href="/schedule-kuliah/add-jadwal/${data[matkul].id}">Add Jadwal</a>
+        <div class="d-flex align-items-end mb-3">
+                <h1 style="font-size:32px;" class="fw-bold text-center mr-4">${matkul}</h1>
+                <a class=text-sm text-gray-500 whitespace-no-wrap border-b border-gray-200" href = "/schedule-kuliah/add-jadwal/${data[matkul].id}">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-blue-400 mb-0.5" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                    </svg>
+                </a>
         </div>`
 
         html += `<div class="w-100 overflow-auto">`
