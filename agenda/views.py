@@ -9,7 +9,7 @@ from django.core import serializers
 
 # Create your views here.
 
-# @login_required(login_url="authentication") # Kalo ntar ada object user
+@login_required(login_url = '/login')
 def index(request):
     agendas = Agenda.objects.all().values()
     response = {'agendas' : agendas}
@@ -18,9 +18,7 @@ def index(request):
     return render(request, 'agenda_main.html', response)
     # return (request, 'agenda_main.html')
 
-# kalo ada yg gabener bentar ya ini copas lab kemaren mmmmfffff
-@login_required(login_url="/admin/login/") # Kalo yg bisa edit cm admin
-# @login_required(login_url="authentication") # Kalo ntar ada object user
+@login_required(login_url = '/login')
 def add_agenda(request):
     if request.method == 'POST':
         form = AgendaForm(request.POST)
@@ -33,26 +31,13 @@ def add_agenda(request):
 
     return render(request, 'agenda_form.html', {'form': form})
 
-    # form = AgendaForm()
-    # if request.method == "POST":
-    #     data = request.POST.dict()
-    #     data["user"] = request.user
-    #     form = AgendaForm(data)
-    #     if form.is_valid():
-    #         form.save()
-    #         return redirect("/contohapp")
-    # context = {"form": form}
-    # return render(request, "add_todo.html", context)
-
-@login_required(login_url="/admin/login/") # Kalo yg bisa edit cm admin
-# @login_required(login_url="authentication") # Kalo ntar ada object user
+@login_required(login_url = '/login')
 def get_agenda(request):
     agendas = Agenda.objects.all()
     agendas_json = serializers.serialize("json", agendas)
     return HttpResponse(agendas_json, content_type="application/json")
 
-@login_required(login_url="/admin/login/") # Kalo yg bisa edit cm admin
-# @login_required(login_url="authentication") # Kalo ntar ada object user
+@login_required(login_url = '/login')
 def delete_agenda(request, agenda_id):
     try:
         Agenda.objects.get(id=agenda_id).delete()

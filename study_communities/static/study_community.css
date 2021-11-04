@@ -1,0 +1,60 @@
+body {
+  margin:0;
+  padding: 0;
+  width:100%;
+  overflow-x:hidden;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgb(214, 215, 216);
+  padding-top: 10px;
+}
+
+label {
+  font-weight: 500;
+}
+
+.content{
+  margin: 0 20px;
+}
+
+.cards {
+  padding: 0 16px;
+  padding-bottom: 32px;
+}
+
+.card {
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+  padding: 10px;
+  border-radius: 24px;
+}
+
+.card:hover{
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+}
+
+#container {
+  padding-top: 40px;
+}
+
+#buttons{
+  padding:20px;
+  padding-top: 0;
+  text-align: right;
+}
+
+#delete_btn {
+  width: 35%;
+  border-radius: 8px;
+}
+
+#btn {
+  padding: 2px 0;
+  width: 100px;
+  height: 32px;
+  border-radius: 18px;
+}
