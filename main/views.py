@@ -3,6 +3,7 @@ from .forms import NewUserForm
 from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm 
+from django.contrib.auth.decorators import login_required
 
 def home(request):
     return render(request, 'main/home.html')
@@ -37,6 +38,7 @@ def login_req(request):
     form = AuthenticationForm()
     return render(request=request, template_name="registration/login.html", context = {"login_form":form})
 
+@login_required(login_url = '/login')
 def logout_req(request):
     logout(request)
     messages.info(request, "You have successfully logged out.")

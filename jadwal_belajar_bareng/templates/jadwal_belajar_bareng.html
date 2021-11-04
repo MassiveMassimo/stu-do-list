@@ -42,7 +42,7 @@
                     <h1 class="display-3 fw-bold text-white lh-1 md:max-w-xl md:text-5xl">Jadwal Belajar Bareng</h1>
                     <p class="max-w-sm text-lg text-white md:max-w-md md:text-xl semi-bold" id="tulisan-kecil"><em>Di sini kamu dapat menambahkan dan mengedit jadwal. Yuk, dicoba!</em></p>
                 </div>
-                <a type="button" href = "{% url 'jadwal:addjadwal' %}" class="transform motion-safe:hover:scale-110 w-full px-8 py-3.5 transition duration-300 bg-blue-500 hover:bg-blue-600 shadow text-white font-semibold rounded-lg sm:w-auto">Add Jadwal</a>
+                <a type="button" href = "{% url 'jadwal:addjadwal' %}" class="transform motion-safe:hover:scale-110 w-full px-8 py-3.5 transition duration-300 bg-blue-500 hover:bg-blue-600 shadow text-white font-semibold rounded-lg sm:w-auto">Buat Jadwal</a>
             </div>
         </div>
     </div>
@@ -58,7 +58,7 @@
             <div id="jadwal-card-container">
               <nav>
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                  <button class="text-primary font-semibold nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Semua</button>
+                  <button class="text-dark font-semibold nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Semua</button>
                   <button class="nav-link" id="nav-tinggi-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Tinggi</button>
                   <button class="nav-link" id="nav-sedang-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Sedang</button>
                   <button class="nav-link" id="nav-rendah-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Rendah</button>
@@ -91,7 +91,7 @@
                       </h5>
                       <p class="card-text"><em>{{ i.Informasi }}</em></p>
                       <p class="card-text">Dilaksanakan pada {{ i.Waktu }}</p>
-                      <a id="meeting-btn" href={{ i.Link }} class="btn btn-primary">Join Meeting</a>
+                      <a id="meeting-btn" href={{ i.Link }} class="btn btn-primary">Ikut Pertemuan</a>
                     </div>
                   </div>
                   </div>
@@ -117,7 +117,7 @@
                                 <th scope="col">Waktu</th>
                                 <th scope="col">Topik</th>
                                 <th scope="col">Informasi</th>
-                                <th scope="col">Link</th>
+                                <th scope="col">Situs</th>
                                 <th scope="col"></th>
                                 <th scope="col"></th>
                             </tr>
@@ -146,7 +146,7 @@
                                 <td>{{ i.Topik }}</td>
                                 <td>{{ i.Informasi }}</td>
                                 <td>
-                                  <a class="e-0 s-0 y-0 text-blue-600 hover:text-blue-900" href = {{ i.Link }}>Join Meeting</a>
+                                  <a class="self-center text-blue-600 hover:text-blue-900" href = {{ i.Link }}>Ikut Pertemuan</a>
                                   <td style="width:1%">
                                   <a class=text-sm text-gray-500 whitespace-no-wrap border-b border-gray-200" href = "{% url 'jadwal:editjadwal' i.id %}">
                                   <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-blue-400" fill="none"
@@ -171,21 +171,21 @@
                     </table>
                   <div id="bawah" class="text-center">
                     <div id="hey">
-                      <p>Click to see your Jadwal Belajar Bareng data from a JSON/XML file</p>
+                      <p>Klik tombol di bawah ini untuk melihat data Jadwal Belajar dari berkas JSON / XML</p>
                     </div>
 
                     <div class="inline-flex mt-2 xs:mt-0">
                       <button
                           class="text-sm bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded-l" onclick="jsonFunc()">
-                          See JSON
+                          Lihat JSON
                       </button>
                       <button
                           class="text-sm bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded-m" onclick="xmlFunc()">
-                          See XML
+                          Lihat XML
                       </button>
                       <button
                           class="text-sm bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded-r" onclick="myFunc()">
-                          Go Back
+                          Kembali
                       </button>
                   </div>
                   </div>
