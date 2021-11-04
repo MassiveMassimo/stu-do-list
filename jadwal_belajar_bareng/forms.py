@@ -13,7 +13,7 @@ class JadwalForm(forms.ModelForm):
             'Prioritas': forms.Select(attrs={'type':'text', 'id': 'inputPrioritas', 'class':'form-control'}),
             'Matkul': forms.Select(attrs={'type':'text', 'id': 'inputMatkul', 'class':'form-control'}),
             'Waktu': forms.DateTimeInput(attrs={'type':'datetime-local', 'class':'form-control'}),
-            'Topik': forms.TextInput(attrs={'type':'text', 'class':'form-control', 'placeholder':'Topik pembelajaran'}),
-            'Informasi': forms.Textarea(attrs={'type':'text', 'class':'form-control', 'placeholder':'Informasi tambahan'}),
-            'Link': forms.URLInput(attrs={'type':'url', 'class':'form-control', 'placeholder':'Link pembelajaran daring'})
+            'Topik': forms.TextInput(attrs={'type':'text', 'class':'form-control', 'placeholder':'Masukkan topik pembelajaran'}),
+            'Informasi': forms.Textarea(attrs={'type':'text', 'class':'form-control', 'placeholder':'Masukkan informasi tambahan'}),
+            'Link': forms.URLInput(attrs={'type':'url', 'class':'form-control', 'placeholder':'Masukkan situs pertemuan daring'})
         }
