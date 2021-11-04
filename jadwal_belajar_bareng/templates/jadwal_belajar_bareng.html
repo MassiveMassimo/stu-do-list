@@ -24,6 +24,16 @@
   </head>
 
   <body>
+    {% if user.is_authenticated %}
+    <div id="navbar"></div>
+    
+    <script>
+    $(function() {
+      $("#navbar").load("/static/navbar_auth.html");
+    });
+    </script>
+
+    {% else %}
     <div id="navbar"></div>
     
     <script>
@@ -31,6 +41,8 @@
       $("#navbar").load("/static/navbar.html");
     });
     </script>
+
+    {% endif %}
 
   <div id="all">
     <div class="container my-5">
@@ -42,9 +54,21 @@
             <div class="mt-16 space-y-8 lg:mt-24 xl:mt-28">
                 <div class="space-y-4">
                     <h1 class="display-3 fw-bold text-white lh-1 md:max-w-xl md:text-5xl">Jadwal Belajar Bareng</h1>
-                    <p class="max-w-sm text-lg text-white md:max-w-md md:text-xl semi-bold" id="tulisan-kecil"><em>Di sini kamu dapat menambahkan dan mengedit jadwal. Yuk, dicoba!</em></p>
+                    {% if user.is_authenticated %}
+                    <p class="max-w-sm text-lg text-white md:max-w-md md:text-xl semi-bold" id="tulisan-kecil"><em>Hi, <b class="fw-bold">{{ user.username }}</b>! Kamu dapat menambahkan dan mengedit jadwal belajar bareng. Yuk, dicoba!</em></p>
+                    {% else %}
+                    <p class="max-w-sm text-lg text-white md:max-w-md md:text-xl semi-bold" id="tulisan-kecil"><em>Di sini kamu dapat melihat jadwal belajar yang tersedia. Masuk untuk menambahkan jadwal.</em></p>
+                    {% endif %}
                 </div>
+<<<<<<< HEAD
                 <a type="button" href = "{% url 'jadwal:addjadwal' %}" class="transform motion-safe:hover:scale-110 w-full px-8 py-3.5 transition duration-300 bg-blue-500 hover:bg-blue-600 shadow text-white font-semibold rounded-lg sm:w-auto">Add Jadwal</a>
+=======
+                {% if user.is_authenticated %}
+                <a type="button" href = "{% url 'jadwal:addjadwal' %}" class="transform motion-safe:hover:scale-110 w-full px-8 py-3.5 transition duration-300 bg-blue-500 hover:bg-blue-600 shadow text-white font-semibold rounded-lg sm:w-auto">Buat Jadwal</a>
+                {% else %}
+                <a type="button" href = "{% url 'main:login' %}" class="transform motion-safe:hover:scale-110 w-full px-8 py-3.5 transition duration-300 bg-blue-500 hover:bg-blue-600 shadow text-white font-semibold rounded-lg sm:w-auto">Masuk</a>
+                {% endif %}
+>>>>>>> 07df53a5acf9932d3d645b0f257801047bf1deb6
             </div>
         </div>
     </div>
@@ -73,7 +97,7 @@
                 <div class="card-thumbnail">
                   <div class="card" id="card-id">
                     <div class="card-header">
-                       {{ i.Matkul }} 
+                       {{ i.Matkul }}
                     </div>
                     <div class="card-body">
                       <h5 class="card-title">{{ i.Topik }}
@@ -93,7 +117,12 @@
                       </h5>
                       <p class="card-text"><em>{{ i.Informasi }}</em></p>
                       <p class="card-text">Dilaksanakan pada {{ i.Waktu }}</p>
-                      <a id="meeting-btn" href={{ i.Link }} class="btn btn-primary">Join Meeting</a>
+                      {% if user.is_authenticated %}
+                      <a id="meeting-btn" href={{ i.Link }} class="btn btn-primary">Ikut Pertemuan</a>
+                      {% else %}
+                      <br><small><a class="text-blue-600 hover:text-blue-900" href="{% url 'main:login' %}"><em>Masuk</em></a> untuk ikut.</small><br>
+                      <button id="meeting-btn" type="button" id="meeting-btn" class="btn btn-primary" disabled>Ikut Pertemuan</button>
+                      {% endif %}
                     </div>
                   </div>
                   </div>
@@ -111,6 +140,7 @@
                       </svg>
                       <input class="bg-gray-100 outline-none" type="search" id="myInput" onkeyup="myFunction()" placeholder="Cari topik..." />
                     </div><br><br>
+
                     <table id="myTable" class="table table-striped">
                         <thead class="thead-dark">
                             <tr>
@@ -119,9 +149,15 @@
                                 <th scope="col">Waktu</th>
                                 <th scope="col">Topik</th>
                                 <th scope="col">Informasi</th>
+<<<<<<< HEAD
                                 <th scope="col">Link</th>
+=======
+                                {% if user.is_authenticated %}
+                                <th scope="col">Situs</th>
+>>>>>>> 07df53a5acf9932d3d645b0f257801047bf1deb6
                                 <th scope="col"></th>
                                 <th scope="col"></th>
+                                {% endif %}
                             </tr>
                         </thead>
                         <tbody>
@@ -147,8 +183,14 @@
                                 <td>{{ i.Waktu }}</td>
                                 <td>{{ i.Topik }}</td>
                                 <td>{{ i.Informasi }}</td>
+                                {% if user.is_authenticated %}
                                 <td>
+<<<<<<< HEAD
                                   <a class="e-0 s-0 y-0 text-blue-600 hover:text-blue-900" href = {{ i.Link }}>Join Meeting</a>
+=======
+                                  <a class="self-center text-blue-600 hover:text-blue-900" href = {{ i.Link }}>Ikut Pertemuan</a>
+                                  
+>>>>>>> 07df53a5acf9932d3d645b0f257801047bf1deb6
                                   <td style="width:1%">
                                   <a class=text-sm text-gray-500 whitespace-no-wrap border-b border-gray-200" href = "{% url 'jadwal:editjadwal' i.id %}">
                                   <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-blue-400" fill="none"
@@ -167,6 +209,7 @@
                                   </svg>
                                   </a>
                               </td>
+                              {% endif %}
                               </tr>
                           {% endfor %}   
                         </tbody>

@@ -37,7 +37,12 @@
                     </h5>
                     <p class="card-text"><em>{{ i.Informasi }}</em></p>
                     <p class="card-text">Dilaksanakan pada {{ i.Waktu }}</p>
-                    <a id="meeting-btn" href={{ i.Link }} class="btn btn-primary">Join Meeting</a>
+                    {% if user.is_authenticated %}
+                    <a id="meeting-btn" href={{ i.Link }} class="btn btn-primary">Ikut Pertemuan</a>
+                    {% else %}
+                    <br><small><a class="text-blue-600 hover:text-blue-900" href="{% url 'main:login' %}"><em>Masuk</em></a> untuk ikut.</small><br>
+                    <button id="meeting-btn" type="button" id="meeting-btn" class="btn btn-primary" disabled>Ikut Pertemuan</button>
+                    {% endif %}
                     </div>
                 </div>
                 </div>

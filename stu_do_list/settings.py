@@ -56,7 +56,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main',
-    'authentication',
     'agenda',
     'ask_a_mentor',
     'jadwal_belajar_bareng',

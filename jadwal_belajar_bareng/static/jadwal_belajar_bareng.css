@@ -27,6 +27,9 @@
     text-align: center;
 }
 
+small { 
+    font-size: smaller;
+}
 
 #meeting-btn {
     margin-top: 2%;

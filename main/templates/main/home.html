@@ -14,6 +14,17 @@
   </head>
 
   <body>
+
+    {% if user.is_authenticated %}
+    <div id="navbar"></div>
+    
+    <script>
+    $(function() {
+      $("#navbar").load("/static/navbar_auth.html");
+    });
+    </script>
+
+    {% else %}
     <div id="navbar"></div>
     
     <script>
@@ -21,12 +32,18 @@
       $("#navbar").load("/static/navbar.html");
     });
     </script>
+
+    {% endif %}
     
     <main>
       <div class="container my-5">
         <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
           <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+            {% if user.is_authenticated %}
+            <h1 id="h1Header" class="display-4 fw-bold lh-1">Hello, <em>{{ user.username }}</em>!</h1>
+            {% else %}
             <h1 id="h1Header" class="display-4 fw-bold lh-1">Hello world!</h1>
+            {% endif %}
             <p id="pHeader" class="lead">Stu-Do-List kami ciptakan dengan harapan dapat membantu teman-teman yang mungkin mengalami permasalahan seperti Django. With Stu-Do-List, we hope you will find not only a study buddy but a life long friend.</p>
             <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
               <button type="button" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold">Try now</button>
