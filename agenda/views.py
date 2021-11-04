@@ -32,7 +32,7 @@ def add_agenda(request):
     return render(request, 'agenda_form.html', {'form': form})
 
 @login_required(login_url = '/login')
-def get_agenda(request):
+def get_agenda(request, user_id):
     # agendas = Agenda.objects.all()
     agendas = Agenda.objects.filter(user=user_id)
     agendas_json = serializers.serialize("json", agendas)
