@@ -11,12 +11,12 @@ from django.core import serializers
 
 @login_required(login_url = '/login')
 def index(request):
-    agendas = Agenda.objects.all().values()
-    response = {'agendas' : agendas}
-    # schedules = Jadwal.objects.all().values()
-    # response = {'agendas' : agendas, 'schedules' : schedules}
-    return render(request, 'agenda_main.html', response)
-    # return (request, 'agenda_main.html')
+    # agendas = Agenda.objects.all().values()
+    # response = {'agendas' : agendas}
+    # return render(request, 'agenda_main.html', response)
+  
+    context = {"user_id": request.user.id}
+    return render(request, "agenda_main.html", context)
 
 @login_required(login_url = '/login')
 def add_agenda(request):
@@ -33,7 +33,8 @@ def add_agenda(request):
 
 @login_required(login_url = '/login')
 def get_agenda(request):
-    agendas = Agenda.objects.all()
+    # agendas = Agenda.objects.all()
+    agendas = Agenda.objects.filter(user=user_id)
     agendas_json = serializers.serialize("json", agendas)
     return HttpResponse(agendas_json, content_type="application/json")
 
