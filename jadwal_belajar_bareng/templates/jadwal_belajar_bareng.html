@@ -41,7 +41,7 @@
                 <div class="space-y-4">
                     <h1 class="display-3 fw-bold text-white lh-1 md:max-w-xl md:text-5xl">Jadwal Belajar Bareng</h1>
                     {% if user.is_authenticated %}
-                    <p class="max-w-sm text-lg text-white md:max-w-md md:text-xl semi-bold" id="tulisan-kecil"><em>Hi, {{ user.username }}! Di sini kamu dapat menambahkan dan mengedit jadwal belajar bareng. Yuk, dicoba!</em></p>
+                    <p class="max-w-sm text-lg text-white md:max-w-md md:text-xl semi-bold" id="tulisan-kecil"><em>Hi, <b class="fw-bold">{{ user.username }}</b>! Kamu dapat menambahkan dan mengedit jadwal belajar bareng. Yuk, dicoba!</em></p>
                     {% else %}
                     <p class="max-w-sm text-lg text-white md:max-w-md md:text-xl semi-bold" id="tulisan-kecil"><em>Di sini kamu dapat melihat jadwal belajar yang tersedia. Masuk untuk menambahkan jadwal.</em></p>
                     {% endif %}
@@ -131,8 +131,8 @@
                                 <th scope="col">Waktu</th>
                                 <th scope="col">Topik</th>
                                 <th scope="col">Informasi</th>
-                                <th scope="col">Situs</th>
                                 {% if user.is_authenticated %}
+                                <th scope="col">Situs</th>
                                 <th scope="col"></th>
                                 <th scope="col"></th>
                                 {% endif %}
@@ -161,9 +161,10 @@
                                 <td>{{ i.Waktu }}</td>
                                 <td>{{ i.Topik }}</td>
                                 <td>{{ i.Informasi }}</td>
+                                {% if user.is_authenticated %}
                                 <td>
                                   <a class="self-center text-blue-600 hover:text-blue-900" href = {{ i.Link }}>Ikut Pertemuan</a>
-                                  {% if user.is_authenticated %}
+                                  
                                   <td style="width:1%">
                                   <a class=text-sm text-gray-500 whitespace-no-wrap border-b border-gray-200" href = "{% url 'jadwal:editjadwal' i.id %}">
                                   <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-blue-400" fill="none"
