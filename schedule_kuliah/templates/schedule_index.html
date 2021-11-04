@@ -42,7 +42,8 @@
             <div class="mt-16 space-y-8 lg:mt-24 xl:mt-28">
                 <div class="space-y-4">
                     <h1 class="display-3 fw-bold text-white lh-1 md:max-w-xl md:text-5xl">Schedule Kuliah</h1>
-                    <p class="max-w-sm text-lg text-white md:max-w-md md:text-xl semi-bold" id="tulisan-kecil"><em>Di sini kamu dapat menambahkan dan mengedit jadwal. Yuk, dicoba!</em></p>
+                    <p class="max-w-sm text-lg text-white md:max-w-md md:text-xl semi-bold"> Halo, <b class="fw-bold">{{ user.username }}</b>! 👾<br></p>
+                    <p class="max-w-sm text-lg text-white md:max-w-md md:text-xl semi-bold" id="tulisan-kecil"><em>Dengan fitur ini, kamu dapat memasukkan jadwal perkuliahan mingguan untuk setiap mata kuliah yang kamu ambil. Yuk, dicoba!</em></p>
                 </div>
                 <a type="button" href = "{% url 'schedule:add_matkul' %}" class="transform motion-safe:hover:scale-110 w-full px-8 py-3.5 transition duration-300 bg-blue-500 hover:bg-blue-600 shadow text-white font-semibold rounded-lg sm:w-auto">Add Matkul</a>
             </div>

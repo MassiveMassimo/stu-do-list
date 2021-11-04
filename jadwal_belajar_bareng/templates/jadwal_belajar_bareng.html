@@ -60,15 +60,11 @@
                     <p class="max-w-sm text-lg text-white md:max-w-md md:text-xl semi-bold" id="tulisan-kecil"><em>Di sini kamu dapat melihat jadwal belajar yang tersedia. Masuk untuk menambahkan jadwal.</em></p>
                     {% endif %}
                 </div>
-<<<<<<< HEAD
-                <a type="button" href = "{% url 'jadwal:addjadwal' %}" class="transform motion-safe:hover:scale-110 w-full px-8 py-3.5 transition duration-300 bg-blue-500 hover:bg-blue-600 shadow text-white font-semibold rounded-lg sm:w-auto">Add Jadwal</a>
-=======
                 {% if user.is_authenticated %}
                 <a type="button" href = "{% url 'jadwal:addjadwal' %}" class="transform motion-safe:hover:scale-110 w-full px-8 py-3.5 transition duration-300 bg-blue-500 hover:bg-blue-600 shadow text-white font-semibold rounded-lg sm:w-auto">Buat Jadwal</a>
                 {% else %}
                 <a type="button" href = "{% url 'main:login' %}" class="transform motion-safe:hover:scale-110 w-full px-8 py-3.5 transition duration-300 bg-blue-500 hover:bg-blue-600 shadow text-white font-semibold rounded-lg sm:w-auto">Masuk</a>
                 {% endif %}
->>>>>>> 07df53a5acf9932d3d645b0f257801047bf1deb6
             </div>
         </div>
     </div>
@@ -149,12 +145,8 @@
                                 <th scope="col">Waktu</th>
                                 <th scope="col">Topik</th>
                                 <th scope="col">Informasi</th>
-<<<<<<< HEAD
-                                <th scope="col">Link</th>
-=======
                                 {% if user.is_authenticated %}
                                 <th scope="col">Situs</th>
->>>>>>> 07df53a5acf9932d3d645b0f257801047bf1deb6
                                 <th scope="col"></th>
                                 <th scope="col"></th>
                                 {% endif %}
@@ -185,12 +177,8 @@
                                 <td>{{ i.Informasi }}</td>
                                 {% if user.is_authenticated %}
                                 <td>
-<<<<<<< HEAD
-                                  <a class="e-0 s-0 y-0 text-blue-600 hover:text-blue-900" href = {{ i.Link }}>Join Meeting</a>
-=======
                                   <a class="self-center text-blue-600 hover:text-blue-900" href = {{ i.Link }}>Ikut Pertemuan</a>
                                   
->>>>>>> 07df53a5acf9932d3d645b0f257801047bf1deb6
                                   <td style="width:1%">
                                   <a class=text-sm text-gray-500 whitespace-no-wrap border-b border-gray-200" href = "{% url 'jadwal:editjadwal' i.id %}">
                                   <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-blue-400" fill="none"

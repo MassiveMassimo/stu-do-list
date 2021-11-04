@@ -33,8 +33,4 @@ urlpatterns = [
     path('schedule-kuliah/', include(schedule_kuliah)),
     path('study-communities/', include(study_communities)),
     path('video-playlist/', include(video_playlist)),
-<<<<<<< HEAD
-    path("register", login_views.register_request, name="register")
-=======
->>>>>>> 07df53a5acf9932d3d645b0f257801047bf1deb6
 ]
