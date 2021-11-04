@@ -1,26 +1,154 @@
 {% extends 'schedule_base.html' %}
 {% load static %}
 {% block content %}
-<h1 class="text-center mb-5">Tambahkan Mata Kuliah Baru</h1>
+<style>
 
-<!-- <div class="d-flex align-items-center flex-lg-row flex-column-reverse"> -->
-<div style="width: 100vw;" class="d-flex justify-content-center">
-    <div style="width: fit-content" class="d-flex flex-column w-75">
-    <form action="" method="POST">
-        {% csrf_token %}
-        <div class="mb-3">
-            <label for="nama" class="form-label">Nama Mata Kuliah:</label>
-            {{ form.nama }}
+    *, body {
+        font-weight: 400;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    
+    html, body {
+        height: 100%;
+        overflow: hidden;
+    }
+    
+    .form-holder {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          min-height: 100vh;
+    }
+    
+    .form-holder .form-content {
+        position: relative;
+        text-align: center;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-align-items: center;
+        align-items: center;
+        padding: 60px;
+    }
+    
+    .form-content .form-items {
+        border: 3px solid black;
+        padding: 40px;
+        display: inline-block;
+        width: 100%;
+        min-width: 540px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+        text-align: left;
+        -webkit-transition: all 0.4s ease;
+        transition: all 0.4s ease;
+    }
+    
+    .form-content h3 {
+        color:black;
+        text-align: left;
+        font-size: 28px;
+        font-weight: 600;
+        margin-bottom: 5px;
+    }
+    
+    .form-content h3.form-title {
+        margin-bottom: 30px;
+    }
+    
+    .form-content p {
+        color:black;
+        text-align: left;
+        font-size: 17px;
+        font-weight: 300;
+        line-height: 20px;
+        margin-bottom: 30px;
+    }
+    
+    .form-content label{
+        color:black;
+    }
+    
+    .form-content input[type=text], .form-content select {
+        width: 100%;
+        padding: 9px 20px;
+        text-align: left;
+        border: 0;
+        outline: 0;
+        border-radius: 6px;
+        background-color: #F7F6F2;
+        font-size: 15px;
+        font-weight: 300;
+        color: #8D8D8D;
+        -webkit-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+        margin-top: 16px;
+    }
+    
+    .form-content textarea {
+        position: static !important;
+        width: 100%;
+        padding: 8px 20px;
+        border-radius: 6px;
+        text-align: left;
+        background-color: #F7F6F2;
+        border: 0;
+        font-size: 15px;
+        font-weight: 300;
+        color: #8D8D8D;
+        outline: none;
+        resize: none;
+        height: 120px;
+        -webkit-transition: none;
+        transition: none;
+        margin-bottom: 14px;
+    }
+    
+    </style>
+        <div class="form-body">
+            <div class="row">
+                <div class="form-holder">
+                    <div class="form-content">
+                        <div class="form-items">
+                            <h3>Add Matkul</h3>
+                            <p>Mohon lengkapi data-data berikut.</p>
+                            <form class="form-horizontal" action="" method="POST">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Nama Mata Kuliah:</label>
+                                    <div class="col-sm-10">
+                                      {{ form.nama }}
+                                    </div>
+                                  </div>
+                                <div class="form-group">
+                                  <label class="control-label col-sm-2">Kelas:</label>
+                                  <div class="col-sm-10">          
+                                    {{ form.kelas }}
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">SKS:</label>
+                                    <div class="col-sm-10">
+                                      {{ form.SKS }}
+                                    </div>
+                                  </div>
+                               <div class="form-group">        
+                                <div class="col-sm-offset-2 col-sm-10">
+                                  <button type="submit" class="btn btn-default">Add Matkul</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="mb-3">
-            <label for="kelas" class="form-label">Kelas:</label>
-            {{ form.kelas }}
-        </div>
-        <div class="mb-3">
-            <label for="SKS" class="form-label">SKS:</label>
-            {{ form.SKS }}
-        </div>
-        <button type="submit" class="btn btn-dark border-0 fw-bold" >Add Matkul</button>
-    </form>
-</div>
 {% endblock content %}

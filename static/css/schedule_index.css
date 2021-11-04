@@ -1,0 +1,51 @@
+.card{
+    margin-bottom: 2%;
+}
+
+.card:hover{
+    transform: scale(1.025);
+    box-shadow: 0 3px 4px 0 rgba(26, 107, 199, 0.233);
+}
+
+.tombolatas{
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+#tr-inside:hover {
+    background-color: #f1f7ff;
+}
+
+.tulisantabel{
+    margin-top: 4%;
+    margin-bottom: 4%;
+    text-align: center;
+}
+
+.tulisan-card{
+    margin-bottom: 4%;
+    text-align: center;
+}
+
+
+#meeting-btn {
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+#bawah {
+    margin-top: 4%;
+    margin-bottom: 4%;
+}
+
+#myTable {
+    margin-bottom: 2%;
+}
+
+#judul-atas {
+    margin-bottom: 4%;
+}
+
+#tulisan-kecil {
+    text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.4); 
+}

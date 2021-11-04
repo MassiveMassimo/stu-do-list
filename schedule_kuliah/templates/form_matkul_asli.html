@@ -1,0 +1,26 @@
+{% extends 'schedule_base.html' %}
+{% load static %}
+{% block content %}
+<h1 class="text-center mb-5">Tambahkan Mata Kuliah Baru</h1>
+
+<!-- <div class="d-flex align-items-center flex-lg-row flex-column-reverse"> -->
+<div style="width: 100vw;" class="d-flex justify-content-center">
+    <div style="width: fit-content" class="d-flex flex-column w-75">
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="nama" class="form-label">Nama Mata Kuliah:</label>
+            {{ form.nama }}
+        </div>
+        <div class="mb-3">
+            <label for="kelas" class="form-label">Kelas:</label>
+            {{ form.kelas }}
+        </div>
+        <div class="mb-3">
+            <label for="SKS" class="form-label">SKS:</label>
+            {{ form.SKS }}
+        </div>
+        <button type="submit" class="btn btn-dark border-0 fw-bold" >Add Matkul</button>
+    </form>
+</div>
+{% endblock content %}
