@@ -22,10 +22,21 @@
 
     <link rel="icon" type="image/png" href="assets/img/favicon.png" />
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-
 </head>
 
 <body>
+    <div id="navbar"></div>
+
+    {% if user.is_authenticated %}
+    <div id="navbar"></div>
+
+    <script>
+        $(function () {
+            $("#navbar").load("/static/navbar_auth.html");
+        });
+    </script>
+
+    {% else %}
     <div id="navbar"></div>
 
     <script>
@@ -33,6 +44,8 @@
             $("#navbar").load("/static/navbar.html");
         });
     </script>
+
+    {% endif %}
 
     <div id="all">
         <div class="container my-5">
@@ -59,15 +72,13 @@
                         </div>
                     </div>
                 </div>
-
-
                 <div class="container">
                     <div class="container">
                         <div class="page">
                             <div class="tulisantabel">
                                 <br><br>
                                 <h1 class="display-6 fw-bold text-center">Weekly Schedule</h1><br>
-                                <p class="text-lg text-black text-center"><em>Lihat tabel jadwal perkuliahan
+                                <p class="text-lg text-black text-center mb-16"><em>Lihat tabel jadwal perkuliahan
                                         mingguan.</em></p>
                             </div>
                             <div id="table-jadwal">
