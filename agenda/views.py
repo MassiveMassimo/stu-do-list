@@ -21,15 +21,19 @@ def index(request):
 @login_required(login_url = '/login')
 def add_agenda(request):
     if request.method == 'POST':
-        form = AgendaForm(request.POST)
+        agendas = request.POST.dict()
+        print(request.user)
+        agendas["user"] = request.user.id
+        form = AgendaForm(agendas)
         if form.is_valid():
-            form.save()  # Save data to DB
-            return HttpResponseRedirect('/agenda')  # Redirect on finish
-        
-    else: # if a GET (or any other method) we'll create a blank form
-        form = AgendaForm()
-
-    return render(request, 'agenda_form.html', {'form': form})
+            agenda_created = form.save()  # Save data to DB
+            return redirect("agenda:index", agenda_created.id)
+            # return redirect('/agenda')  # Redirect on finish
+    form = AgendaForm()
+    return render(request, "agenda_form.html", {"form": form})
+    # else: # if a GET (or any other method) we'll create a blank form
+    #     form = AgendaForm()
+    # return render(request, 'agenda_form.html', {'form': form})
 
 @login_required(login_url = '/login')
 def get_agenda(request, user_id):
