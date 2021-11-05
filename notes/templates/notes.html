@@ -56,8 +56,14 @@
                     <p class="max-w-sm text-lg text-white md:max-w-md md:text-xl semi-bold" id="tulisan-kecil"><em>Di sini kamu dapat mengakses catatan yang tersedia. Masuk terlebih dahulu untuk membagikan catatanmu.</em></p>
                     {% endif %}
                 </div>
-                <a type="button" href = "{% url 'notes:add-notes' %}" class="transform motion-safe:hover:scale-110 w-full px-8 py-3.5 transition duration-300 bg-blue-500 hover:bg-blue-600 shadow text-white font-semibold rounded-lg sm:w-auto">Buat Notes</a>
-
+              {% if user.is_authenticated %}
+                              <a type="button" href = "{% url 'notes:add-notes' %}" class="transform motion-safe:hover:scale-110 md:w-auto w-auto px-8 py-3.5 transition duration-300 bg-blue-500 hover:bg-blue-600 shadow text-white font-semibold rounded-lg sm:w-auto">Bagikan Notes</a>
+                              {% else %}
+                              <a type="button" href = "{% url 'main:login' %}" class="transform motion-safe:hover:scale-110 md:w-auto w-auto px-8 py-3.5 transition duration-300 bg-blue-500 hover:bg-blue-600 shadow text-white font-semibold rounded-lg sm:w-auto">Masuk</a>
+                              {% endif %}
+                          </div>
+                      </div>
+                  </div>
             </div>
         </div>
     </div>
