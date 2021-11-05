@@ -13,14 +13,14 @@ def index(request):
 
 @login_required(login_url = '/login')
 def add_post(request):
-    form = PostForm()
-    if request.method == 'POST':
-        form = PostForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect('/ask-a-mentor')
+    context = {}
+    form = PostForm(request.POST or None, request.FILES or None)
+    if (form.is_valid() and request.method == 'POST'):
+        form.save()
+        return HttpResponseRedirect('/ask-a-mentor')
     context = {'form' : form }
     return render(request, 'add_post.html', context)
+    
 
 @login_required(login_url = '/login')
 def add_comment(request):
