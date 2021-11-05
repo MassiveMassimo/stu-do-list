@@ -28,6 +28,7 @@ def get_jadwal(request, user_id):
 
 @login_required(login_url="main:login")
 def add_matkul(request):
+    context = {}
     if request.method == "POST":
         data_matkul = request.POST.dict()
         print(request.user)
@@ -37,9 +38,10 @@ def add_matkul(request):
         if form.is_valid():
             matkul_created = form.save()
             return redirect("schedule:add_jadwal", matkul_created.id)
-        print("Data yang disubmit tidak valid")
+        else:
+            context["error"] = "Mata kuliah gagal ditambahkan: invalid input"
     form = MatkulForm()
-    context = {"form": form}
+    context.update({"form": form})
     return render(request, "schedule_form_matkul.html", context)
 
 @login_required(login_url="main:login")
@@ -58,7 +60,7 @@ def add_jadwal(request, matkul_id):
             form.save()
             context["info"] = "Jadwal berhasil ditambahkan"
         else:
-            context["error"] = "Jadwal yang dimasukkan invalid"
+            context["error"] = "Jadwal gagal ditambahkan: invalid input"
     form = JadwalForm()
     context.update({"form": form, "matkul": f"{matkul.nama} - {matkul.kelas}"})
     return render(request, "schedule_form_jadwal.html", context)
@@ -74,6 +76,16 @@ def delete_jadwal(request, jadwal_id):
         if len(jadwal_sisa) == 0:
             matkul = Matakuliah.objects.get(pk=jadwal.matkul.id)
             matkul.delete()
+    except Exception as e:
+        print (e)
+    finally:
+        return redirect("schedule:index")
+
+@login_required(login_url="main:login")
+def delete_matkul(request, matkul_id):
+    try:
+        matkul = Matakuliah.objects.get(pk=matkul_id)
+        matkul.delete()
     except Exception as e:
         print (e)
     finally:
