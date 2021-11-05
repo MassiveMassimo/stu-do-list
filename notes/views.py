@@ -15,7 +15,7 @@ def notes(request):
     return render(request, 'notes.html', context)
 
 
-# @login_required(login_url='/login')
+@login_required(login_url='/login')
 def add_notes(request):
     form = NotesForm()
     if request.method == "POST":
@@ -28,7 +28,7 @@ def add_notes(request):
     return render(request, 'add_notes.html', context)
 
 
-# @login_required(login_url='/login')
+@login_required(login_url='/login')
 def remove_notes(request,id):
     obj = get_object_or_404(NotesModel, id=id)
     if request.method == 'POST':
