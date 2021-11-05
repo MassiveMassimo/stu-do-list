@@ -18,11 +18,10 @@
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="assets/img/favicon.png"/>
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://unpkg.com/tailwindcss@2.2.4/dist/tailwind.min.css" rel="stylesheet">
 
   </head>
-
-  <body>
-    {% if user.is_authenticated %}
+  {% if user.is_authenticated %}
     <div id="navbar"></div>
     
     <script>
@@ -42,192 +41,200 @@
 
     {% endif %}
 
-  <div id="all">
-    <div class="container my-5">
+  <body>
+    
 
-    <div class="row align-items-center bg-white rounded-3 border shadow-lg">
+      <div id="all">
+            <div class="container my-5">
 
-      <div id="judul-atas" class="bg-cover bg-no-repeat bg-right-top xl:bg-bottom rounded-3" style="background-image: url('https://s10.gifyu.com/images/ezgif-3-84adeae88da4.gif')"><!-- Start Hero Block -->
-        <div class="container mx-auto sm:pb-16 lg:pb-24 xl:pb-32">
-            <div class="mt-16 space-y-8 lg:mt-24 xl:mt-28">
-                <div class="space-y-4">
-                    <h1 class="display-3 fw-bold text-white lh-1 md:max-w-xl md:text-5xl">Jadwal Belajar Bareng</h1>
-                    {% if user.is_authenticated %}
-                    <p class="max-w-sm text-lg text-white md:max-w-md md:text-xl semi-bold" id="tulisan-kecil"><em>Hi, <b class="fw-bold">{{ user.username }}</b>! Kamu dapat menambahkan dan mengedit jadwal belajar bareng. Yuk, dicoba!</em></p>
-                    {% else %}
-                    <p class="max-w-sm text-lg text-white md:max-w-md md:text-xl semi-bold" id="tulisan-kecil"><em>Di sini kamu dapat melihat jadwal belajar yang tersedia. Masuk untuk menambahkan jadwal.</em></p>
-                    {% endif %}
-                </div>
-                {% if user.is_authenticated %}
-                <a type="button" href = "{% url 'jadwal:addjadwal' %}" class="transform motion-safe:hover:scale-110 w-full px-8 py-3.5 transition duration-300 bg-blue-500 hover:bg-blue-600 shadow text-white font-semibold rounded-lg sm:w-auto">Buat Jadwal</a>
-                {% else %}
-                <a type="button" href = "{% url 'main:login' %}" class="transform motion-safe:hover:scale-110 w-full px-8 py-3.5 transition duration-300 bg-blue-500 hover:bg-blue-600 shadow text-white font-semibold rounded-lg sm:w-auto">Masuk</a>
-                {% endif %}
-            </div>
-        </div>
-    </div>
+                <div class="row align-items-center bg-white rounded-3 border shadow-lg">
+
+                    <div id="judul-atas" class="bg-cover bg-no-repeat bg-right-top xl:bg-bottom rounded-3" style="background-image: url('https://s10.gifyu.com/images/ezgif-3-84adeae88da4.gif')"><!-- Start Hero Block -->
+                      <div class="container mx-auto sm:pb-16 lg:pb-24 xl:pb-32">
+                          <div class="mt-16 space-y-8 lg:mt-24 xl:mt-28">
+                              <div class="space-y-4">
+                                  <h1 class="display-3 fw-bold text-white lh-1 md:max-w-xl md:text-5xl">Jadwal Belajar Bareng</h1>
+                                  {% if user.is_authenticated %}
+                                  <p class="max-w-sm text-lg text-white md:max-w-md md:text-xl semi-bold" id="tulisan-kecil"><em>Hi, <b class="fw-bold">{{ user.username }}</b>! Kamu dapat menambahkan dan mengedit jadwal belajar bareng. Yuk, dicoba!</em></p>
+                                  {% else %}
+                                  <p class="max-w-sm text-lg text-white md:max-w-md md:text-xl semi-bold" id="tulisan-kecil"><em>Di sini kamu dapat melihat jadwal belajar yang tersedia. Masuk untuk menambahkan jadwal.</em></p>
+                                  {% endif %}
+                              </div>
+                              {% if user.is_authenticated %}
+                              <a type="button" href = "{% url 'jadwal:addjadwal' %}" class="transform motion-safe:hover:scale-110 md:w-auto w-auto px-8 py-3.5 transition duration-300 bg-blue-500 hover:bg-blue-600 shadow text-white font-semibold rounded-lg sm:w-auto">Buat Jadwal</a>
+                              {% else %}
+                              <a type="button" href = "{% url 'main:login' %}" class="transform motion-safe:hover:scale-110 md:w-auto w-auto px-8 py-3.5 transition duration-300 bg-blue-500 hover:bg-blue-600 shadow text-white font-semibold rounded-lg sm:w-auto">Masuk</a>
+                              {% endif %}
+                          </div>
+                      </div>
+                    </div>
 
    
-    <div class="container">
-        <div class="container">
-            <div class="page">
-              <div class="tulisan-card">
-                <h1 class="display-6 fw-bold">Jadwal Belajar Cards</h1><br>
-                <p class="text-lg text-black"><em>Lihat seluruh jadwal atau berdasarkan prioritas.</em></p>
-              </div>
-            <div id="jadwal-card-container">
-              <nav>
-                <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                  <button class="text-dark font-semibold nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Semua</button>
-                  <button class="nav-link" id="nav-tinggi-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Tinggi</button>
-                  <button class="nav-link" id="nav-sedang-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Sedang</button>
-                  <button class="nav-link" id="nav-rendah-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Rendah</button>
-                </div>
-              </nav><br><br>
+                    <div class="container">
+                      <div class="container">
+                        <div class="page">
+                            <div class="tulisan-card">
+                              <h1 class="display-6 fw-bold">Jadwal Belajar Cards</h1><br>
+                              <p class="text-lg text-black"><em>Lihat seluruh jadwal atau berdasarkan prioritas.</em></p>
+                            </div>
+                            <div id="jadwal-card-container">
+                                <nav>
+                                  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                    <button class="text-dark font-semibold nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Semua</button>
+                                    <button class="nav-link" id="nav-tinggi-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Tinggi</button>
+                                    <button class="nav-link" id="nav-sedang-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Sedang</button>
+                                    <button class="nav-link" id="nav-rendah-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Rendah</button>
+                                  </div>
+                                </nav><br><br>
 
-              <div id="card-container">
-                <div class="grid grid-cols-3 gap-4">
-                {% for i in jadwalb %}
-                <div class="card-thumbnail">
-                  <div class="card" id="card-id">
-                    <div class="card-header">
-                       {{ i.Matkul }}
+                              <div id="card-container">
+                                <div class="grid grid-cols-1 grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+                                  {% for i in jadwalb %}
+                                    <div class="card-thumbnail">
+                                      <div class="card" id="card-id">
+                                        <div class="card-header">
+                                          {{ i.Matkul }}
+                                        </div>
+                                        <div class="card-body">
+                                          <h5 class="card-title font-semibold">{{ i.Topik }}
+                                            {% if i.Prioritas == "Rendah" %}  
+                                              <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                              {{ i.Prioritas }}
+                                              </span>
+                                            {% elif i.Prioritas == "Sedang" %}
+                                              <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
+                                                {{ i.Prioritas }}
+                                              </span>
+                                            {% else %}
+                                              <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                                                {{ i.Prioritas }}
+                                              </span>
+                                            {% endif %}
+                                          </h5>
+                                          <p class="card-text"><em>{{ i.Informasi }}</em></p>
+                                          <p class="card-text">Dilaksanakan pada {{ i.Waktu }}</p>
+                                          {% if user.is_authenticated %}
+                                          <a id="meeting-btn" href={{ i.Link }} class="btn btn-primary">Ikut Pertemuan</a>
+                                          {% else %}
+                                          <br><small><a class="text-blue-600 hover:text-blue-900" href="{% url 'main:login' %}"><em>Masuk</em></a> untuk ikut.</small><br>
+                                          <button id="meeting-btn" type="button" id="meeting-btn" class="btn btn-primary" disabled>Ikut Pertemuan</button>
+                                          {% endif %}
+                                        </div>
+                                      </div>
+                                    </div>
+                                  {% endfor %}  
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="tulisantabel">
+                              <h1 class="display-6 fw-bold">Jadwal Belajar Table</h1><br>
+                              <p class="text-lg text-black"><em>Lihat tabel jadwal belajar bersama.</em></p>
+                            </div>
+
+                            
+                                <section class="container mx-auto p-6">
+                                  <div class="flex bg-gray-100 p-2 w-60 space-x-4 rounded-lg">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 opacity-30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                    </svg>
+                                    <input class="bg-gray-100 outline-none" type="search" id="myInput" onkeyup="myFunction()" placeholder="Cari topik..." />
+                                  </div><br>
+                                  <div class="w-full overflow-hidden rounded-lg">
+                                    <div class="w-full overflow-x-auto">
+                                      <table id="myTable" class="table table-striped w-full">
+                                          <thead class="thead-dark">
+                                              <tr>
+                                                  <th scope="col">Prioritas</th>
+                                                  <th scope="col">Mata Kuliah</th>
+                                                  <th scope="col">Waktu</th>
+                                                  <th scope="col">Topik</th>
+                                                  <th scope="col">Informasi</th>
+                                                  {% if user.is_authenticated %}
+                                                  <th scope="col">Situs</th>
+                                                  <th scope="col"></th>
+                                                  <th scope="col"></th>
+                                                  {% endif %}
+                                              </tr>
+                                          </thead>
+                                          <tbody>
+
+                                            {% for i in jadwalb %}
+                                                <tr id="tr-inside">
+                                                  <td scope="col">
+                                                    {% if i.Prioritas == "Rendah" %}  
+                                                      <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                                        {{ i.Prioritas }}
+                                                      </span>
+                                                    {% elif i.Prioritas == "Sedang" %}
+                                                      <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
+                                                        {{ i.Prioritas }}
+                                                      </span>
+                                                    {% else %}
+                                                      <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                                                        {{ i.Prioritas }}
+                                                      </span>
+                                                    {% endif %}
+                                                  </td>
+                                                  <td>{{ i.Matkul }}</td>
+                                                  <td>{{ i.Waktu }}</td>
+                                                  <td>{{ i.Topik }}</td>
+                                                  <td>{{ i.Informasi }}</td>
+                                                  {% if user.is_authenticated %}
+                                                  <td>
+                                                    <a class="self-center text-blue-600 hover:text-blue-900" href = {{ i.Link }}>Ikut Pertemuan</a>
+                                                    
+                                                    <td style="width:1%">
+                                                    <a class=text-sm text-gray-500 whitespace-no-wrap border-b border-gray-200" href = "{% url 'jadwal:editjadwal' i.id %}">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-blue-400" fill="none"
+                                                        viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                                                    </svg>
+                                                  </a>
+                                                </td>
+                                                <td style="width:1%">
+                                                    <a class="y-0 e-0 s-0 text-sm text-gray-500 whitespace-no-wrap border-b border-gray-200" href = "{% url 'jadwal:removejadwal' i.id %}">
+                                                      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-red-400" fill="none"
+                                                          viewBox="0 0 24 24" stroke="currentColor">
+                                                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                              d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                                      </svg>
+                                                    </a>
+                                                </td>
+                                                {% endif %}
+                                                </tr>
+                                            {% endfor %}   
+                                          </tbody>
+                                      </table>
+                                    </div>
+                                  </div>
+                                </section>
+                            <div id="bawah" class="text-center">
+                              <div id="hey">
+                                <p>Klik tombol di bawah ini untuk melihat data Jadwal Belajar dari berkas JSON / XML</p>
+                              </div>
+
+                              <div class="inline-flex mt-2 xs:mt-0">
+                                <button
+                                    class="text-sm bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded-l" onclick="jsonFunc()">
+                                    Lihat JSON
+                                </button>
+                                <button
+                                    class="text-sm bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded-m" onclick="xmlFunc()">
+                                    Lihat XML
+                                </button>
+                                <button
+                                    class="text-sm bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded-r" onclick="myFunc()">
+                                    Kembali
+                                </button>
+                              </div>
+                            </div>
+                        </div>
+                      </div>
                     </div>
-                    <div class="card-body">
-                      <h5 class="card-title font-semibold">{{ i.Topik }}
-                        {% if i.Prioritas == "Rendah" %}  
-                          <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                          {{ i.Prioritas }}
-                          </span>
-                        {% elif i.Prioritas == "Sedang" %}
-                          <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
-                            {{ i.Prioritas }}
-                          </span>
-                        {% else %}
-                          <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
-                            {{ i.Prioritas }}
-                          </span>
-                        {% endif %}
-                      </h5>
-                      <p class="card-text"><em>{{ i.Informasi }}</em></p>
-                      <p class="card-text">Dilaksanakan pada {{ i.Waktu }}</p>
-                      {% if user.is_authenticated %}
-                      <a id="meeting-btn" href={{ i.Link }} class="btn btn-primary">Ikut Pertemuan</a>
-                      {% else %}
-                      <br><small><a class="text-blue-600 hover:text-blue-900" href="{% url 'main:login' %}"><em>Masuk</em></a> untuk ikut.</small><br>
-                      <button id="meeting-btn" type="button" id="meeting-btn" class="btn btn-primary" disabled>Ikut Pertemuan</button>
-                      {% endif %}
-                    </div>
-                  </div>
-                  </div>
-                  {% endfor %}
                 </div>
-              </div>
             </div>
-                    <div class="tulisantabel">
-                      <h1 class="display-6 fw-bold">Jadwal Belajar Table</h1><br>
-                      <p class="text-lg text-black"><em>Lihat tabel jadwal belajar bersama.</em></p>
-                    </div>
-                    <div class="flex bg-gray-100 p-2 w-60 space-x-4 rounded-lg">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 opacity-30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                      </svg>
-                      <input class="bg-gray-100 outline-none" type="search" id="myInput" onkeyup="myFunction()" placeholder="Cari topik..." />
-                    </div><br><br>
-
-                    <table id="myTable" class="table table-striped">
-                        <thead class="thead-dark">
-                            <tr>
-                                <th scope="col">Prioritas</th>
-                                <th scope="col">Mata Kuliah</th>
-                                <th scope="col">Waktu</th>
-                                <th scope="col">Topik</th>
-                                <th scope="col">Informasi</th>
-                                {% if user.is_authenticated %}
-                                <th scope="col">Situs</th>
-                                <th scope="col"></th>
-                                <th scope="col"></th>
-                                {% endif %}
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                          {% for i in jadwalb %}
-                              <tr id="tr-inside">
-                                <td scope="col">
-                                  {% if i.Prioritas == "Rendah" %}  
-                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                      {{ i.Prioritas }}
-                                    </span>
-                                  {% elif i.Prioritas == "Sedang" %}
-                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
-                                      {{ i.Prioritas }}
-                                    </span>
-                                  {% else %}
-                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
-                                      {{ i.Prioritas }}
-                                    </span>
-                                  {% endif %}
-                                </td>
-                                <td>{{ i.Matkul }}</td>
-                                <td>{{ i.Waktu }}</td>
-                                <td>{{ i.Topik }}</td>
-                                <td>{{ i.Informasi }}</td>
-                                {% if user.is_authenticated %}
-                                <td>
-                                  <a class="self-center text-blue-600 hover:text-blue-900" href = {{ i.Link }}>Ikut Pertemuan</a>
-                                  
-                                  <td style="width:1%">
-                                  <a class=text-sm text-gray-500 whitespace-no-wrap border-b border-gray-200" href = "{% url 'jadwal:editjadwal' i.id %}">
-                                  <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-blue-400" fill="none"
-                                      viewBox="0 0 24 24" stroke="currentColor">
-                                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                          d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                                  </svg>
-                                </a>
-                              </td>
-                              <td style="width:1%">
-                                  <a class="y-0 e-0 s-0 text-sm text-gray-500 whitespace-no-wrap border-b border-gray-200" href = "{% url 'jadwal:removejadwal' i.id %}">
-                                  <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-red-400" fill="none"
-                                      viewBox="0 0 24 24" stroke="currentColor">
-                                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                          d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                  </svg>
-                                  </a>
-                              </td>
-                              {% endif %}
-                              </tr>
-                          {% endfor %}   
-                        </tbody>
-                    </table>
-                  <div id="bawah" class="text-center">
-                    <div id="hey">
-                      <p>Klik tombol di bawah ini untuk melihat data Jadwal Belajar dari berkas JSON / XML</p>
-                    </div>
-
-                    <div class="inline-flex mt-2 xs:mt-0">
-                      <button
-                          class="text-sm bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded-l" onclick="jsonFunc()">
-                          Lihat JSON
-                      </button>
-                      <button
-                          class="text-sm bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded-m" onclick="xmlFunc()">
-                          Lihat XML
-                      </button>
-                      <button
-                          class="text-sm bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded-r" onclick="myFunc()">
-                          Kembali
-                      </button>
-                  </div>
-                  </div>
-                </div>
-                </div>
-            </div>
-        </div>
-    </div>
-  </div>
-  </div>
-</div>
   <script>
 
         $(document).ready(function(){
