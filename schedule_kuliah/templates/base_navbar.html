@@ -1,0 +1,63 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark py-0" aria-label="Eighth navbar example">
+    <div class="container">
+        <a class="navbar-brand" href="/">
+            <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="31.6851" y="12.677" width="30.7929" height="4.24729" rx="2.12365"
+                    transform="rotate(120 31.6851 12.677)" fill="#29384E"></rect>
+                <rect x="24.1584" y="12.3777" width="27.6074" height="4.24729" rx="2.12365"
+                    transform="rotate(105 24.1584 12.3777)" fill="#364B6A"></rect>
+                <rect x="17.635" y="14.1451" wieedth="24.4219" height="4.24729" rx="2.12365"
+                    transform="rotate(90 17.635 14.1451)" fill="#445E84"></rect>
+                <rect x="12.616" y="17.4323" width="21.2365" height="4.24729" rx="2.12365"
+                    transform="rotate(75 12.616 17.4323)" fill="#4F71A3"></rect>
+                <rect x="9.38696" y="21.5881" width="18.051" height="4.24729" rx="2.12365"
+                    transform="rotate(60 9.38696 21.5881)" fill="#5584C9"></rect>
+                <rect x="8.00317" y="25.9319" width="14.8655" height="4.24729" rx="2.12365"
+                    transform="rotate(45 8.00317 25.9319)" fill="#0D6EFD"></rect>
+                <rect x="39.5376" y="15.4204" width="33.9783" height="4.24729" rx="2.12365"
+                    transform="rotate(135 39.5376 15.4204)" fill="#0D6EFD"></rect>
+            </svg>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample07"
+            aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExample07">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 col-lg-auto me-lg-auto ">
+                <li class="nav-item">
+                    <a class="nav-link px-2" href="/agenda">Agenda</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link px-2" href="/ask-a-mentor/">Ask a Mentor</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link px-2" href="/jadwal-belajar-bareng/">Jadwal Belajar Bareng</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link px-2" href="/notes/">Notes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link px-2" href="/schedule-kuliah">Schedule Kuliah</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link px-2" href="/study-communities">Study Communities</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link px-2" href="/video-playlist/">Video Playlist</a>
+                </li>
+            </ul>
+            {% if user.is_authenticated %}
+            <div class="col-md-2 text-end">
+                <a role="button" class="btn btn-outline-primary me-2" href="/logout/">Log out</a>
+            </div>
+            {% else %}
+            <div class="col-md-2 text-end">
+                <a role="button" class="btn btn-outline-primary me-2" href="/login/">Login</a>
+                <a role="button" class="btn btn-primary" href="/register/">Sign-up</a>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</nav>
