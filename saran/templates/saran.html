@@ -107,8 +107,9 @@ body {
         </div>
       </div>
       {% endfor %} -->
-                {% for i in saran %}
                 <div class="grid grid-cols-2">
+                {% for i in saran %}
+                
                     <div class="max-w-md py-4 px-8 bg-white shadow-lg rounded-lg my-20">
                         <div class="flex justify-center md:justify-end -mt-16">
                         <img class="w-20 h-20 object-cover rounded-full border-2 border-indigo-500" src="/static/img/image.png">
@@ -121,8 +122,9 @@ body {
                         <a href="#" class="text-xl font-medium text-indigo-500">{{ i.Email }}</a>
                         </div>
                     </div>
-                </div>
+                
                 {% endfor %}
+                </div>
 
     </div>
   </body>
