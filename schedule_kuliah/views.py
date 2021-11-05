@@ -7,6 +7,7 @@ from django.core import serializers
 import json
 # Create your views here.
 
+@login_required(login_url = '/login')
 def index(request):
     context = {"user_id": request.user.id}
     return render(request, "schedule_index.html", context)
@@ -34,7 +35,7 @@ def add_matkul(request):
         data_matkul["user"] = request.user.id
         form = MatkulForm(data_matkul)
         print(form.errors)
-        found = len(Matakuliah.objects.filter(nama=data_matkul["nama"])) > 0
+        found = len(Matakuliah.objects.filter(nama=data_matkul["nama"],user=request.user.id)) > 0
         if found:
             nama = data_matkul['nama']
             context["error"] = f"Mata kuliah {nama} sudah pernah ditambahkan"
