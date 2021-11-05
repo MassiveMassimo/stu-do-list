@@ -4,8 +4,8 @@ from . import views
 app_name = 'notes'
 
 urlpatterns = [
-  path('', views.notes, name='notes'),
-  path('<str:matkul>', views.detail_notes, name='matkul'),
-  path('add/', views.add_notes, name='addnotes'),
-  path('remove/<str:id>/', views.remove_notes, name ='removenotes'),
+    path('', views.notes, name='notes'),
+    path('<str:matkul>', views.detail_notes, name='detail-notes'),
+    path('add-notes/', views.add_notes, name='add-notes'),
+    path('remove-notes/<id>', views.remove_notes, name='remove-notes'), #add parameter to url
 ]

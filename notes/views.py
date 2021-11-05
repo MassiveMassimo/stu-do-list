@@ -1,9 +1,13 @@
-from django.shortcuts import render, redirect
-from django.http.response import HttpResponseRedirect
+from django.shortcuts import render, get_object_or_404, redirect
+from django.http.response import HttpResponseRedirect, JsonResponse
 from .models import NotesModel
 from .forms import NotesForm
+from django.http.response import HttpResponse
+from django.core import serializers
 from django.contrib.auth.decorators import login_required
 
+
+# import get_object_or_404, from django.core import serializers, from django.http.response import HttpResponse
 
 def notes(request):
     datas = NotesModel.objects.all()
@@ -11,7 +15,7 @@ def notes(request):
     return render(request, 'notes.html', context)
 
 
-@login_required(login_url='/login')
+# @login_required(login_url='/login')
 def add_notes(request):
     form = NotesForm()
     if request.method == "POST":
@@ -24,15 +28,17 @@ def add_notes(request):
     return render(request, 'add_notes.html', context)
 
 
-@login_required(login_url='/login')
-def remove_notes(request, id):
-    note = NotesModel.objects.get(id=id)
-    if request.method == "POST":
-        note.delete()
-        return redirect('/notes')
-
-    context = {'note': note}
-    return render(request, 'remove_notes.html', context)
+# @login_required(login_url='/login')
+def remove_notes(request,id):
+    obj = get_object_or_404(NotesModel, id=id)
+    if request.method == 'POST':
+        obj.delete()
+    note = serializers.serialize('json', NotesModel.objects.all())
+    return HttpResponse(note, content_type='application/json')
+    # if request.method == "POST":
+    #     notes_id = request.POST.get('id')
+    #     NotesModel.objects.filter(id=notes_id).delete()
+    #     return JsonResponse({'status': True})
 
 
 def detail_notes(request, matkul):
