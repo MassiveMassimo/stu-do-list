@@ -6,12 +6,16 @@
 
 <title>Stu-do-list - Agenda</title>
 
+<!-- Ikon di tab -->
+<link rel="icon" href="/static/favicon.svg">
+<link rel="mask-icon" href="/static/favicon.svg" color="#000000">
+
 <!-- CSS Bootstrap -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
 rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
 <!-- CSS Handmade -->
-<link href="{% static 'css/agenda_style.css' %}" rel="stylesheet"></link>
+<link href="{% static 'css/agenda_main_style.css' %}" rel="stylesheet"></link>
 
 <!-- Buat Navbar -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -27,17 +31,35 @@ integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="ano
 {% block content %}
 
 <!-- Buat Navbar -->
-<script>
-  $(function() {
-    $("#navbar").load("/static/navbar.html");
-  });
-</script>
+{% if user.is_authenticated %}
+<div id="navbar"></div>
+    
+  <script>
+    $(function() {
+      $("#navbar").load("/static/navbar_auth.html");
+    });
+  </script>
 
-<div class="container">
+{% else %}
+  <div id="navbar"></div>
+    
+    <script>
+    $(function() {
+      $("#navbar").load("/static/navbar.html");
+    });
+  </script>
+
+{% endif %}
+
+<!-- Main Implementation -->
+
+<div class="container-dim">
+<div class="card" style="width:700px;">
+<div class="container-dim">
   <h1>Tambah Agenda</h1>
 </div>
 
-<div id="popup-form" class="d-flex flex-column container" style="width:600px; padding: 4px;">
+<div id="popup-form" class="d-flex flex-column container-dim" style="width:600px; padding: 4px;">
   
   <form action="" method="POST">
   {% csrf_token %}
@@ -67,12 +89,16 @@ integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="ano
     {{ form.keterangan }}
   </div>
 
-  <div class="container">
+  <div class="container-dim">
+    {% csrf_token %}
+    <a type="button" class="btn btn-outline-danger" href="{% url 'agenda:index' %}">Batal</a>
     <input type="submit" class="btn btn-primary justify-content-center" value="Tambahkan ke Agenda">
-    <input type="button" class="btn btn-secondary" value="Kembali" onclick="history.back()">
+    
   </div>
           
   </form>
+</div>
+</div>
 </div>
 
 <script src="{% static 'js/agenda_script.js' %}"></script>

@@ -10,7 +10,7 @@ def index(request):
   response = {"video_playlist" : video_playlist}
   return render(request, "video_playlist.html", response)
 
-@login_required(login_url="/admin/login/")
+@login_required(login_url='/login')
 def add_video(request):
   response = {}
   form = VideoForm(request.POST)
@@ -29,4 +29,3 @@ def add_video(request):
 
   response['form']= form
   return render(request, "video_playlist_form.html", response)
-

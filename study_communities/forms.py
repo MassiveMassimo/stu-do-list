@@ -11,5 +11,5 @@ class CommunityForm(ModelForm):
       'kelas': forms.TextInput(attrs={'type':'text', 'class':'form-control', 'placeholder':'Masukkan kelas'}),
       'prodi': forms.TextInput(attrs={'type':'text', 'class':'form-control', 'placeholder':'Masukkan program studi'}),
       'info': forms.TextInput(attrs={'type':'text', 'class':'form-control', 'placeholder':'Masukkan keterangan tambahan'}),
-      'link': forms.TextInput(attrs={'type':'text', 'class':'form-control', 'placeholder':'Masukkan link'})
+      'link': forms.TextInput(attrs={'type':'text', 'class':'form-control', 'placeholder':'Masukkan link grup'})
     }

@@ -1,35 +1,38 @@
 body {
   margin:0;
   padding: 0;
-  width:100%;
-  overflow-x:hidden;
 }
 
-header {
+label {
+  font-weight: 700;
+}
+
+.masthead {
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-bottom: 20px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+}
+
+#title {
   display: flex;
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid rgb(214, 215, 216);
   padding-top: 10px;
+  padding-bottom: 16px;
 }
 
-label {
-  font-weight: 500;
-}
-
-.content{
-  margin: 0 20px;
-}
-
-.cards {
-  padding: 0 16px;
+#content {
+  padding: 10px;
   padding-bottom: 32px;
+  padding-top: 20px;
 }
 
 .card {
   box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
-  padding: 10px;
-  border-radius: 24px;
 }
 
 .card:hover{
@@ -37,24 +40,37 @@ label {
   box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
 }
 
-#container {
-  padding-top: 40px;
-}
-
 #buttons{
-  padding:20px;
+  padding:16px;
   padding-top: 0;
   text-align: right;
 }
 
 #delete_btn {
   width: 35%;
-  border-radius: 8px;
+  border-radius: 6px;
 }
 
 #btn {
   padding: 2px 0;
   width: 100px;
   height: 32px;
-  border-radius: 18px;
+  border-radius: 6px;
+}
+
+#bgcontainer {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+#tulisan {
+  margin-left: 20px;
+}
+
+#masuk {
+  margin-top: 24px;
+  margin-left: 20px;
+}
+
+.containercard {
+  margin: 0 24px;
 }

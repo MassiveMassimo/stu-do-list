@@ -7,6 +7,6 @@ class VideoForm(ModelForm):
     model = Video
     fields = "__all__"
     widgets = {
-      'Title': forms.TextInput(attrs={'type':'text', 'class':'form-control', 'id':'title', 'placeholder':'Enter title', 'name':'title'}),
-      'Link': forms.TextInput(attrs={'type':'text', 'class':'form-control', 'id':'link', 'placeholder':'Enter embedded link', 'name':'link'}),
+      'Title': forms.TextInput(attrs={'type':'text', 'class':'form-control', 'id':'title', 'placeholder':'Masukkan judul', 'name':'title'}),
+      'Link': forms.TextInput(attrs={'type':'text', 'class':'form-control', 'id':'link', 'placeholder':'Masukkan tautan (embedded link)', 'name':'link'}),
     }

@@ -1,5 +1,8 @@
+const user_id = $("meta[name=user_id]").attr("content")
+
 $.ajax({
-  url: "/agenda/get",
+  // url: "/agenda/get/${user_id}",
+  url: "/agenda/get/",
   type: "GET",
   beforeSend: () => { 
     let html = "";
@@ -25,11 +28,12 @@ $.ajax({
             <h6 class="card-subtitle mb-2">${data[i].fields.matkul}</h6>
             <h6 class="card-subtitle mb-2" style="color:red;">${data[i].fields.tanggal} ${data[i].fields.waktu}</h6>
             <p class="card-text">${data[i].fields.keterangan}</p>
-            <a href="/contohapp/delete/${data[i].pk}" class="btn btn-danger bottom">Hapus</a>
+            <a href="/agenda/delete/${data[i].pk}" class="btn btn-danger bottom">Hapus</a>
           </div>
         </div>
         `;
       }
       
-      document.getElementById("agenda").innerHTML = html;
+      // document.getElementById("agenda").innerHTML = html;
+      $("#agenda").html(html);
 });

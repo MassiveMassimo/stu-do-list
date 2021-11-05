@@ -1,10 +1,9 @@
 from django.db import models
 
-# Create your models here.
-from django.db import models
 
-class Notes(models.Model):
-  nama = models.CharField(max_length=50)
-  kelas = models.CharField(max_length=15)
-  info = models.CharField(max_length=100)
-  link = models.URLField()
+class NotesModel(models.Model):
+    Penulis = models.CharField(max_length=150)
+    Matkul = models.CharField(max_length=150)
+    Topik = models.CharField(max_length=150)
+    Keterangan = models.TextField()
+    Link = models.URLField(max_length=200)

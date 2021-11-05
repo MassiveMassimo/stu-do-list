@@ -13,89 +13,219 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     
   </head>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&display=swap');
 
-  <body>
+.form-items {
+    font-family: 'Poppins', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.form-holder {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+}
+
+.form-holder .form-content {
+    position: relative;
+    text-align: center;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.form-content {
+    padding: 30px;
+    display: inline-block;
+    width: 100%;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    text-align: left;
+    -webkit-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+}
+
+.form-content h3 {
+    color:black;
+    text-align: left;
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.form-content h3.form-title {
+    margin-bottom: 30px;
+}
+
+.form-content p {
+    color:black;
+    text-align: left;
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 20px;
+    margin-bottom: 30px;
+}
+
+.form-content label{
+    color:black;
+}
+
+.form-content input[type=text], .form-content select {
+    width: 100%;
+    padding: 9px 20px;
+    text-align: left;
+    border: 0;
+    outline: 0;
+    border-radius: 6px;
+    background-color: #F7F6F2;
+    font-size: 15px;
+    font-weight: 300;
+    color: #8D8D8D;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    margin-top: 16px;
+}
+
+.form-content input[type=url],  input[type=datetime-local] {
+    width: 100%;
+    padding: 9px 20px;
+    text-align: left;
+    border: 0;
+    outline: 0;
+    border-radius: 6px;
+    background-color: #F7F6F2;
+    font-size: 15px;
+    font-weight: 300;
+    color: #8D8D8D;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    margin-top: 16px;
+}
+
+.form-content textarea {
+    width: 100%;
+    padding: 8px 20px;
+    border-radius: 6px;
+    text-align: left;
+    background-color: #F7F6F2;
+    border: 0;
+    font-size: 15px;
+    font-weight: 300;
+    color: #8D8D8D;
+    outline: none;
+    resize: none;
+    height: 100px;
+    -webkit-transition: none;
+    transition: none;
+    margin-bottom: 14px;
+}
+
+.form-info {
+  margin-top: 1%;
+}
+
+.hey-h {
+  transform: scale(0.9);
+}
+
+</style>
+<head>
+<div id="navbar"></div>
     {% if user.is_authenticated %}
-    <div id="navbar"></div>
-    
     <script>
     $(function() {
       $("#navbar").load("/static/navbar_auth.html");
     });
     </script>
 
-    {% else %}
-    <div id="navbar"></div>
-    
+    {% else %}    
     <script>
     $(function() {
       $("#navbar").load("/static/navbar.html");
     });
     </script>
-
     {% endif %}
-    <div class="container my-5">
-    <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+  </head>
+  <body>
+    <div class="container my-7">
+    <div class="hey-h row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+      <div class="form-content">
+        <div class="form-items">
+            <h1 id="h1Header" class="text-center display-6 fw-bold lh-1">Buat Jadwal</h1>
+          <div class="form-content justify-content-center">
+            <form action="" method="POST" class="self-center" id="form-id">
+              {% csrf_token %}
+                  <div class="form-group">
+                    <label for="inputPrioritas" id="inputPrioritas">Prioritas:</label>
+                     <div class="col-sm-12">          
+                      {{ form.Prioritas }}
+                    </div>
+                    <small id="prioritasHelp" class="form-text text-muted">Tentukan tingkat prioritas Jadwal Belajar Bareng.</small>
+                  </div>
+                  <div class="form-group">
+                    <label for="inputMatkul" id="inputMatkul">Mata Kuliah:</label>
+                     <div class="col-sm-12">          
+                      {{ form.Matkul }}
+                    </div>
+                    <small id="prioritasHelp" class="form-text text-muted">Tentukan mata kuliah Jadwal Belajar Bareng.</small>
+                  </div>
 
-    <div class="container-fluid">
-      <div class="container-fluid">
-        <div class="page">
-          <div class="judul">
-            <h1 id="h1Header" class="display-4 fw-bold lh-1">Buat Jadwal</h1>
-          </div>
-                <form action="" method="POST" id="form-id">
+                  <div class="form-group">
+                    <label for="inputDate" id="inputDate">Waktu:</label>
+                    <div class="col-sm-12">          
+                      {{ form.Waktu }}
+                    </div>
+                    <small id="dateHelp" class="form-text text-muted">Tentukan waktu pelaksanaan Jadwal Belajar Bareng.</small>
+                  </div>
+
+                  <div class="form-group">
+                    <label>Topik:</label>
+                    <div class="col-sm-12">          
+                      {{ form.Topik }}
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="exampleFormControlTextarea1" id="exampleFormControlTextarea1">Informasi:</label>
+                    <div class="col-sm-12 form-info">          
+                      {{ form.Informasi }}
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label>Situs:</label>
+                   <div class="col-sm-12">          
+                      {{ form.Link }}
+                    </div>
+                    <small id="prioritasHelp" class="form-text text-muted">Situs harus dalam bentuk URL.</small><br>
+                  </div>
+
+                <div class="tombol">
+                  <form class="" action="" method="POST"> 
                     {% csrf_token %}
-                        <div class="form-group">
-                          <label for="inputPrioritas" id="inputPrioritas">Prioritas:</label>
-                          <br> {{ form.Prioritas }}
-                          <small id="prioritasHelp" class="form-text text-muted">Tentukan tingkat prioritas Jadwal Belajar Bareng.</small>
-                        </div>
-                        <div class="form-group">
-                          <label for="inputMatkul" id="inputMatkul">Mata Kuliah:</label>
-                          <br> {{ form.Matkul }}
-                          <small id="prioritasHelp" class="form-text text-muted">Tentukan mata kuliah Jadwal Belajar Bareng.</small>
-                        </div>
-
-                        <div class="form-group">
-                          <label for="inputDate" id="inputDate">Waktu:</label>
-                          <br> {{ form.Waktu }}
-                          <small id="dateHelp" class="form-text text-muted">Tentukan waktu pelaksanaan Jadwal Belajar Bareng.</small>
-                        </div>
-
-                        <div class="form-group">
-                          <label>Topik:</label>
-                          <br> {{ form.Topik }}
-                        </div>
-
-                        <div class="form-group">
-                          <label for="exampleFormControlTextarea1" id="exampleFormControlTextarea1">Informasi:</label>
-                          <br> {{ form.Informasi }}
-                        </div>
-
-                        <div class="form-group">
-                          <label>Situs:</label>
-                          <br> {{ form.Link }}
-                          <small id="prioritasHelp" class="form-text text-muted">Situs harus dalam bentuk URL.</small><br>
-                        </div>
-
-                      <div class="tombol">
-                        <form class="" action="" method="POST"> 
-                          {% csrf_token %}
-                          <div class="text-center">
-                            <a class = "btn btn-outline-danger" href="{% url 'jadwal:jadwal' %}">Batal</a>
-                            <button id="submitbtn" type="submit" class="btn btn-primary">Buat</button>
-                          </div><br>
-                  
-                      </div>
-
-                </form>
-
-                
-
+                    <div class="text-center">
+                      <a class = "btn btn-outline-danger" href="{% url 'jadwal:jadwal' %}">Batal</a>
+                      <button id="submitbtn" type="submit" class="btn btn-primary">Buat</button>
+                    </div>
+                </div>
+          </form>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
-    </div>
-    </div>
+
   </body>
 </html>

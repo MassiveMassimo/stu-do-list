@@ -1,4 +1,4 @@
-.container {
+.container-dim {
     margin: auto;
     display: flex;
     flex-wrap: wrap;
@@ -10,4 +10,30 @@
     margin: 8px;
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
     padding: 10px;
+}
+
+body {
+    background-color: #E2E8F0;
+}
+
+label {
+    font-weight: 700;
+}
+  
+.masthead {
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-bottom: 20px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+}
+
+#tulisan {
+    margin-left: 20px;
+}
+
+#masuk {
+    margin-top: 24px;
+    margin-left: 20px;
 }
