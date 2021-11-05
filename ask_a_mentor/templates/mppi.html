@@ -1,0 +1,76 @@
+{% load static %}
+
+<!DOCTYPE html>
+    <main id="main">
+        <div class="row vh-100 w-100">
+            <div class="col d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 250px;"> <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"> <svg class="bi me-2" width="40" height="32"> </svg> <span class="fs-4">Ask a Mentor</span> </a>
+                <hr>
+                <nav>
+                    <ul class="nav nav-pills flex-column mb-auto">
+                        <li> <a class="nav-link text-white" id="semua-tab"> <i class="fas fa-graduation-cap"></i><span class="ms-2">Semua</span> </a> </li>
+                        <li> <a class="nav-link text-white" id="alin-tab"> <i class="fas fa-subscript"></i><span class="ms-2">Alin</span> </a> </li>
+                        <li class="nav-item"> <a class="nav-link active" id="mppi-tab" aria-current="page"> <i class="fas fa-microscope"></i><span class="ms-2">MPPI</span> </a> </li>
+                        <li> <a class="nav-link text-white" id="pbp-tab"> <i class="fas fa-laptop-code"></i><span class="ms-2">PBP</span> </a> </li>
+                        <li> <a class="nav-link text-white" id="sda-tab"> <i class="fas fa-database"></i><span class="ms-2">SDA</span> </a> </li>
+                        <li> <a class="nav-link text-white" id="sosi-tab"> <i class="fab fa-ubuntu"></i><span class="ms-2">SOSI</span> </a> </li>
+                    </ul>
+                </nav>
+                <hr>
+                {% if user.is_authenticated %}
+                    <button href="{% url 'ask_a_mentor:add' %}" class="btn btn-outline-light" type="button">Silakan Bertanya</button>
+                {% else %}
+                    <button href="{% url 'main:login' %}" class="btn btn-outline-light" type="button">Silakan Bertanya</button>
+                {% endif %}
+            </div>
+            <div class="col-9 vh-100 grid grid-cols-1 gap-4 overflow-auto">
+                {% for i in posts %}
+                    {% if i.matkul == "MPPI" %}
+                        <div class="card-thumbnail">
+                            <div class="card" id="card-id">
+                                <div class="card-header">MPPI</div>
+                                <div class="card-body">
+                                    <h5 class="card-title font-semibold">{{ i.title }}</h5>
+                                    <p class="card-text"><em>Dibuka oleh {{ i.user }}</em></p>
+                                    <hr>
+                                    <p class="card-text">
+                                        {{ i.message }}
+                                    </p>
+                                    {% if user.is_authenticated %}
+                                        <button type="button" class="btn btn-primary btn-sm" href={{ i.Link }}>Komen</button>
+                                        <button type="button" class="btn btn-outline-secondary btn-sm" href={{ i.Link }}>Lihat</button>
+                                    {% else %}
+                                        <button type="button" class="btn btn-primary btn-sm" href="{% url 'main:login' %}">Komen</button>
+                                        <button type="button" class="btn btn-outline-secondary btn-sm" href="{% url 'main:login' %}">Lihat</button>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>        
+    </main>
+
+    <script>
+        $(document).ready(function(){
+            $("#semua-tab").click(function(){
+                $("#main").load("{% url 'ask_a_mentor:index' %}");
+            });
+            $("#alin-tab").click(function(){
+                $("#main").load("{% url 'ask_a_mentor:alin' %}");
+            });
+            $("#mppi-tab").click(function(){
+                $("#main").load("{% url 'ask_a_mentor:mppi' %}");
+            });
+            $("#pbp-tab").click(function(){
+                $("#main").load("{% url 'ask_a_mentor:pbp' %}");
+            });
+            $("#sda-tab").click(function(){
+                $("#main").load("{% url 'ask_a_mentor:sda' %}");
+            });
+            $("#sosi-tab").click(function(){
+                $("#main").load("{% url 'ask_a_mentor:sosih' %}");
+            });
+        });
+    </script>
+</html>
