@@ -11,7 +11,7 @@ $.get(`/schedule-kuliah/get-jadwal/${userId}`, function (data) {
 
         html += `
         <div class="d-flex align-items-end mb-3">
-                <h1 style="font-size:32px;" class="fw-bold text-center mr-4">${matkul}</h1>
+                <h1 style="font-size:32px;" class="fw-bold text-center mr-4 d-flex items-center">${matkul}-${data[matkul].kelas} <span style="font-size: 18px;" class="ml-3 badge bg-dark">${data[matkul].sks}</span></h1>
                 <a class=text-sm text-gray-500 whitespace-no-wrap border-b border-gray-200" href = "/schedule-kuliah/add-jadwal/${data[matkul].id}">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-blue-400 mb-0.5" fill="none"
                             viewBox="0 0 24 24" stroke="currentColor">

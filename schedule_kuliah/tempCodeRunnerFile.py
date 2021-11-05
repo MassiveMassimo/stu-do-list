@@ -1,1 +1,1 @@
-        jadwal.delete()
+@login_required(login_url = '/login')
