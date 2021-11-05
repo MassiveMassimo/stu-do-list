@@ -12,11 +12,12 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Video',
+            name='Saran',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('Title', models.CharField(max_length=100)),
-                ('Link', models.URLField()),
+                ('Nama', models.CharField(max_length=30)),
+                ('Email', models.EmailField(max_length=30)),
+                ('Teks', models.TextField()),
             ],
         ),
     ]
