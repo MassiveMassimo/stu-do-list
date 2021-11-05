@@ -15,7 +15,6 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-import authentication.urls as login
 import agenda.urls as agenda
 import ask_a_mentor.urls as ask_a_mentor
 import jadwal_belajar_bareng.urls as jadwal_belajar_bareng
@@ -23,12 +22,10 @@ import notes.urls as notes
 import schedule_kuliah.urls as schedule_kuliah
 import study_communities.urls as study_communities
 import video_playlist.urls as video_playlist
-import authentication.views as login_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('main.urls')),
-    path('login/', include(login)),
     path('agenda/', include(agenda)),
     path('ask-a-mentor/', include(ask_a_mentor)),
     path('jadwal-belajar-bareng/', include(jadwal_belajar_bareng)),
@@ -36,5 +33,4 @@ urlpatterns = [
     path('schedule-kuliah/', include(schedule_kuliah)),
     path('study-communities/', include(study_communities)),
     path('video-playlist/', include(video_playlist)),
-    path("register", login_views.register_request, name="register")
 ]
