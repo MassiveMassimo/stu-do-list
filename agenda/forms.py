@@ -13,7 +13,7 @@ class AgendaForm(ModelForm):
         widgets = {
             # 'matkul' : forms.Select(attrs={"class": "form-control"}, choices=KODEMATKUL),
             'matkul' : forms.Select(attrs={"class": "form-control"}),
-            'judul' : forms.Input(attrs={"class": "form-control"}),
+            'judul' : forms.TextInput(attrs={"class": "form-control"}),
             'tanggal' : forms.DateInput(attrs={"class": "form-control"}),
             'waktu' : forms.TimeInput(attrs={'type': 'time', "class": "form-control"}),
             'keterangan' : forms.Textarea(attrs={"class": "form-control  text-dim"}),
