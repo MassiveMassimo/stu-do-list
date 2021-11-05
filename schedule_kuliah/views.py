@@ -20,7 +20,7 @@ def get_jadwal(request, user_id):
         # convert Query set (Objects Jadwal hasil filter) menjadi json
         jadwal_json = serializers.serialize("json", Jadwal.objects.filter(matkul=matkul.id))
         # Mengubah json menjadi list python menggunakan json.loads(string_json)
-        jadwals[matkul.nama] = {"id": matkul.id, "jadwal": json.loads(jadwal_json)}
+        jadwals[matkul.nama] = {"id": matkul.id, "kelas": matkul.kelas, "sks": matkul.SKS, "jadwal": json.loads(jadwal_json)}
     # Mengubah dict python menjadi json menggunakan json.dumps(dict)
     data = json.dumps(jadwals)
     return HttpResponse(data, content_type="application/json")
@@ -35,7 +35,11 @@ def add_matkul(request):
         data_matkul["user"] = request.user.id
         form = MatkulForm(data_matkul)
         print(form.errors)
-        if form.is_valid():
+        found = len(Matakuliah.objects.filter(nama=data_matkul["nama"])) > 0
+        if found:
+            nama = data_matkul['nama']
+            context["error"] = f"Mata kuliah {nama} sudah pernah ditambahkan"
+        elif form.is_valid():
             matkul_created = form.save()
             return redirect("schedule:add_jadwal", matkul_created.id)
         else:
