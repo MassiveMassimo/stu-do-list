@@ -29,7 +29,26 @@
     padding: 8px;
 }
 
+.masthead {
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-bottom: 20px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+}
+
+#tulisan {
+    margin-left: 20px;
+}
+
+#masuk {
+    margin-top: 24px;
+    margin-left: 20px;
+}
+
 </style>
+
   <head>
     <div id="navbar"></div>
     {% if user.is_authenticated %}
@@ -49,12 +68,33 @@
   </head>
 
   <body>
+
+  <div class="card-overlay">
+    <header class="masthead" style="background-image: url('https://i.pinimg.com/originals/58/8a/be/588abe0205086825cce427d6c13bcb1b.gif')">
+      <div id="bgcontainer" class="container h-100">
+        <div class="row h-100 align-items-center">
+          <div class="col-12 text-left">
+            <h1 id="tulisan" class="display-4 fw-bold text-white">Saran</h1>
+            <p id="tulisan" class="max-w-sm text-lg text-white"><em>Mari kembangkan stu-do-list!</em></p>
+            <a id="masuk" class="btn btn-primary" href="{% url 'saran:addsaran' %}" class="btn btn-primary">Tambahkan Saran</a>
+          </div>
+        </div>
+      </div>
+    </header>
+  </div>
+
+  <div class="container-dim">
+    <h1>Saran</h1>
+  </div>
+
     <div class="container-dim">
+      <div class="wadah-card">
       {% for saran2 in saran %}
-      <div class="card" style="width: 24rem;">
-        <div class="card-body">
-          <h6 class="card-subtitle mb-2 text-muted">{{saran2.Nama}}</h6>
-          <p class="card-text">{{saran2.Teks}}</p>
+        <div class="card" style="width: 24rem;">
+          <div class="card-body">
+            <h6 class="card-subtitle mb-2 text-muted">{{saran2.Nama}}</h6>
+            <p class="card-text">{{saran2.Teks}}</p>
+          </div>
         </div>
       </div>
       {% endfor %}
