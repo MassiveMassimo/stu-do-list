@@ -1,7 +1,8 @@
 const user_id = $("meta[name=user_id]").attr("content")
 
 $.ajax({
-  url: "/agenda/get/${user_id}",
+  // url: "/agenda/get/${user_id}",
+  url: "/agenda/get/",
   type: "GET",
   beforeSend: () => { 
     let html = "";
