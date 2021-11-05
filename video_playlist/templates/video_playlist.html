@@ -1,15 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <title>Video Playlist</title>
-</head>
-<style>
-  *{
+  </head>
+  <style>
+body {
+  margin:0;
+  padding: 0;
+}
+
+label {
+  font-weight: 700;
+}
+
+.masthead {
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-bottom: 20px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+}
+
+#bgcontainer {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+#tulisan {
+  margin-left: 20px;
+}
+
+#add {
+  margin-top: 24px;
+  margin-left: 20px;
+}
+
+#h1Header {
+  margin-bottom: 2rem;
+}
+
+#pHeader {
+  margin-bottom: 4rem;
+}
+
+#imgHeader {
+  border-top-left-radius: 1rem;
+}
+
+.inner-wrapper {
+    position: relative;
+    height: calc(100vh - 3.5rem);
+    transition: transform 0.3s;
+}
+@media (min-width: 992px) {
+    .sticky-navbar .inner-wrapper {
+        height: calc(100vh - 3.5rem - 48px);
+    }
+}
+
+.inner-main,
+.inner-sidebar {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+}
+.inner-sidebar {
+    left: 0;
+    width: 235px;
+    border-right: 1px solid #cbd5e0;
+    background-color: #fff;
+    z-index: 1;
+}
+.inner-main {
+    right: 0;
+    left: 235px;
+}
+.inner-main-footer,
+.inner-main-header,
+.inner-sidebar-footer,
+.inner-sidebar-header {
+    height: 3.5rem;
+    border-bottom: 1px solid #cbd5e0;
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    flex-shrink: 0;
+}
+.inner-main-body,
+.inner-sidebar-body {
+    padding: 1rem;
+    overflow-y: auto;
+    position: relative;
+    flex: 1 1 auto;
+}
+.inner-main-body .sticky-top,
+.inner-sidebar-body .sticky-top {
+    z-index: 999;
+}
+.inner-main-footer,
+.inner-main-header {
+    background-color: #fff;
+}
+.inner-main-footer,
+.inner-sidebar-footer {
+    border-top: 1px solid #cbd5e0;
+    border-bottom: 0;
+    height: auto;
+    min-height: 3.5rem;
+}
+@media (max-width: 767.98px) {
+    .inner-sidebar {
+        left: -235px;
+    }
+    .inner-main {
+        left: 0;
+    }
+    .inner-expand .main-body {
+        overflow: hidden;
+    }
+    .inner-expand .inner-wrapper {
+        transform: translate3d(235px, 0, 0);
+    }
+}
+
+.nav .show>.nav-link.nav-link-faded, .nav-link.nav-link-faded.active, .nav-link.nav-link-faded:active, .nav-pills .nav-link.nav-link-faded.active, .navbar-nav .show>.nav-link.nav-link-faded {
+    color: #3367b5;
+    background-color: #c9d8f0;
+}
+
+*{
     margin: 0; padding: 0;
     box-sizing: border-box;
     text-transform: capitalize;
@@ -21,10 +146,11 @@ body{
 }
 
 .heading{
-    color: #444;
+    color: black;
     font-size: 40px;
     text-align: center;
     padding: 10px;
+    font-weight: bold;
 }
 
 .container{
@@ -54,7 +180,7 @@ body{
 .container .video-list{
     background: #fff;
     border-radius: 5px;
-    height: 430px;
+    height: 505px;
     width: 300px;
     overflow-y: scroll;
 }
@@ -120,55 +246,77 @@ body{
         grid-template-columns: 1fr;
     }
 }
-</style>
-<body>
-  <div id="navbar"></div>
-    
-    <script>
-    $(function() {
-      $("#navbar").load("/static/navbar.html");
-    });
-    </script>
-
-    <br>
-    
-    <h3 class="heading">Video Playlist</h3>
-    <br>
-    <div class="container">
-        <div class="main-video">
-            <div class="video">
-              <iframe src="{% for video in video_playlist %} {{video.Link}} {% endfor %}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
+  </style>
+  <body>
+    <div id="navbar"></div>
+    <div class="card-overlay">
+    <header class="masthead" style="background-image: url('https://i.pinimg.com/originals/4a/70/5e/4a705e028bb9f5d50995e68c791fb10a.gif')">
+      <div id="bgcontainer" class="container h-100">
+        <div class="row h-100 align-items-center">
+          <div class="col-12 text-left">
+            <h1 id="tulisan" class="display-4 fw-bold text-white">Playlist Video</h1> <br>
+            <p id="tulisan" class="max-w-sm text-lg text-white"><em>Di sini kamu dapat menambahkan video pembelajaran ataupun lagu untuk menemanimu sambil belajar. Yuk, dicoba!</em></p>
+            <br> <br>
+            <a id="add" type=button href="{% url 'add' %}" class="transform motion-safe:hover:scale-110 w-full px-8 py-3.5 transition duration-300 bg-blue-500 hover:bg-blue-600 shadow text-white font-semibold rounded-lg sm:w-auto">Tambah Video</a>
+          </div>
         </div>
+      </div>
+    </header>
+  </div>
 
-        <div class="video-list">
-          {% for video in video_playlist %}
-            <div class="vid">
-              <iframe src="{{video.Link}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                <h3 class="title">{{video.Title}}</h3>
-            </div>
-            {% endfor %}
-        </div>
-        <a class="btn btn-primary" href="{% url 'add' %}" role="button">Add Video</a>
-    </div>
+  <h3 class="heading">Playlist Video</h3>
+  <br>
+  <div class="container">
+      <div class="main-video">
+          <div class="video">
+            <iframe src="{% for video in video_playlist %} {{video.Link}} {% endfor %}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+      </div>
 
-    <script>
-        let listVideo = document.querySelectorAll('.video-list .vid');
-        let mainVideo = document.querySelector('.main-video iframe');
-        let title = document.querySelector('.main-video .title');
+      <div class="video-list">
+        {% for video in video_playlist %}
+          <div class="vid">
+            <iframe src="{{video.Link}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              <h3 class="title">{{video.Title}}</h3>
+          </div>
+          {% endfor %}
+      </div>
+  </div>
+  <br> <br>
 
-        listVideo.forEach(video =>{
-            video.onclick = () =>{
-                listVideo.forEach(vid => vid.classList.remove('active'));
-                video.classList.add('active');
-                if(video.classList.contains('active')){
-                    let src = video.children[0].getAttribute('src');
-                    mainVideo.src = src;
-                    let text = video.children[1].innerHTML;
-                    title.innerHTML = text;
-                };
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+  <script>
+    let listVideo = document.querySelectorAll('.video-list .vid');
+    let mainVideo = document.querySelector('.main-video iframe');
+    let title = document.querySelector('.main-video .title');
+
+    listVideo.forEach(video =>{
+        video.onclick = () =>{
+            listVideo.forEach(vid => vid.classList.remove('active'));
+            video.classList.add('active');
+            if(video.classList.contains('active')){
+                let src = video.children[0].getAttribute('src');
+                mainVideo.src = src;
+                let text = video.children[1].innerHTML;
+                title.innerHTML = text;
             };
-        });
+        };
+    });
+</script>
+    {% if user.is_authenticated %}
+    <script>
+      $(function() {
+        $("#navbar").load("/static/navbar_auth.html");
+      });
     </script>
-</body>
+    {% else %}
+    <script>
+      $(function() {
+        $("#navbar").load("/static/navbar.html");
+      });
+    </script>
+    {% endif %}
+  </body>
 </html>

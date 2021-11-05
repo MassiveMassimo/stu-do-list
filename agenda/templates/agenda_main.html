@@ -11,7 +11,7 @@
 rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
 <!-- CSS Handmade -->
-<link href="{% static 'css/agenda_style.css' %}" rel="stylesheet"></link>
+<link href="{% static 'css/agenda_main_style.css' %}" rel="stylesheet"></link>
 
 <!-- Buat Navbar -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -27,12 +27,27 @@ integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="ano
 {% block content %}
 
 <!-- Buat Navbar -->
-<script>
-  $(function() {
-    $("#navbar").load("/static/navbar.html");
-  });
-</script>
+{% if user.is_authenticated %}
+<div id="navbar"></div>
+    
+  <script>
+    $(function() {
+      $("#navbar").load("/static/navbar_auth.html");
+    });
+  </script>
 
+{% else %}
+  <div id="navbar"></div>
+    
+    <script>
+    $(function() {
+      $("#navbar").load("/static/navbar.html");
+    });
+  </script>
+
+{% endif %}
+
+<!-- Main Implementation -->
 <div class="container">
   <h1>Agenda</h1>
 </div>
@@ -42,7 +57,7 @@ integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="ano
 </div>
 
 <div class="container">
-  <a id="tambah-agenda" href="{% url 'agenda:index' %}" class="btn btn-primary">Tambah Agenda Baru</a>
+  <a id="tambah-agenda" href="{% url 'agenda:add' %}" class="btn btn-primary">Tambah Agenda Baru</a>
 </div>
 
 <script src="{% static 'js/agenda_script.js' %}"></script>
