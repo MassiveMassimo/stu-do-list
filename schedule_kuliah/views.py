@@ -80,3 +80,13 @@ def delete_jadwal(request, jadwal_id):
         print (e)
     finally:
         return redirect("schedule:index")
+
+@login_required(login_url="main:login")
+def delete_matkul(request, matkul_id):
+    try:
+        matkul = Matakuliah.objects.get(pk=matkul_id)
+        matkul.delete()
+    except Exception as e:
+        print (e)
+    finally:
+        return redirect("schedule:index")
