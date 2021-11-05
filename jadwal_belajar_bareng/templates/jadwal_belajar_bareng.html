@@ -212,10 +212,15 @@
                                 </section>
                             <div id="bawah" class="text-center">
                               <div id="hey">
-                                <p>Klik tombol di bawah ini untuk melihat data Jadwal Belajar dari berkas JSON / XML</p>
+                                {% if user.is_authenticated %}
+                                <p>Klik tombol di bawah ini untuk melihat data Jadwal Belajar dari berkas JSON / XML.</p>
+                                {% else %}
+                                <p><a class="text-blue-600 hover:text-blue-900" href="{% url 'main:login' %}"><em>Masuk</em></a> untuk melihat data Jadwal Belajar dari berkas JSON / XML.</p>
+                                {% endif %}
                               </div>
 
                               <div class="inline-flex mt-2 xs:mt-0">
+                                {% if user.is_authenticated %}
                                 <button
                                     class="text-sm bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded-l" onclick="jsonFunc()">
                                     Lihat JSON
@@ -228,6 +233,20 @@
                                     class="text-sm bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded-r" onclick="myFunc()">
                                     Kembali
                                 </button>
+                                {% else %}
+                                <button
+                                    class="text-sm bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded-l" disabled>
+                                    Lihat JSON
+                                </button>
+                                <button
+                                    class="text-sm bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded-m" disabled>
+                                    Lihat XML
+                                </button>
+                                <button
+                                    class="text-sm bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded-r" disabled>
+                                    Kembali
+                                </button>
+                                {% endif %}
                               </div>
                             </div>
                         </div>
