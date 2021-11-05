@@ -6,10 +6,9 @@
     justify-content: center;
 }
 
-.card {
-    margin: 8px;
-    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
-    padding: 10px;
+.wadah-card {
+    margin: 4px;
+    padding: 8px;
 }
 
 body {
@@ -36,4 +35,8 @@ label {
 #masuk {
     margin-top: 24px;
     margin-left: 20px;
+}
+
+.text-dim {
+    height: 100px;
 }

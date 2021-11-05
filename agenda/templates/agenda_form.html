@@ -51,8 +51,6 @@ integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="ano
 
 {% endif %}
 
-<!-- Main Implementation -->
-
 <div class="container-dim">
 <div class="card" style="width:700px;">
 <div class="container-dim">
@@ -91,7 +89,7 @@ integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="ano
 
   <div class="container-dim">
     {% csrf_token %}
-    <a type="button" class="btn btn-outline-danger" href="{% url 'agenda:index' %}">Batal</a>
+    <a type="button" class="btn btn-outline-danger" href="{% url 'agenda:index' %}" >Batal</a>
     <input type="submit" class="btn btn-primary justify-content-center" value="Tambahkan ke Agenda">
     
   </div>

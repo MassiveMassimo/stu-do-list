@@ -53,7 +53,6 @@ integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="ano
 
 <!-- Main Implementation -->
 
-<!-- Header GIF -->
 <div class="card-overlay">
   <header class="masthead" style="background-image: url('https://data.whicdn.com/images/304526132/original.gif')">
     <div id="bgcontainer" class="container h-100">
@@ -62,7 +61,7 @@ integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="ano
           <h1 id="tulisan" class="display-4 fw-bold text-white">Agenda</h1>
           <p id="tulisan" class="max-w-sm text-lg text-white"><em>Ada agenda apa hari ini?</em></p>
           {% if user.is_authenticated %}
-          <a id="masuk" class="btn btn-primary" href="{% url 'agenda:add' %}" class="btn btn-primary">Tambahkan</a>
+          <!-- <a id="masuk" class="btn btn-primary" href="{% url 'agenda:add' %}" class="btn btn-primary">Tambahkan</a> -->
           {% else %}
           <a id="masuk" class="btn btn-primary" href="{% url 'agenda:add' %}" class="btn btn-primary">Masuk</a>
           {% endif %}
@@ -76,13 +75,33 @@ integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="ano
   <h1>Agenda</h1>
 </div>
 
+{% if user.is_authenticated %}
+<!-- Buat animasi hover -->
+<style>
+  .card:hover{
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+  }
+</style>
+
+<div class="container-dim">
+  <a id="tambah-agenda" href="{% url 'agenda:add' %}" class="btn btn-primary h3">Tambah Agenda Baru</a>
+</div>
+
 <div id="agenda" class="container-dim">
   <!-- Ditambahin pake ajax -->
 </div>
 
+{% else %}
 <div class="container-dim">
-  <a id="tambah-agenda" href="{% url 'agenda:add' %}" class="btn btn-primary">Tambah Agenda Baru</a>
+  <div class="card" style="width: 48rem;">
+    <div class="card-body container-dim">
+      <h5>Masuk untuk melihat agenda</h5>
+    </div>
 </div>
+</div>
+
+{% endif %}
 
 <script src="{% static 'js/agenda_script.js' %}"></script>
 {% endblock content %}

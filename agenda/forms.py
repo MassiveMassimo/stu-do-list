@@ -15,5 +15,5 @@ class AgendaForm(ModelForm):
             'judul' : Input(attrs={"class": "form-control"}),
             'tanggal' : DateInput(attrs={"class": "form-control"}),
             'waktu' : TimeInput(attrs={'type': 'time', "class": "form-control"}),
-            'keterangan' : Textarea(attrs={"class": "form-control"}),
+            'keterangan' : Textarea(attrs={"class": "form-control  text-dim"}),
         }

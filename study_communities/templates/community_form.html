@@ -8,9 +8,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-    <link rel = "stylesheet" type="text/css" href = "{% static 'add_community.css' %}"/>
+    <link rel = "stylesheet" type="text/css" href = "{% static 'study_community_form.css' %}"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Add Study Community</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&display=swap');
+    </style>
 </head>
 <body>
     <div id="navbar"></div>
@@ -31,50 +34,52 @@
     </script>
 
     {% endif %}
+    <div class="container my-7">
+        <div class="hey-h row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+          <div class="form-content">
+            <div class="form-items">
+                <h1 id="h1Header" class="text-center display-6 fw-bold lh-1">Tambah Komunitas Belajar</h1>
+              <div class="form-content justify-content-center">
+                    <form action="" method="POST" id="form-id">
+                        {% csrf_token %}
+                            <div class="form-group">
+                              <label>Nama Mata Kuliah:</label>
+                              <br> {{ form.nama }}
+                            </div>
+                            <div class="form-group">
+                                <label>Kelas:</label>
+                                <br> {{ form.kelas }}
+                            </div>
+                            <div class="form-group">
+                                <label>Program Studi:</label>
+                                <br> {{ form.prodi }}
+                            </div>
+                            <div class="form-group">
+                                <label>Keterangan:</label>
+                                <br> {{ form.info }}
+                            </div>
+                            <div class="form-group">
+                              <label>Situs:</label>
+                              <br> {{ form.link }}
+                              <small id="prioritasHelp" class="form-text text-muted">Link harus dalam bentuk URL.</small><br>
+                            </div>
     
-    <div class="form-container shadow-lg">
-        <div class="form-items">
-            <header>
-                <h1 id="formtitle" class="text-4xl text-center font-semibold">Tambah Komunitas Belajar</h1>
-            </header>
-            <form action="" method="POST">
-                {% csrf_token %}
-                <div class="mb-3">
-                    <label class="form-label">Nama Matkul:</label>
-                    <div>
-                        {{ form.nama }}
-                    </div>
+                          <div class="tombol">
+                            <form class="" action="" method="POST"> 
+                              {% csrf_token %}
+                              <div class="text-center">
+                                <a class ="btn btn-outline-danger" href="/study-communities/">Batal</a>
+                                <button type="submit" class="btn btn-primary" value="Submit">Kirim</button>
+                              </div><br>
+                      
+                          </div>
+    
+                    </form>
                 </div>
-                <div class="mb-3">
-                    <label class="form-label">Kelas:</label>
-                    <div>
-                        {{ form.kelas }}
-                    </div>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Program Studi:</label>
-                    <div>
-                        {{ form.prodi }}
-                    </div>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Keterangan:</label>
-                    <div>
-                        {{ form.info }}
-                    </div>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Link:</label>
-                    <div>
-                        {{ form.link }}
-                    </div>
-                </div>
-                <div class="text-right">
-                    <a class ="btn btn-outline-danger" href="/study-communities/">Cancel</a>
-                    <button type="submit" class="btn btn-success" value="Submit">Submit</button>
-                </div>
-            </form>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
 </body>
 
