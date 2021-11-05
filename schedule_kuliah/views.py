@@ -7,7 +7,7 @@ from django.core import serializers
 import json
 # Create your views here.
 
-@login_required(login_url = '/login')
+# @login_required(login_url = '/login')
 def index(request):
     context = {"user_id": request.user.id}
     return render(request, "schedule_index.html", context)

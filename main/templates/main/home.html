@@ -42,15 +42,18 @@
             {% if user.is_authenticated %}
             <h1 id="h1Header" class="display-4 fw-bold lh-1">Hello, <em>{{ user.username }}</em>!</h1>
             {% else %}
-            <h1 id="h1Header" class="display-4 fw-bold lh-1">Hello world!</h1>
+            <h1 id="h1Header" class="display-4 fw-bold lh-1">Welcome to Stu-do-list!</h1>
             {% endif %}
-            <p id="pHeader" class="lead">Stu-Do-List kami ciptakan dengan harapan dapat membantu teman-teman yang mungkin mengalami permasalahan seperti Django. With Stu-Do-List, we hope you will find not only a study buddy but a life long friend.</p>
+            <p id="pHeader" class="lead">
+              Stu-Do-List adalah sebuah platform di mana kamu dapat bertemu teman-teman baru dan belajar bersama. Stu-Do-List kami ciptakan dengan harapan dapat membantu teman-teman yang mungkin mengalami permasalahan perkuliahan daring. 
+              <br><br>
+              <b><i>With Stu-Do-List, we hope you will find not only a study buddy but a life long friend.</i></b></p>
             <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
               <a href="{% url 'main:login' %}" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold">Gabung Sekarang</a>
             </div>
           </div>
           <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
-              <img id="imgHeader" class="rounded-lg-3" src="https://media4.giphy.com/media/Ju7l5y9osyymQ/200.gif" alt="" width="720">
+              <img id="imgHeader" class="rounded-lg-3" src="https://64.media.tumblr.com/c41035ddb2eb612e53649324fdc1a75d/413a65c8cfce3d3f-b0/s540x810/e0335ae627eb1b9ebac0a2b913cf10e5649cf7af.gifv" alt="" width="500">
           </div>
         </div>
       </div>

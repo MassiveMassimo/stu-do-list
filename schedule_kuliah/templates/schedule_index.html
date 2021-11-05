@@ -11,21 +11,26 @@
                 <div class="space-y-4">
                     <h1 class="display-3 fw-bold text-white lh-1 md:max-w-xl md:text-5xl">Schedule Kuliah
                     </h1>
+                    {% if user.is_authenticated %}
                     <p class="max-w-sm text-lg text-white md:max-w-md md:text-xl semi-bold"> Halo, <b class="fw-bold">{{ user.username }}</b>! 👾<br></p>
+                    {% endif %}
                     <p class="max-w-sm text-lg text-white md:max-w-md md:text-xl semi-bold" id="tulisan-kecil">
                         <em>Dengan fitur ini, kamu dapat memasukkan jadwal perkuliahan
                             mingguan untuk setiap mata kuliah yang kamu ambil. Yuk, dicoba!</em>
                     </p>
                 </div>
+                {% if user.is_authenticated %}
                 <a type="button" href="{% url 'schedule:add_matkul' %}"
                     class="transform motion-safe:hover:scale-110 w-full px-8 py-3.5 transition duration-300 bg-blue-500 hover:bg-blue-600 shadow text-white font-semibold rounded-lg sm:w-auto">Add
                     Matkul</a>
+                {% endif %}
             </div>
         </div>
     </div>
     <div class="container">
         <div class="container">
             <div class="page">
+                {% if user.is_authenticated %}
                 <div class="tulisantabel">
                     <br><br>
                     <h1 class="display-6 fw-bold text-center">Weekly Schedule</h1><br>
@@ -34,10 +39,16 @@
                 </div>
                 <div id="table-jadwal">
                 </div>
+                {% else %}
+                <div class="tulisantabel">
+                    <br><br>
+                    <h1 class="display-6 fw-bold text-center">Maaf, kamu belum dapat mengakses fitur ini</h1><br>
+                    <p class="text-lg text-black text-center mb-16"><em>Silahkan login/sign-up terlebih dahulu.</em></p>
             </div>
         </div>
     </div>
 </div>
+{% endif %}
 {% endblock content %}
 
 {% block script %}
