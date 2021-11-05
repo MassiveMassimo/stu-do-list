@@ -3,7 +3,7 @@ from .models import JadwalBelajarBareng
 import datetime
 
 class DateTimeInput(forms.DateTimeInput):
-    input_type: 'datetime-local'
+    input_type: 'datetime'
 
 class JadwalForm(forms.ModelForm):
     class Meta:

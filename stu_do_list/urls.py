@@ -22,6 +22,7 @@ import notes.urls as notes
 import schedule_kuliah.urls as schedule_kuliah
 import study_communities.urls as study_communities
 import video_playlist.urls as video_playlist
+import saran.urls as saran
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -33,4 +34,5 @@ urlpatterns = [
     path('schedule-kuliah/', include(schedule_kuliah)),
     path('study-communities/', include(study_communities)),
     path('video-playlist/', include(video_playlist)),
+    path('saran/', include(saran)),
 ]
