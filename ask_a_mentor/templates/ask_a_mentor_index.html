@@ -49,9 +49,9 @@
                 </nav>
                 <hr>
                 {% if user.is_authenticated %}
-                    <button href="{% url 'ask_a_mentor:add' %}" class="btn btn-outline-light" type="button">Silakan Bertanya</button>
+                    <a href="{% url 'ask_a_mentor:add' %}" class="btn btn-outline-light" type="button">Silakan Bertanya</a>
                 {% else %}
-                    <button href="{% url 'main:login' %}" class="btn btn-outline-light" type="button">Silakan Bertanya</button>
+                    <a href="{% url 'main:login' %}" class="btn btn-outline-light" type="button">Silakan Bertanya</a>
                 {% endif %}
             </div>
             <div class="col-9 vh-100 grid grid-cols-1 gap-4 overflow-auto">
@@ -101,7 +101,7 @@
                 $("#main").load("{% url 'ask_a_mentor:sda' %}");
             });
             $("#sosi-tab").click(function(){
-                $("#main").load("{% url 'ask_a_mentor:sosih' %}");
+                $("#main").load("{% url 'ask_a_mentor:sosi' %}");
             });
         });
     </script>
