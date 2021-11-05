@@ -7,9 +7,9 @@ $.ajax({
   beforeSend: () => { 
     let html = "";
     html += `
-    <div class="card">
-      <div class="card-body">
-        <h2>Loading...</h2>
+    <div class="card" style="width: 48rem;">
+      <div class="card-body container-dim">
+        <h5>Loading</h5>
       </div>
     </div>
     `;

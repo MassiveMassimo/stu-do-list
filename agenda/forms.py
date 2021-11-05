@@ -11,9 +11,9 @@ class AgendaForm(ModelForm):
         model = Agenda
         fields = ['matkul', 'judul', 'tanggal', 'waktu', 'keterangan']
         widgets = {
-            'matkul' : Select(attrs={"class": "form-control"}, choices=KODEMATKUL),
-            'judul' : Input(attrs={"class": "form-control"}),
-            'tanggal' : DateInput(attrs={"class": "form-control"}),
-            'waktu' : TimeInput(attrs={'type': 'time', "class": "form-control"}),
-            'keterangan' : Textarea(attrs={"class": "form-control  text-dim"}),
+            'matkul' : forms.Select(attrs={"class": "form-control"}, choices=KODEMATKUL),
+            'judul' : forms.Input(attrs={"class": "form-control"}),
+            'tanggal' : forms.DateInput(attrs={"class": "form-control"}),
+            'waktu' : forms.TimeInput(attrs={'type': 'time', "class": "form-control"}),
+            'keterangan' : forms.Textarea(attrs={"class": "form-control  text-dim"}),
         }
