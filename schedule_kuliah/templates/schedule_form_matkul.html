@@ -43,6 +43,9 @@
           <div class="judul">
             <h1 id="h1Header" class="display-4 fw-bold lh-1">Tambahkan Mata Kuliah Baru</h1>
           </div>
+          {% if error %}
+          <div id="form-error" class="alert alert-danger" role="alert">{{ error }}</div>
+          {% endif %}
                 <form action="" method="POST" id="form-id">
                     {% csrf_token %}
                         <div class="form-group">
@@ -63,7 +66,7 @@
 
                       <div class="tombol">
                           <div class="text-center">
-                            <a class = "btn btn-outline-danger" href="{% url 'schedule:add_matkul' %}">Cancel</a>
+                            <a class = "btn btn-outline-danger" href="{% url 'schedule:index' %}">Cancel</a>
                             <button id="submitbtn" type="submit" class="btn btn-primary">Add</button>
                           </div><br>
                   
@@ -78,5 +81,11 @@
     </div>
     </div>
     </div>
+    <script>
+      const error = document.getElementById("form-error")
+      setTimeout(() => {
+          error.classList.add("d-none")
+      }, 3000)
+  </script>
   </body>
 </html>

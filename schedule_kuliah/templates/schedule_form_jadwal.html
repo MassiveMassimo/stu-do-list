@@ -43,6 +43,12 @@
           <div class="judul">
             <h1 id="h1Header" class="display-4 fw-bold lh-1">Tambahkan Jadwal untuk Mata Kuliah {{ matkul }}</h1>
           </div>
+          {% if info %}
+          <div id="form-info" class="alert alert-success" role="alert">{{ info }}</div>
+          {% endif %}
+          {% if error %}
+          <div id="form-error" class="alert alert-danger" role="alert">{{ error }}</div>
+          {% endif %}
                 <form action="" method="POST" id="form-id">
                     {% csrf_token %}
                         <div class="form-group">
@@ -73,5 +79,15 @@
     </div>
     </div>
     </div>
+    <script>
+      const info = document.getElementById("form-info")
+      setTimeout(() => {
+          info.classList.add("d-none")
+      }, 3000)
+      const error = document.getElementById("form-error")
+      setTimeout(() => {
+          error.classList.add("d-none")
+      }, 3000)
+  </script>
   </body>
 </html>

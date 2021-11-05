@@ -28,6 +28,7 @@ def get_jadwal(request, user_id):
 
 @login_required(login_url="main:login")
 def add_matkul(request):
+    context = {}
     if request.method == "POST":
         data_matkul = request.POST.dict()
         print(request.user)
@@ -37,9 +38,10 @@ def add_matkul(request):
         if form.is_valid():
             matkul_created = form.save()
             return redirect("schedule:add_jadwal", matkul_created.id)
-        print("Data yang disubmit tidak valid")
+        else:
+            context["error"] = "Mata kuliah gagal ditambahkan: invalid input"
     form = MatkulForm()
-    context = {"form": form}
+    context.update({"form": form})
     return render(request, "schedule_form_matkul.html", context)
 
 @login_required(login_url="main:login")
@@ -58,7 +60,7 @@ def add_jadwal(request, matkul_id):
             form.save()
             context["info"] = "Jadwal berhasil ditambahkan"
         else:
-            context["error"] = "Jadwal yang dimasukkan invalid"
+            context["error"] = "Jadwal gagal ditambahkan: invalid input"
     form = JadwalForm()
     context.update({"form": form, "matkul": f"{matkul.nama} - {matkul.kelas}"})
     return render(request, "schedule_form_jadwal.html", context)
