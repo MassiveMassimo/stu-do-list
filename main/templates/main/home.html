@@ -45,9 +45,15 @@
             <h1 id="h1Header" class="display-4 fw-bold lh-1">Hello world!</h1>
             {% endif %}
             <p id="pHeader" class="lead">Stu-Do-List kami ciptakan dengan harapan dapat membantu teman-teman yang mungkin mengalami permasalahan seperti Django. With Stu-Do-List, we hope you will find not only a study buddy but a life long friend.</p>
+            {% if user.is_authenticated %}
             <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
               <a href="{% url 'main:login' %}" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold">Gabung Sekarang</a>
             </div>
+            {% else %}
+            <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
+              <a href="{% url 'main:login' %}" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold">Lihat agenda hari ini</a>
+            {% endif %}
+
           </div>
           <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
               <img id="imgHeader" class="rounded-lg-3" src="https://media4.giphy.com/media/Ju7l5y9osyymQ/200.gif" alt="" width="720">
