@@ -3,7 +3,7 @@
 <!DOCTYPE html>
     <main id="main">
         <div class="row vh-100 w-100">
-            <div class="col d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 250px;"> <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"> <svg class="bi me-2" width="40" height="32"> </svg> <span class="fs-4">Ask a Mentor</span> </a>
+            <div class="col d-flex flex-column flex-shrink-0 p-3 text-white bg-dark"> <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"> <svg class="bi me-2" width="40" height="32"> </svg> <span class="fs-4">Ask a Mentor</span> </a>
                 <hr>
                 <nav>
                     <ul class="nav nav-pills flex-column mb-auto">
@@ -17,9 +17,9 @@
                 </nav>
                 <hr>
                 {% if user.is_authenticated %}
-                    <button href="{% url 'ask_a_mentor:add' %}" class="btn btn-outline-light" type="button">Silakan Bertanya</button>
+                    <a href="{% url 'ask_a_mentor:add' %}" class="btn btn-outline-light" type="button">Silakan Bertanya</a>
                 {% else %}
-                    <button href="{% url 'main:login' %}" class="btn btn-outline-light" type="button">Silakan Bertanya</button>
+                    <a href="{% url 'main:login' %}" class="btn btn-outline-light" type="button">Silakan Bertanya</a>
                 {% endif %}
             </div>
             <div class="col-9 vh-100 grid grid-cols-1 gap-4 overflow-auto">
@@ -69,7 +69,7 @@
                 $("#main").load("{% url 'ask_a_mentor:sda' %}");
             });
             $("#sosi-tab").click(function(){
-                $("#main").load("{% url 'ask_a_mentor:sosih' %}");
+                $("#main").load("{% url 'ask_a_mentor:sosi' %}");
             });
         });
     </script>

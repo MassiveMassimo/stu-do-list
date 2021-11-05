@@ -19,6 +19,8 @@ def add_post(request):
         if form.is_valid():
             form.save()
             return HttpResponseRedirect('/ask-a-mentor')
+    context = {'form' : form }
+    return render(request, 'add_post.html', context)
 
 @login_required(login_url = '/login')
 def add_comment(request):
