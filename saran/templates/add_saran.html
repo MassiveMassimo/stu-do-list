@@ -210,8 +210,9 @@
                     {% csrf_token %}
                     <div class="text-center">
                       <a class = "btn btn-outline-danger" href="{% url 'main:home' %}">Batal</a>
-                      <button id="submitbtn" type="submit" class="btn btn-primary">Kirim</button>
+                      <button id="submitbtn" type="submit" class="btn btn-primary" href="{% url 'saran:saran' %}">Kirim</button>
                     </div>
+                  </form>
                 </div>
           </form>
               </div>
