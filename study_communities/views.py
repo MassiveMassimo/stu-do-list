@@ -1,8 +1,11 @@
 from django.shortcuts import render, redirect
+from study_communities.serializers import CommunitySerializer
 from .models import Community
 from .forms import CommunityForm
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
+from .serializers import CommunitySerializer
+from rest_framework import viewsets
 
 def index(request):
   community = Community.objects.all()
@@ -24,3 +27,7 @@ def delete_community(request):
     community_id = request.POST.get('id')
     Community.objects.filter(id=community_id).delete()
     return JsonResponse({'status':True})
+
+class community_json(viewsets.ModelViewSet):
+    queryset = Community.objects.all()
+    serializer_class = CommunitySerializer
