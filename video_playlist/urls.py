@@ -6,5 +6,4 @@ urlpatterns = [
   path('add-video', add_video, name='add'),
   path('video-flutter', flutter_project, name='video'),
   path('get-playlist', get_playlist, name='get'),
-  
 ]
