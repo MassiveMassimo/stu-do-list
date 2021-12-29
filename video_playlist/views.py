@@ -46,17 +46,17 @@ def flutter_project(request):
         new_video.save()
         return JsonResponse({"instance": "Video berhasil ditambahkan!"}, status=200)
 
+# def get_playlist(request):
+#     video_playlist = Video.objects.all()
+#     data = serializers.serialize('json', video_playlist)
+#     response = {
+#             'video_playlist':data,
+#             }
+#     return JsonResponse(response)
+
 def get_playlist(request):
     video_playlist = Video.objects.all()
     data = serializers.serialize('json', video_playlist)
-    response = {
-            'video_playlist':data,
-            }
-    return JsonResponse(response)
-
-# def get_playlist(request):
-#     video_playlist = Video.objects.all()
-#     data = serializers.serialize('json', [video_playlist])
     
-#     return HttpResponse(data, content_type="application/json")
+    return HttpResponse(data, content_type="application/json")
 
