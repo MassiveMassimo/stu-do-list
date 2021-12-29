@@ -16,3 +16,6 @@ class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
         fields = "__all__"
+        widgets = {
+            'message': forms.Textarea(attrs={'type':'text', 'id': 'inputMessage', 'class':'form-control'})
+        }

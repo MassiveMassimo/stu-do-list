@@ -1,8 +1,8 @@
 from django.contrib.auth.decorators import login_required
 from django.http.response import HttpResponseRedirect
 from django.shortcuts import render
-from .models import Post
-from .forms import PostForm
+from .models import Post, Comment
+from .forms import PostForm, CommentForm
 
 # Create your views here.
 
@@ -13,18 +13,32 @@ def index(request):
 
 @login_required(login_url = '/login')
 def add_post(request):
-    context = {}
     form = PostForm(request.POST or None, request.FILES or None)
+    
     if (form.is_valid() and request.method == 'POST'):
         form.save()
         return HttpResponseRedirect('/ask-a-mentor')
+    
     context = {'form' : form }
     return render(request, 'add_post.html', context)
+
+@login_required(login_url = '/login')
+def lihat_post(request, id):
+    post = Post.objects.get(id=id)
+    komen = Comment.objects.all()
+    context = { 'post' : post, "komen" : komen }
+    return render(request, 'post.html', context)
     
 
 @login_required(login_url = '/login')
-def add_comment(request):
-    return render(request, 'ask_a_mentor')
+def add_comment(request, id):
+    form = CommentForm(request.POST or None, request.FILES or None)
+    if (form.is_valid() and request.method == 'POST'):
+        form.save()
+        return HttpResponseRedirect('/ask-a-mentor')
+    
+    context = {'form' : form }
+    return render(request, 'add_komen.html', context)
 
 def alin(request):
     posts = Post.objects.all()

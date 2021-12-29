@@ -54,31 +54,60 @@
                 {% endif %}
             </div>
             <div class="col-9 vh-100 grid grid-cols-1 gap-4 overflow-auto">
-                {% for i in posts %}
+                <div class="card-thumbnail">
+                    <div class="card" id="card-id">
+                        <div class="card-header">
+                            {{ post.matkul }}
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title font-semibold">{{ post.title }}</h5>
+                            <p class="card-text"><em>Dibuka oleh {{ post.user }}</em></p>
+                            <hr>
+                            <p class="card-text">
+                                {{ post.message }}
+                                
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                {% for i in komen %}
+                    {% if i.post == post %}
+                        <div class="card-thumbnail">
+                            <div class="card" id="card-id">
+                                <div class="card-body">
+                                    <p class="card-text"><em>Dikomen oleh {{ i.user }}</em></p>
+                                    <hr>
+                                    <p class="card-text">
+                                        {{ i.comment }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+                
+            </div>
+
+
+            
+
+            {% for i in komen %}
+                <!-- {% if i.post == post.title %} -->
                     <div class="card-thumbnail">
                         <div class="card" id="card-id">
-                            <div class="card-header">
-                                {{ i.matkul }}
-                            </div>
                             <div class="card-body">
-                                <h5 class="card-title font-semibold">{{ i.title }}</h5>
-                                <p class="card-text"><em>Dibuka oleh {{ i.user }}</em></p>
+                                <p class="card-text"><em>Dikomen oleh {{ i.user }}</em></p>
                                 <hr>
                                 <p class="card-text">
-                                    {{ i.message }}
+                                    {{ i.comment }}
                                 </p>
-                                {% if user.is_authenticated %}
-                                    <a type="button" class="btn btn-primary btn-sm" href="{% url 'ask_a_mentor:komen' i.id %}">Komen</a>
-                                    <a type="button" class="btn btn-outline-secondary btn-sm" href="{% url 'ask_a_mentor:lihat' i.id %}">Lihat</a>
-                                {% else %}
-                                    <a type="button" class="btn btn-primary btn-sm" href="{% url 'main:login' %}">Komen</button>
-                                    <a type="button" class="btn btn-outline-secondary btn-sm" href="{% url 'main:login' %}">Lihat</a>
-                                {% endif %}
                             </div>
                         </div>
                     </div>
-                {% endfor %}
-            </div>
+                <!-- {% endif %} -->
+            {% endfor %}
+
         </div>        
     </main>
 
