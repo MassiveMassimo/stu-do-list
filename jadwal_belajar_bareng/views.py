@@ -2,8 +2,10 @@ from django.shortcuts import render, redirect
 from django.http.response import HttpResponseRedirect
 from .models import JadwalBelajarBareng
 from .forms import JadwalForm
+from .serializers import JadwalSerializer
 from django.core import serializers
 from django.http.response import HttpResponse 
+from rest_framework import viewsets
 from django.contrib.auth.decorators import login_required
 
 def jadwal(request):
@@ -57,6 +59,10 @@ def xml(request):
 def json(request):
     data = serializers.serialize('json', JadwalBelajarBareng.objects.all())
     return HttpResponse(data, content_type="application/json")
+
+class jadwal_belajar_json(viewsets.ModelViewSet):
+    queryset = JadwalBelajarBareng.objects.all()
+    serializer_class = JadwalSerializer
 
 def prioritas_tinggi(request):
   jadwalb = JadwalBelajarBareng.objects.all()
