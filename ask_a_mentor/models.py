@@ -14,7 +14,7 @@ KODEMATKUL = (
 
 class Post(models.Model):
     title = models.CharField(max_length=1000)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True, editable=False)
     matkul = models.CharField(max_length=200,choices=KODEMATKUL)
     message = models.CharField(max_length=1000)
     time = models.DateTimeField(default=now, editable=False)
@@ -22,7 +22,8 @@ class Post(models.Model):
         return self.title
 
 class Comment(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments', default='hello')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True, editable=False)
     comment = models.CharField(max_length=1000)
     time = models.DateTimeField(default=now, editable=False)
     def __str__ (self):
