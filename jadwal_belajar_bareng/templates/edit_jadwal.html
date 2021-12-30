@@ -169,26 +169,14 @@
                   <div class="form-group">
                     <label for="inputPrioritas" id="inputPrioritas">Prioritas:</label>
                      <div class="col-sm-12">          
-                      <select id="inputPrioritas" class="kelas-form form-control" name="Prioritas" required>
-                        <option selected>{{ sched.Prioritas }}</option>
-                        <option value="Tinggi">Tinggi</option>
-                        <option value="Sedang">Sedang</option>
-                        <option value="Rendah">Rendah</option>
-                      </select>
+                      <input type="text" class="form-control" id="inputPrioritas" name="Prioritas" value="{{ sched.Prioritas }}" required>
                     </div>
                     <small id="prioritasHelp" class="form-text text-muted">Tentukan tingkat prioritas Jadwal Belajar Bareng.</small>
                   </div>
                   <div class="form-group">
                     <label for="inputMatkul" id="inputMatkul">Mata Kuliah:</label>
                      <div class="col-sm-12">          
-                      <select id="inputMatkul" class="form-control" name="Matkul" required>
-                        <option selected>{{ sched.Matkul }}</option>
-                        <option value="Alin">Aljabar Linear</option>
-                        <option value="MPPI">Metodologi Penelitian dan Penulisan Ilmiah</option>
-                        <option value="PBP">Pemrograman Berbasis Platform</option>
-                        <option value="SOSI">Sistem Operasi untuk Sistem Informasi</option>
-                        <option value="SDA">Struktur Data & Algoritma</option>
-                      </select>
+                      <input type="text" class="form-control" id="inputMatkul" name="Matkul" value="{{ sched.Matkul }}" required>
                     </div>
                     <small id="prioritasHelp" class="form-text text-muted">Tentukan mata kuliah Jadwal Belajar Bareng.</small>
                   </div>
