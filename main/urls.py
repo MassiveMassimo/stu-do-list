@@ -9,5 +9,5 @@ urlpatterns = [
     path('register/', views.register_req, name="register"),
     path('login/', views.login_req, name="login"),
     path('logout/', views.logout_req, name="logout"),
-
+    path('login_flutter/', views.login_flutter, name="login_flutter"),
 ]
