@@ -18,6 +18,8 @@ def add_post(request):
     form = PostForm(request.POST or None, request.FILES or None)
     
     if (form.is_valid() and request.method == 'POST'):
+        profile = form.save(commit=False)
+        profile.user = request.user
         form.save()
         return HttpResponseRedirect('/ask-a-mentor')
     
@@ -36,6 +38,8 @@ def lihat_post(request, id):
 def add_comment(request, id):
     form = CommentForm(request.POST or None, request.FILES or None)
     if (form.is_valid() and request.method == 'POST'):
+        profile = form.save(commit=False)
+        profile.user = request.user
         form.save()
         return HttpResponseRedirect('/ask-a-mentor')
     
