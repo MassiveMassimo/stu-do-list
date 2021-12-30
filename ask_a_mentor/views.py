@@ -1,6 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.http.response import HttpResponseRedirect, JsonResponse
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from .models import Post, Comment
 from .forms import PostForm, CommentForm
 from .serializers import PostSerializer, CommentSerializer
@@ -37,9 +37,12 @@ def lihat_post(request, id):
 @login_required(login_url = '/login')
 def add_comment(request, id):
     form = CommentForm(request.POST or None, request.FILES or None)
+
     if (form.is_valid() and request.method == 'POST'):
         profile = form.save(commit=False)
         profile.user = request.user
+        comment = form.save(commit=False)
+        comment.post = Post.objects.get(id=id)
         form.save()
         return HttpResponseRedirect('/ask-a-mentor')
     

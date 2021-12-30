@@ -15,7 +15,7 @@ class PostForm(forms.ModelForm):
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
-        fields = "__all__"
+        fields = ('comment',)
         widgets = {
             'message': forms.Textarea(attrs={'type':'text', 'id': 'inputMessage', 'class':'form-control'})
         }
