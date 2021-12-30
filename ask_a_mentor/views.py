@@ -1,8 +1,10 @@
 from django.contrib.auth.decorators import login_required
-from django.http.response import HttpResponseRedirect
+from django.http.response import HttpResponseRedirect, JsonResponse
 from django.shortcuts import render
 from .models import Post, Comment
 from .forms import PostForm, CommentForm
+from .serializers import PostSerializer, CommentSerializer
+from rest_framework import viewsets
 
 # Create your views here.
 
@@ -39,6 +41,14 @@ def add_comment(request, id):
     
     context = {'form' : form }
     return render(request, 'add_komen.html', context)
+
+class post_json(viewsets.ModelViewSet):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
+
+class comment_json(viewsets.ModelViewSet):
+    queryset = Comment.objects.all()
+    serializer_class = CommentSerializer
 
 def alin(request):
     posts = Post.objects.all()
