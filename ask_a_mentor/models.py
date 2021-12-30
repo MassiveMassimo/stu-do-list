@@ -22,7 +22,7 @@ class Post(models.Model):
         return self.title
 
 class Comment(models.Model):
-    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments', editable=False)
     user = models.ForeignKey(User, on_delete=models.CASCADE, editable=False)
     comment = models.CharField(max_length=1000)
     time = models.DateTimeField(auto_now_add=True)
