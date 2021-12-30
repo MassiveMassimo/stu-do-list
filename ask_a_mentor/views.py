@@ -1,8 +1,10 @@
 from django.contrib.auth.decorators import login_required
-from django.http.response import HttpResponseRedirect
+from django.http.response import HttpResponseRedirect, JsonResponse
 from django.shortcuts import render
 from .models import Post, Comment
 from .forms import PostForm, CommentForm
+from .serializers import PostSerializer, CommentSerializer
+from rest_framework import viewsets
 
 # Create your views here.
 
@@ -16,6 +18,8 @@ def add_post(request):
     form = PostForm(request.POST or None, request.FILES or None)
     
     if (form.is_valid() and request.method == 'POST'):
+        profile = form.save(commit=False)
+        profile.user = request.user
         form.save()
         return HttpResponseRedirect('/ask-a-mentor')
     
@@ -34,11 +38,21 @@ def lihat_post(request, id):
 def add_comment(request, id):
     form = CommentForm(request.POST or None, request.FILES or None)
     if (form.is_valid() and request.method == 'POST'):
+        profile = form.save(commit=False)
+        profile.user = request.user
         form.save()
         return HttpResponseRedirect('/ask-a-mentor')
     
     context = {'form' : form }
     return render(request, 'add_komen.html', context)
+
+class post_json(viewsets.ModelViewSet):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
+
+class comment_json(viewsets.ModelViewSet):
+    queryset = Comment.objects.all()
+    serializer_class = CommentSerializer
 
 def alin(request):
     posts = Post.objects.all()
