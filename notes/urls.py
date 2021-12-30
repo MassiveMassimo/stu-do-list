@@ -12,6 +12,6 @@ urlpatterns = [
     path('<str:matkul>', views.detail_notes, name='detail-notes'),
     path('add-notes/', views.add_notes, name='add-notes'),
     path('remove-notes/<id>', views.remove_notes, name='remove-notes'),
-    path('notes-json', include(router.urls)),
+    path('json/', include(router.urls)),
 
 ]
