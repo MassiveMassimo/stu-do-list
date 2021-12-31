@@ -1,11 +1,13 @@
 from django.http import response
 from django.shortcuts import redirect, render
-from django.http.response import HttpResponse, HttpResponseRedirect
+from django.http.response import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.contrib.auth.decorators import login_required
 # from schedule_kuliah.models import Matakuliah, Jadwal
 from .models import Agenda
 from .forms import AgendaForm
 from django.core import serializers
+from django.views.decorators.csrf import csrf_exempt
+import json
 
 # Create your views here.
 
@@ -41,3 +43,19 @@ def delete_agenda(request, agenda_id):
         print(e)
     finally:
         return redirect("/agenda/")
+
+@csrf_exempt
+def flutter_add(request):
+  if request.method == 'POST':
+        agendas = json.loads(request.body)
+
+        new_agenda = Agenda(
+            matkul = agendas['matkul'],
+            judul = agendas['judul'],
+            tanggal = agendas['tanggal'],
+            waktu = agendas['waktu'],
+            keterangan = agendas['keterangan'],
+        )
+
+        new_agenda.save()
+        return JsonResponse({"instance": "Agenda berhasil ditambahkan!"}, status=200)
