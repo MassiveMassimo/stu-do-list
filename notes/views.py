@@ -1,10 +1,11 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.http.response import HttpResponseRedirect, JsonResponse
+from django.http.response import HttpResponseRedirect, JsonResponse, HttpResponse
 from .models import NotesModel
 from .forms import NotesForm
-from django.http.response import HttpResponse
 from django.core import serializers
 from django.contrib.auth.decorators import login_required
+from rest_framework import viewsets
+from .serializers import NotesSerializer
 
 
 # import get_object_or_404, from django.core import serializers, from django.http.response import HttpResponse
@@ -29,7 +30,7 @@ def add_notes(request):
 
 
 @login_required(login_url='/login')
-def remove_notes(request,id):
+def remove_notes(request, id):
     obj = get_object_or_404(NotesModel, id=id)
     if request.method == 'POST':
         obj.delete()
@@ -49,3 +50,8 @@ def detail_notes(request, matkul):
         'datas': datas,
     }
     return render(request, 'notes.html', context)
+
+
+class notes_json(viewsets.ModelViewSet):
+    queryset = NotesModel.objects.all()
+    serializer_class = NotesSerializer
