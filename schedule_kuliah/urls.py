@@ -1,6 +1,5 @@
 from django.urls import path
-from .views import delete_matkul, index, add_matkul, add_jadwal, delete_jadwal, get_jadwal, delete_matkul
-
+from .views import *
 app_name = "schedule"
 
 urlpatterns = [
@@ -10,4 +9,12 @@ urlpatterns = [
     path('add-jadwal/<str:matkul_id>', add_jadwal, name='add_jadwal'),
     path('delete-jadwal/<str:jadwal_id>', delete_jadwal, name="delete_jadwal"),
     path('delete-matkul/<str:matkul_id>', delete_matkul, name="delete_matkul"),
+    
+    # API
+    path('api/get-jadwal/<str:user_id>', api_get_jadwal, name='api_get_jadwal'),
+    path('api/get-matkul/<str:user_id>', api_get_matkul, name='api_get_matkul'),
+    path('api/add-matkul/<str:user_id>', api_add_matkul, name='api_add_matkul'),
+    path('api/add-jadwal/<str:matkul_id>', api_add_jadwal, name='api_add_jadwal'),
+    path('api/delete-jadwal/<str:jadwal_id>', api_delete_jadwal, name="api_delete_jadwal"),
+    path('api/delete-matkul/<str:matkul_id>', api_delete_matkul, name="api_delete_matkul"),
 ]
